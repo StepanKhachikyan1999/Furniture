@@ -1,0 +1,65 @@
+<%- include('layouts/header') %>
+
+
+<!-- Register-box START -->
+<div class="section-block-grey border-top">
+    <div class="container">
+        <div class="section-heading">
+            <h5>Основные данные</h5>
+            <div class="section-heading-line-left"></div>
+        </div>
+        <div class="row mt-40">
+            <div class="col-lg-8 col-md-7 col-12 mb-30">
+                <!-- <div class="register-box-head">
+                        <h5>Left BOX</h5>
+                    </div>-->
+                <% if(regError.length > 0) {%>
+                <p class="alert"><%= regError%></p>
+                <%} %>
+                <form method="POST" action="/register" novalidate>
+                    <div class="register-box-input">
+                        <!-- <h4>Name</h4>    -->
+                        <input type="text" name="name" placeholder="Имя *" required="zxc">
+                        <input type="text" name="surname" placeholder="Фамилия *" required="">
+                        <input type="email" name="email" placeholder="E-Mail *" required="">
+                        <input type="tel" name="phone" placeholder="Телефон *" required="">
+
+                        <h4>Ваш пароль</h4>
+                        <input type="password" name="password" placeholder="Пароль *" required="">
+                        <input type="password" name="confirm" placeholder="Подтверждение пароля *" required="">
+                    </div>
+
+                    <div class="register-agree">
+                        <h4>Я прочитал и согласен с <a href="#">условиями</a> безопасности и обработки персональных
+                            данных</h4>
+                        <label class="type-name">
+                            <input type="checkbox" name="checkbox" required="">
+                            <span class="checkmark-check"></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="register-button">Продолжить</button>
+                </form>
+            </div>
+
+            <div class="col-lg-4 col-md-5 col-12">
+                <div class="register-box-menu">
+                    <ul>
+                        <li><a href="/login"> Вход </a></li>
+                        <li class="register-box-menu-active"><a href="/register"> Регистрация </a></li>
+                        <li><a href="/change-password"> Забыли пароль? </a></li>
+                        <li><a href="/personal"> Моя информация </a></li>
+                        <li><a href="/orders"> История заказов </a></li>
+                        <li><a href="#"> Возвраты </a></li>
+                        <li><a href="#"> Условия </a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<!-- Register-box End -->
+
+
+<%- include('layouts/footer') %>

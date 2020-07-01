@@ -1,0 +1,185 @@
+<%- include('layouts/header') %>
+
+<!-- Register-box START -->
+<div class="section-block-grey border-top">
+    <div class="container">
+        <div class="section-heading">
+            <h5>Заказы</h5>
+            <div class="section-heading-line-left"></div>
+        </div>
+        <div class="row mt-40">
+
+            <div class="col-lg-8 col-md-7 col-12 mb-30">
+                <h4 class="mb-5">Օплата на месте</h4>
+                <div class="orders-box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>№ Заказа</th>
+                                <th>Клиент</th>
+                                <th>Названия</th>
+                                <th>Количество</th>
+                                <!-- <th>Статус</th> -->
+                                <th>Всего</th>
+                                <th>Добавлено</th>
+                                <!-- <th>Детали</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% cash.forEach((i) => {%>
+                            <tr>
+                                <td data-column="First Name">
+                                    <% for(index in cash) {%>
+                                    <%= Number(index+1) %>
+                                    <%} %>
+                                </td>
+                                <td data-column="Last Name"><%= i.name %> &nbsp; <%= i.surname %></td>
+                                <th>
+                                    <% i.title.forEach(j => {%>
+                                    <p><%= j %></p>
+                                    <hr>
+                                    <%}) %>
+                                </th>
+                                <td data-column="Job Title">
+                                    <% i.quantity.forEach(k => {%>
+                                    <p><%= k %> &nbsp; штук</p>
+                                    <hr>
+                                    <%}) %>
+                                </td>
+                                <!-- <td data-column="Twitter">в ожидании</td> -->
+                                <td data-column="Twitter"><%= i.totalValue %></td>
+                                <td data-column="Twitter"><span class="date"><small><%= i.now %></small></span></td>
+                                <!-- <td data-column="Twitter"><a href="" class="primary-button-cub button-xs">Подробнее</a>
+                                    </td> -->
+                            </tr>
+                            <%}) %>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-7 col-12 mb-30">
+                <h4 class="mb-5">Продажа в кредит через банка</h4>
+                <div class="orders-box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>№ Заказа</th>
+                                <th>Клиент</th>
+                                <th>Названия</th>
+                                <th>Количество</th>
+                                <!-- <th>Статус</th> -->
+                                <th>Всего</th>
+                                <th>Добавлено</th>
+                                <!-- <th>Детали</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% withBank.forEach((i) => {%>
+                            <tr>
+                                <td data-column="First Name">
+                                    <% for(index in withBank) {%>
+                                    <%= Number(index+1) %>
+                                    <%} %>
+                                </td>
+                                <td data-column="Last Name"><%= i.name %> &nbsp; <%= i.surname %></td>
+                                <th>
+                                    <% i.title.forEach(j => {%>
+                                    <p><%= j %></p>
+                                    <hr>
+                                    <%}) %>
+                                </th>
+                                <td data-column="Job Title">
+                                    <% i.quantity.forEach(k => {%>
+                                    <p><%= k %> &nbsp; штук</p>
+                                    <hr>
+                                    <%}) %>
+                                </td>
+                                <!-- <td data-column="Twitter">в ожидании</td> -->
+                                <td data-column="Twitter"><%= i.totalValue %></td>
+                                <td data-column="Twitter"><span class="date"><small><%= i.now %></small></span></td>
+                                <!-- <td data-column="Twitter"><a href="" class="primary-button-cub button-xs">Подробнее</a>
+                                        </td> -->
+                            </tr>
+                            <%}) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-7 col-12 mb-30">
+                <h4 class="mb-5">Продажа в кредит без банка</h4>
+                <div class="orders-box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>№ Заказа</th>
+                                <th>Клиент</th>
+                                <th>Названия</th>
+                                <th>Количество</th>
+                                <!-- <th>Статус</th> -->
+                                <th>Всего</th>
+                                <th>Добавлено</th>
+                                <!-- <th>Детали</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% withoutBank.forEach((i) => {%>
+                            <tr>
+                                <td data-column="First Name">
+                                    <% for(index in withoutBank) {%>
+                                    <%= Number(index+1) %>
+                                    <%} %>
+                                </td>
+                                <td data-column="Last Name">
+                                    <% i.avatar.forEach(l => {%>
+                                    <img src="/uploads/<%= l %>" style="width: 100px; height: 100px;">
+                                    <%}) %>
+                                </td>
+                                <th>
+                                    <% i.title.forEach(j => {%>
+                                    <p><%= j %></p>
+                                    <hr>
+                                    <%}) %>
+                                </th>
+                                <td data-column="Job Title">
+                                    <% i.quantity.forEach(k => {%>
+                                    <p><%= k %> &nbsp; штук</p>
+                                    <hr>
+                                    <%}) %>
+                                </td>
+                                <!-- <td data-column="Twitter">в ожидании</td> -->
+                                <td data-column="Twitter"><%= i.totalValue %></td>
+                                <td data-column="Twitter"><span class="date"><small><%= i.now %></small></span></td>
+                                <!-- <td data-column="Twitter"><a href="" class="primary-button-cub button-xs">Подробнее</a>
+                                            </td> -->
+                            </tr>
+                            <%}) %>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-5 col-12">
+                <div class="register-box-menu">
+                    <ul>
+                        <li><a href="/login"> Вход </a></li>
+                        <li><a href="/register"> Регистрация </a></li>
+                        <li><a href="/change-password"> Забыли пароль? </a></li>
+                        <li><a href="/personal"> Личный Кабинет </a></li>
+                        <li class="register-box-menu-active"><a href="/orders"> История заказов </a></li>
+                        <li><a href="#"> Возвраты </a></li>
+                        <li><a href="#"> Условия </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register-box End -->
+
+<%- include('layouts/footer') %>

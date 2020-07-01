@@ -1,0 +1,268 @@
+<%- include('layouts/header') %>
+
+<!-- Shopping Cart Section START -->
+<div class="section-block">
+    <div class="container">
+        <div class="row mt-70 mb-30">
+            <div class="col-lg-8 col-md-8 col-12">
+                <div class="row" id="cart-items">
+
+
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="shop-cart-info-price clearfix">
+                        <ul class="right-info-price">
+                            <li>Ընդհանուր: <h6 id="total-value"> ֏</h6>
+                            </li>
+
+                            <!-- <li>Shipping Price: <h6>$85.00</h6></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Shopping Cart Section END -->
+
+
+<!-- Accordions Section START -->
+<div class="section-block mb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-12 mt-60">
+                <div class="section-heading">
+                    <h5>Как вы хотите платить ?</h5>
+                    <div class="section-heading-line-left"></div>
+                </div>
+
+                <div class="panel-group mt-40" id="accordion2" role="tablist" aria-multiselectable="true">
+
+                    <div class="panel panel-grey accordion">
+                        <div class="panel-heading accordion-heading" role="tab" id="acc1">
+                            <h4 class="panel-title accordion-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
+                                    href="#ac_col1" aria-expanded="true" aria-controls="ac_col1">
+                                    Օплата на месте
+                                </a>
+                            </h4>
+                        </div>
+
+                        <div id="ac_col1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="acc1">
+                            <div class="panel-body accordion-body">
+                                <div class="row">
+
+                                    <div class="col-lg-8 col-md-8 col-12 mb-30">
+                                        <form action="/shoping-cart/cash" method="POST">
+                                            <div class="buy-box-input" id="cash">
+                                                <!-- <h4>Name</h4>    -->
+                                                <input type="text" name="name" placeholder="Имя *" required="">
+                                                <input type="text" name="surname" placeholder="Фамилия *" required="">
+                                                <input type="email" name="email" placeholder="E-Mail *" required="">
+                                                <input type="number" name="phone" placeholder="Телефон *" required="">
+
+                                                <input type="text" name="city" placeholder="Город *" required="">
+                                                <input type="text" name="address" placeholder="Адрес, дом *"
+                                                    required="">
+                                            </div>
+
+                                            <button class="submit-button-buy" type="submit" id="cashPayment">Оформление заказа</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-12 mb-30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-grey accordion">
+                        <div class="panel-heading accordion-heading" role="tab" id="acc2">
+                            <h4 class="panel-title accordion-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
+                                    href="#ac_col2" aria-expanded="false" aria-controls="ac_col2">
+                                    Онлайн оплата
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="ac_col2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="acc2">
+                            <div class="panel-body accordion-body">
+                                <div class="bank-name">
+                                    <ul>
+                                        <li><a href="#"><img src="img/bank/idram2.png"></a></li>
+                                        <li><a href="#"><img src="img/bank/viza1.png"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-grey accordion">
+                        <div class="panel-heading accordion-heading" role="tab" id="acc3">
+                            <h4 class="panel-title accordion-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
+                                    href="#ac_col3" aria-expanded="false" aria-controls="ac_col3">
+                                    Продажа в кредит без банка
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="ac_col3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="acc3">
+                            <div class="panel-body accordion-body">
+
+                                <form class="add-info-user" action="/shoping-cart/withoutbank" method="POST"
+                                    accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data"
+                                    id="withoutbank">
+
+                                    <div class="add-user-img mt-10">
+                                        <h5>Фото свидетельства о собственности</h5>
+                                        <!-- <input type='file' required onchange="rentURL(this);" name="property_certificates"> -->
+                                        <input type='file' required onchange="rentURL(this);" name="avatar">
+                                        <img id="blah_02" src="img/user-info/images.jpg" alt="img" />
+                                    </div>
+
+                                    <div class="add-license-img">
+                                        <h5>Фото паспорта <span>лицевая сторона</span></h5>
+                                        <!-- <input type="file" required="" onchange="readsURL(this);" name="passport_photo_front_side"> -->
+                                        <input type="file" required="" onchange="readsURL(this);" name="avatar">
+                                        <img id="blah" src="img/user-info/dr-license.png" alt="img">
+                                    </div>
+
+                                    <div class="add-license-img">
+                                        <h5>Фото паспорта <span>обратная сторона</span></h5>
+                                        <!-- <input type="file" required="" onchange="reads2URL(this);" name="passport_photo_back_side"> -->
+                                        <input type="file" required="" onchange="reads2URL(this);" name="avatar">
+                                        <img id="blah2" src="img/user-info/dr-license.png" alt="img">
+                                    </div>
+
+                                    <!-- <div class="add-statment-check statment-box mt-20">
+                                        <h5>Фото свидетельства о собственности</h5>
+                                        <div class="images">
+                                            <div class="pic">
+                                                добавлять
+                                            </div>
+                                        </div>
+                                    </div> -->
+
+                                    <button class="submit-button-buy" type="submit" id="withoutBankPayment">Оформление заказа</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-grey accordion">
+                        <div class="panel-heading accordion-heading" role="tab" id="acc4">
+                            <h4 class="panel-title accordion-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
+                                    href="#ac_col4" aria-expanded="false" aria-controls="ac_col4">
+                                    Продажа в кредит через банка
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="ac_col4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="acc4">
+                            <div class="panel-body accordion-body">
+
+                                <div class="add-info-user-bank">
+                                    <div class="acra-box">
+                                        <img src="img/paym/acra2.png" alt="">
+                                    </div>
+                                    <div class="register-agree">
+                                        <div class="row">
+                                            <div class="col-lg-8 col-12">
+                                                <h4>Я прочитал и согласен с вышеуказанными условиями</h4>
+                                                <label class="type-name">
+                                                    <input type="checkbox" name="checkbox" required="">
+                                                    <span class="checkmark-check"></span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-4 col-12">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8 col-12 mb-30">
+                                            <form action="/shoping-cart/withbank" method="POST"
+                                                accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data" id="withBank">
+                                                <div class="add-info-user">
+                                                    <div class="add-user-img mt-10">
+                                                        <h5>Ваша фото</h5>
+                                                        <input type='file' required onchange="rentURL(this);"
+                                                            name="avatar">
+                                                        <img id="acra_auser" src="img/user-info/images.jpg" alt="img" />
+                                                    </div>
+
+                                                    <div class="add-license-img mt-50">
+                                                        <h5>Фото паспорта <span>лицевая сторона</span></h5>
+                                                        <input type="file" required="" onchange="acra_readURL(this);"
+                                                            name="avatar">
+                                                        <img id="blah_acra" src="img/user-info/dr-license.png"
+                                                            alt="img">
+                                                    </div>
+
+                                                    <div class="add-license-img">
+                                                        <h5>Фото паспорта <span>обратная сторона</span></h5>
+                                                        <input type="file" required="" onchange="acra_2_readURL(this);"
+                                                            name="avatar">
+                                                        <img id="blah_acra_2" src="img/user-info/dr-license.png"
+                                                            alt="img">
+                                                    </div>
+
+                                                    <!-- <div class="add-statment-check statment-box mt-20">
+                                                        <h5>Фото свидетельства о собственности</h5>
+                                                        <div class="images_acra">
+                                                            <div class="pic_acra">
+                                                               добавлять
+                                                            </div>
+                                                        </div>
+                                                    </div>  -->
+                                                </div>
+
+                                                <div class="buy-box-input add-info-user-bank-input mt-10">
+                                                    <!-- <h4>Name</h4>    -->
+                                                    <input type="text" name="name" placeholder="Имя *"
+                                                        required="zxc">
+                                                    <input type="text" name="surname" placeholder="Фамилия *"
+                                                        required="">
+                                                    <input type="email" name="email" placeholder="E-Mail *" required="">
+                                                    <input type="number" name="phone" placeholder="Телефон *"
+                                                        required="">
+
+                                                    <input type="text" name="address" placeholder="Адрес, дом *"
+                                                        required="">
+                                                </div>
+
+                                                <button class="submit-button-buy" type="submit" id="withBankPayment">Оформление
+                                                    заказа</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-12 mb-30"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Accordions Section END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('layouts/footer') %>

@@ -1,0 +1,292 @@
+<%- include('layouts/header') %>
+
+<!-- Page Title START -->
+<div class="page-title-section" style="background-image: url(img/bg/header-bg-4.jpg">
+    <div class="container">
+        <h1><%= title %></h1>
+        <ul>
+            <li><a href="/">Главный</a></li>
+            <li><a href=""><%= title %></a></li>
+        </ul>
+    </div>
+</div>
+<!-- Page Title END -->
+
+<!-- Blog Post START -->
+<div class="container-fluid">
+
+    <div class="section-block">
+        <div class="container">
+            <div class="row">
+                <!-- LEFT Side START -->
+                <div class="col-lg-3 col-md-6 col-xs-12  mt-75">
+
+                    <!-- <div class="js-accordion">
+                        <div class="acc-box">
+                            <button class="acc-btn js-acc-btn">цена <i class="icon-material-outline-arrow-drop-down"></i> </button>
+                            <div class="js-acc-body acc-btn ">
+                                <div class="acc-box-list">
+                                    <input type="number" name="min-price" placeholder="0 &ensp; ֏">
+                                    <input type="number" name="max-price" placeholder="100000 &ensp;֏">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="acc-box">
+                            <button class="acc-btn js-acc-btn">menu 2 <i class="icon-material-outline-arrow-drop-down"></i> </button>
+                            <div class="acc-body js-acc-body">
+                                <p>Some Item 1</p>
+                                <p>Some Item 2</p>
+                                <p>Some Item 3</p>
+                            </div>
+                        </div>
+                        <div class="acc-box">
+                            <button class="acc-btn js-acc-btn">menu 3 <i class="icon-material-outline-arrow-drop-down"></i> </button>
+                            <div class="acc-body js-acc-body">
+                                <p>Some Item 1</p>
+                                <p>Some Item 2</p>
+                                <p>Some Item 3</p>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <div class="left-box">
+
+                        <div class="header-section-name type-box">
+                            <h4>Тип</h4>
+                        </div>
+                        <div class="type-box main-div clearfix">
+                            <label class="type-name"><span>Все категории</span><strong>(3377)</strong>
+                                <input type="checkbox" checked="checked">
+                                <span class="checkmark-check"></span>
+                            </label>
+
+                            <% if(locale === 'hy') {%>
+                            <% category.forEach(i => {%>
+                            <label class="type-name"
+                                id="<%= i.categoryEn %>"><span><%= i.categoryHy %></span><strong>(15)</strong>
+                                <input type="checkbox" id="<%= i.categoryEn %>">
+                                <span class="checkmark-check"></span>
+                            </label>
+                            <%}) %>
+                            <%} %>
+                            <% if(locale === 'ru') {%>
+                            <% category.forEach(i => {%>
+                            <label class="type-name"
+                                id="<%= i.categoryEn %>"><span><%= i.categoryRu %></span><strong>(15)</strong>
+                                <input type="checkbox" id="<%= i.categoryEn %>">
+                                <span class="checkmark-check"></span>
+                            </label>
+                            <%}) %>
+
+                            <%} %>
+                            <% if(locale === 'en') {%>
+                            <% category.forEach(i => {%>
+                            <label class="type-name"
+                                id="<%= i.categoryEn %>"><span><%= i.categoryEn %></span><strong>(15)</strong>
+                                <input type="checkbox" id="<%= i.categoryEn %>">
+                                <span class="checkmark-check"></span>
+                            </label>
+                            <%}) %>
+
+                            <%} %>
+                        </div>
+
+
+
+                        <div class="header-section-name type-box">
+                            <h4>Оплата</h4>
+                        </div>
+
+                        <div class="type-pay main-div">
+                            <label class="type-pay-radio"><span>Наличные</span>
+                                <input type="radio" checked="checked" name="radio">
+                                <span class="checkmark-rad"></span>
+                            </label>
+                            <label class="type-pay-radio"><span>По кредиту</span>
+                                <input type="radio" name="radio">
+                                <span class="checkmark-rad"></span>
+                            </label>
+                        </div>
+
+                        <!-- input type="number" -->
+                        <div class="header-section-name type-box">
+                            <h4>Цена</h4>
+                        </div>
+
+                        <div class="filter-price main-div">
+                            <input type="number" name="min-price" placeholder="0 &ensp; ֏">
+                            <input type="number" name="max-price" placeholder="100000 &ensp;֏">
+                        </div>
+
+                    </div>
+
+                    <div class="search-box">
+                        <a href="#" class=""> Искать </a>
+                    </div>
+
+                </div>
+                <!-- end of col-md-3 -->
+
+
+
+
+
+
+
+                <!-- RIGHT Side START -->
+                <div class="col-lg-9 col-md-6 col-xs-12">
+                    <div class="blog-list-left">
+                        <div class="row mt-50">
+                            <!-- hy -->
+                            <% if(locale === 'hy') {%>
+                            <% sale.forEach(i => {%>
+                            <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
+                                <% if(i.news){%>
+                                <div class="sale-box">
+                                    <span>Նոր</span>
+                                </div>
+                                <%} %>
+
+                                <div class="all-prod-box">
+                                    <div class="heart-box">
+                                        <i class="icon-line-awesome-heart-o"></i>
+                                    </div>
+                                    <!-- <a href="#"> -->
+                                    <div class="all-prod-box-img">
+                                        <div class="item_img all-prod-box-img-h">
+                                            <% i.avatar.forEach(j => {%>
+                                            <img src="uploads/<%= j %>">
+                                            <%}) %>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+                                    <div class="all-prod-box-info">
+                                        <h6> <span>Կոդ :</span> <%= i.code %></h6>
+                                        <a href="#">
+                                            <h5><%= i.titleHy %></h5>
+                                        </a>
+                                        <div class="all-prod-box-info-color">
+                                            <h5>Գույն:</h5>
+                                            <p><%= i.colorHy %></p>
+                                        </div>
+                                        <div class="all-prod-box-info-button">
+                                            <a href="/shop-single/<%=i.id%>">Ավելին </a>
+                                            <h4><%= i.price %> &#1423</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}) %>
+                            <%} %>
+
+                            <!-- ru -->
+                            <% if(locale === 'ru') {%>
+                            <% sale.forEach(i => {%>
+                            <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
+                                <% if(i.news){%>
+                                <div class="sale-box">
+                                    <span>Новый</span>
+                                </div>
+                                <%} %>
+                                <div class="all-prod-box">
+                                    <div class="heart-box">
+                                        <i class="icon-line-awesome-heart-o"></i>
+                                    </div>
+                                    <!-- <a href="#"> -->
+                                    <div class="all-prod-box-img">
+                                        <div class="item_img all-prod-box-img-h">
+                                            <% i.avatar.forEach(j => {%>
+                                            <img src="uploads/<%= j %>">
+                                            <%}) %>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+                                    <div class="all-prod-box-info">
+                                        <h6> <span>Код :</span> <%= i.code %></h6>
+                                        <a href="#">
+                                            <h5><%= i.titleRu %></h5>
+                                        </a>
+                                        <div class="all-prod-box-info-color">
+                                            <h5>Цвет:</h5>
+                                            <p><%= i.colorRu %></p>
+                                        </div>
+                                        <div class="all-prod-box-info-button">
+                                            <a href="/shop-single/<%=i.id%>">Подробное </a>
+                                            <h4><%= i.price %> &#1423</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}) %>
+                            <%} %>
+
+                            <!-- en -->
+                            <% if(locale === 'en') {%>
+                            <% sale.forEach(i => {%>
+                            <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
+                                <% if(i.news){%>
+                                    <div class="sale-box">
+                                        <span>New</span>
+                                    </div>
+                                    <%} %>
+                                <div class="all-prod-box">
+                                    <div class="heart-box">
+                                        <i class="icon-line-awesome-heart-o"></i>
+                                    </div>
+                                    <!-- <a href="#"> -->
+                                    <div class="all-prod-box-img">
+                                        <div class="item_img all-prod-box-img-h">
+                                            <% i.avatar.forEach(j => {%>
+                                            <img src="uploads/<%= j %>">
+                                            <%}) %>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+                                    <div class="all-prod-box-info">
+                                        <h6> <span>Code :</span> <%= i.code %></h6>
+                                        <a href="#">
+                                            <h5><%= i.titleEn %></h5>
+                                        </a>
+                                        <div class="all-prod-box-info-color">
+                                            <h5>Color:</h5>
+                                            <p><%= i.colorEn %></p>
+                                        </div>
+                                        <div class="all-prod-box-info-button">
+                                            <a href="/shop-single/<%=i.id%>">Detailed </a>
+                                            <h4><%= i.price %> &#1423</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}) %>
+                            <%} %>
+
+                        </div>
+
+                        <div class="box-pagination">
+                            <div class="">
+                                <ul>
+                                    <li>
+                                        <<< </li>
+                                    <li class="pagination-active">1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                    <li>...</li>
+                                    <li>>></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- RIGHT Side END -->
+
+            </div>
+        </div>
+    </div>
+    <!-- Blog Post END -->
+
+</div>
+
+
+<%- include('layouts/footer') %>
