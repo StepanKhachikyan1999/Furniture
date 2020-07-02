@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Add Hit</label>
-                        <input type="checkbox" name="hit" value="1"> 
+                        <input type="checkbox" name="hit" value="1">
                         <br>
                         <label for="">Delete Hit</label>
                         <input type="checkbox" name="hit" value="0">
@@ -70,16 +70,9 @@
                         <div class="form-group">
                             <label for="">Կատեգորիա</label>
                             <select name="categoryHy" id="" class="form-control">
-                                <option value="Փափուկ կահույք">Փափուկ կահույք</option>
-                                <option value="Հյուրասենյակի կահույք">Հյուրասենյակի կահույք</option>
-                                <option value="Խոհանոցի կահույք">Խոհանոցի կահույք</option>
-                                <option value="Ննջարանի կահույք">Ննջարանի կահույք</option>
-                                <option value="Պահարաններ">Պահարաններ</option>
-                                <option value="Մանկական">Մանկական</option>
-                                <option value="Նախասրահ">Նախասրահ</option>
-                                <option value="Լողասենյակ">Լողասենյակ</option>
-                                <option value="Գրասենյակի կահույք">Գրասենյակի կահույք</option>
-                                <option value="Այգի եւ Ամառանոց">Այգի եւ Ամառանոց</option>
+                                <% category.forEach(i => {%>
+                                    <option value="<%= i.categoryHy %>"><%= i.categoryHy %></option>
+                                    <%}) %>
                             </select>
                         </div>
                         <div class="form-group">
@@ -99,7 +92,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Մատերիալ</label>
-                                <input type="text" class="form-control" name="materialHy" value="<%= sale.materialHy %>">
+                                <input type="text" class="form-control" name="materialHy"
+                                    value="<%= sale.materialHy %>">
                             </div>
                             <div class="form-group">
                                 <label for="">Գույնը</label>
@@ -126,16 +120,9 @@
                         <div class="form-group">
                             <label for="">Категория</label>
                             <select name="categoryRu" id="" class="form-control">
-                                <option value="Мягкая мебель">Мягкая мебель</option>
-                                <option value="Гостиная мебель">Гостиная мебель</option>
-                                <option value="Кухонная мебель">Кухонная мебель</option>
-                                <option value="Спальня">Спальня</option>
-                                <option value="Шкафы">Шкафы</option>
-                                <option value="Детская">Детская</option>
-                                <option value="Прихожая">Прихожая</option>
-                                <option value="Ванная">Ванная</option>
-                                <option value="Офис">Офис</option>
-                                <option value="Сад и дача">Сад и дача</option>
+                                <% category.forEach(i => {%>
+                                    <option value="<%= i.categoryRu %>"><%= i.categoryRu %></option>
+                                    <%}) %>
                             </select>
                         </div>
                         <div class="form-group">
@@ -147,7 +134,7 @@
                             <p><b>Особенности</b></p>
                             <div class="form-group">
                                 <label for="">Размер</label>
-                                <input type="text" class="form-control" name="sizeRu" value="<%= sale.titleRu %>" >
+                                <input type="text" class="form-control" name="sizeRu" value="<%= sale.titleRu %>">
                             </div>
                             <div class="form-group">
                                 <label for="">Вес</label>
@@ -155,7 +142,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Материал</label>
-                                <input type="text" class="form-control" name="materialRu" value="<%= sale.materialRu %>">
+                                <input type="text" class="form-control" name="materialRu"
+                                    value="<%= sale.materialRu %>">
                             </div>
                             <div class="form-group">
                                 <label for="">Цвет</label>
@@ -181,16 +169,9 @@
                         <div class="form-group">
                             <label for="">Category</label>
                             <select name="categoryEn" id="" class="form-control">
-                                <option value="Soft furniture">Soft furniture</option>
-                                <option value="Living room furniture">Living room furniture</option>
-                                <option value="Kitchen furniture">Kitchen furniture</option>
-                                <option value="Bedroom">Bedroom</option>
-                                <option value="Wardrobes">Wardrobes</option>
-                                <option value="Childish">Childish</option>
-                                <option value="Hallway">Hallway</option>
-                                <option value="Bathroom">Bathroom</option>
-                                <option value="Office">Office</option>
-                                <option value="Garden and dacha">Garden and dacha</option>
+                                <% category.forEach(i => {%>
+                                <option value="<%= i.categoryEn %>"><%= i.categoryEn %></option>
+                                <%}) %>
                             </select>
                         </div>
                         <div class="form-group">
@@ -210,7 +191,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Material</label>
-                                <input type="text" class="form-control" name="materialEn" value="<%= sale.materialEn %>">
+                                <input type="text" class="form-control" name="materialEn"
+                                    value="<%= sale.materialEn %>">
                             </div>
                             <div class="form-group">
                                 <label for="">Color</label>

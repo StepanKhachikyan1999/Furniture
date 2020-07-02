@@ -18,20 +18,25 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage }).array('avatar', 4);
 
 
-router.get('/', auth, async (req, res) => {
+router.get('/',  async (req, res) => {
     const sale = await (await Sale.find()).reverse();
     const category = await Category.find()
 
-    if (req.session.user.role == 'User') {
-        res.redirect('/')
-    } else {
-        res.render('admin/sale', {
-            title: 'Sale',
-            sale,
-            category
-        })
-    }
+    // if (req.session.user.role == 'User') {
+    //     res.redirect('/')
+    // } else {
+    //     res.render('admin/sale', {
+    //         title: 'Sale',
+    //         sale,
+    //         category
+    //     })
+    // }
 
+    res.render('admin/sale', {
+        title: 'Sale',
+        sale,
+        category
+    })
 
 })
 
@@ -71,10 +76,12 @@ router.post('/delete', async (req, res) => {
 
 router.get('/:id/edit', async (req, res) => {
     const sale = await Sale.findById(req.params.id)
+    const category = await Category.find()
 
     res.render('edit-sale', {
         title: `Change`,
         sale,
+        category
     })
 })
 

@@ -84,6 +84,11 @@ app.get('/ru', (req, res) => {
 });
 
 
+app.use ((req, res, next) => {
+    res.locals.url = req.originalUrl;
+    next();
+});
+
 //routes
 
 const indexRouter = require('./routes/index');
@@ -98,6 +103,7 @@ const personalRouter = require('./routes/personal');
 const ordersRouter = require('./routes/orders');
 const favoriteRouter = require('./routes/favorite');
 const changePasswordRouter = require('./routes/change-password');
+const allCategoryRouter = require('./routes/all-category')
 
 
 app.use('/', indexRouter);
@@ -112,6 +118,7 @@ app.use('/personal', personalRouter);
 app.use('/orders', ordersRouter);
 app.use('/favorite', favoriteRouter);
 app.use('/change-password', changePasswordRouter);
+app.use('/all-category', allCategoryRouter)
 
 
 //admin routes

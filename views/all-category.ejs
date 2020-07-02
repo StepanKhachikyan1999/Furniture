@@ -48,7 +48,10 @@
                             </div>
                         </div>
                     </div> -->
+
+
                     <div class="left-box">
+
                         <div class="header-section-name type-box">
                             <h4>Тип</h4>
                         </div>
@@ -61,7 +64,7 @@
                             </a>
                             <%} %>
                             <% if(locale == 'ru') {%>
-                            <a href="//all-category/1">
+                            <a href="/all-category/1">
                                 <label class="type-name">
                                     <span>Все категории</span>
                                 </label>
@@ -76,13 +79,12 @@
                             <%} %>
 
 
-
-
                             <% if(locale === 'hy') {%>
                             <% category.forEach(i => {%>
                             <a href="/result-search/<%= i.categoryEn %>/1">
                                 <label class="type-name" id="<%= i.categoryEn %>">
                                     <span><%= i.categoryHy %></span>
+                                    <!-- <strong>(15)</strong> -->
                                 </label>
                             </a>
                             <%}) %>
@@ -92,6 +94,7 @@
                             <a href="/result-search/<%= i.categoryEn %>/1">
                                 <label class="type-name" id="<%= i.categoryEn %>">
                                     <span><%= i.categoryRu %></span>
+                                    <!-- <strong>(15)</strong> -->
                                 </label>
                             </a>
                             <%}) %>
@@ -102,6 +105,7 @@
                             <a href="/result-search/<%= i.categoryEn %>/1">
                                 <label class="type-name" id="<%= i.categoryEn %>">
                                     <span><%= i.categoryEn %></span>
+                                    <!-- <strong>(15)</strong> -->
                                 </label>
                             </a>
                             <%}) %>
@@ -152,7 +156,7 @@
                         <div class="row mt-50">
                             <!-- hy -->
                             <% if(locale === 'hy') {%>
-                            <% sale_by_category.forEach(i => {%>
+                            <% sale.forEach(i => {%>
                             <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
                                 <% if(i.news){%>
                                 <div class="sale-box">
@@ -194,7 +198,7 @@
 
                             <!-- ru -->
                             <% if(locale === 'ru') {%>
-                            <% sale_by_category.forEach(i => {%>
+                            <% sale.forEach(i => {%>
                             <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
                                 <% if(i.news){%>
                                 <div class="sale-box">
@@ -235,7 +239,7 @@
 
                             <!-- en -->
                             <% if(locale === 'en') {%>
-                            <% sale_by_category.forEach(i => {%>
+                            <% sale.forEach(i => {%>
                             <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
                                 <% if(i.news){%>
                                 <div class="sale-box">
@@ -273,8 +277,6 @@
                             </div>
                             <%}) %>
                             <%} %>
-
-
                         </div>
 
                         <div class="box-pagination">
@@ -290,7 +292,7 @@
                                 </ul>
                             </div> -->
 
-                            <% if(sale_by_category.length === 0) {%>
+                            <% if(sale.length === 0) {%>
 
                             <%} else {%>
                             <% if (pages > 0) { %>
@@ -298,7 +300,7 @@
                                 <% if (current == 1) { %>
                                 <li class="disabled"><a>First</a></li>
                                 <% } else { %>
-                                <li><a href="/result-search/<%= category_name %>/1">First</a></li>
+                                <li><a href="/all-category/1">First</a></li>
                                 <% } %>
                                 <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
                                 <% if (i !== 1) { %>
@@ -308,7 +310,7 @@
                                 <% if (i == current) { %>
                                 <li class="active"><a><%= i %></a></li>
                                 <% } else { %>
-                                <li><a href="/result-search/<%= category_name %>/<%= i %>"><%= i %></a></li>
+                                <li><a href="/all-category/<%= i %>"><%= i %></a></li>
                                 <% } %>
                                 <% if (i == Number(current) + 4 && i < pages) { %>
                                 <li class="disabled"><a>...</a></li>
@@ -317,11 +319,15 @@
                                 <% if (current == pages) { %>
                                 <li class="disabled"><a>Last</a></li>
                                 <% } else { %>
-                                <li><a href="/result-search/<%= category_name %>/<%= pages %>">Last</a></li>
+                                <li><a href="/all-category/<%= pages %>">Last</a></li>
                                 <% } %>
                             </ul>
                             <% } %>
                             <%} %>
+
+
+
+
                         </div>
                     </div>
                 </div>

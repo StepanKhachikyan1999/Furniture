@@ -136,21 +136,21 @@
                                     <li class="megamenu-list-title">Все категории</li>
                                     <% if(locale === 'hy') {%>
                                     <% category.forEach(i => {%>
-                                    <li><a href="/result-search"><%= i.categoryHy %><strong>(15)</strong></a></li>
+                                    <li><a href="/result-search/all"><%= i.categoryHy %><strong>(15)</strong></a></li>
                                     <%}) %>
                                     <%} %>
 
 
                                     <% if(locale === 'ru') {%>
                                     <% category.forEach(i => {%>
-                                    <li><a href="/result-search"><%= i.categoryRu %><strong>(15)</strong></a></li>
+                                    <li><a href="/result-search/all"><%= i.categoryRu %><strong>(15)</strong></a></li>
                                     <%}) %>
                                     <%} %>
 
 
                                     <% if(locale === 'en') {%>
                                     <% category.forEach(i => {%>
-                                    <li><a href="/result-search"><%= i.categoryEn %><strong>(15)</strong></a></li>
+                                    <li><a href="/result-search/all"><%= i.categoryEn %><strong>(15)</strong></a></li>
                                     <%}) %>
                                     <%} %>
                                 </ul>
@@ -176,7 +176,7 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="result-search"><%= __('menu.shop') %></a> </li>
+                    <li><a href="/all-category/1"><%= __('menu.shop') %></a> </li>
 
                     <li><a href="about"><%= __('menu.about') %></a> </li>
 
