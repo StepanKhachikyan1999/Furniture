@@ -7,6 +7,7 @@ const HeaderSliderText = require('../models/HeaderSliderText');
 const Sale = require('../models/Sale')
 const Category = require('../models/Category')
 const Slider = require('../models/Slider');
+const Logo = require('../models/Logo')
 
 router.get('/', async (req, res) => {
     const service = await Service.find()
@@ -20,6 +21,8 @@ router.get('/', async (req, res) => {
 
     const slider = await Slider.find();
 
+    const logo = await Logo.find();
+
     const category = await Category.find();
 
     res.render('index', {
@@ -32,7 +35,8 @@ router.get('/', async (req, res) => {
         news,
         hit,
         category,
-        slider
+        slider,
+        logo
     })
 })
 

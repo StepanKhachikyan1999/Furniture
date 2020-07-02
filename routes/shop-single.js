@@ -5,6 +5,7 @@ const Sale = require('../models/Sale')
 const Category = require('../models/Category')
 const Checkout = require('../models/Checkout');
 const multer = require('multer');
+const Logo = require('../models/Logo')
 
 
 // var storage = multer.diskStorage({
@@ -29,12 +30,14 @@ router.get('/:id', async (req, res) => {
     const contact = await Contact.find()
     const sale = await Sale.findById(req.params.id)
     const category = await Category.find();
+    const logo = await Logo.find();
 
     res.render('shop-single', {
         title: 'Магазин',
         contact,
         sale,
-        category
+        category,
+        logo
     })
 })
 

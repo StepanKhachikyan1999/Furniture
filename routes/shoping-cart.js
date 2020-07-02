@@ -7,6 +7,7 @@ const Cash = require('../models/Order/Cash');
 const Withoutbank = require('../models/Order/WithoutBank');
 const WithBank = require('../models/Order/Withbank')
 const multer = require('multer');
+const Logo = require('../models/Logo')
 
 var storage = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -23,6 +24,7 @@ var upload = multer({ storage: storage }).array('avatar', 4);
 router.get('/', async (req, res) => {
     const contact = await Contact.find()
     const category = await Category.find();
+    const logo = await Logo.find();
 
     const checkout = await Checkout.find();
 
@@ -31,7 +33,7 @@ router.get('/', async (req, res) => {
         contact,
         category,
         checkout,
-
+        logo
     })
 })
 

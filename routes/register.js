@@ -6,10 +6,12 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { registerValidators } = require('../utils/validators');
+const Logo = require('../models/Logo')
 
 router.get('/', async (req, res) => {
     const contact = await Contact.find()
     const category = await Category.find();
+    const logo = await Logo.find();
 
     if (req.session.isAuthenticated) {
         res.redirect('/')
@@ -19,7 +21,8 @@ router.get('/', async (req, res) => {
             contact,
             category,
             regError: req.flash('regError'),
-            passwordError: req.flash('passwordError')
+            passwordError: req.flash('passwordError'),
+            logo
         })
     }
 

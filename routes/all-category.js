@@ -3,6 +3,7 @@ const router = Router();
 const Contact = require('../models/Contact');
 const Category = require('../models/Category');
 const Sale = require('../models/Sale');
+const Logo = require('../models/Logo')
 
 
 router.get('/:page', async (req, res) => {
@@ -13,6 +14,7 @@ router.get('/:page', async (req, res) => {
 
     let countSale = await (await Sale.find()).length;
 
+    const logo = await Logo.find();
 
     var perPage = 4
     var page = req.params.page || 1
@@ -33,7 +35,8 @@ router.get('/:page', async (req, res) => {
                     contact,
                     category,
                     url,
-                    countSale
+                    countSale,
+                    logo
                 })
             })
         })

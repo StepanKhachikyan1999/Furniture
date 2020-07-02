@@ -5,6 +5,7 @@ const Category = require('../models/Category')
 const Cash = require('../models/Order/Cash');
 const WithBank = require('../models/Order/Withbank')
 const WithoutBank = require('../models/Order/WithoutBank')
+const Logo = require('../models/Logo')
 
 router.get('/', async  (req, res) => {
     const contact = await Contact.find()
@@ -12,6 +13,7 @@ router.get('/', async  (req, res) => {
     const cash = await Cash.find()
     const withBank = await WithBank.find();
     const withoutBank = await WithoutBank.find()
+    const logo = await Logo.find();
 
     res.render('orders', {
         title: 'История заказов',
@@ -19,7 +21,8 @@ router.get('/', async  (req, res) => {
         category,
         cash,
         withBank,
-        withoutBank
+        withoutBank,
+        logo
     })
 })
 

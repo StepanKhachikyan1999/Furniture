@@ -4,10 +4,12 @@ const Contact = require('../models/Contact');
 const Category = require('../models/Category')
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
+const Logo = require('../models/Logo')
 
 router.get('/', async (req, res) => {
     const contact = await Contact.find()
     const category = await Category.find();
+    const logo = await Logo.find();
 
     if (req.session.isAuthenticated) {
         res.redirect('/')
@@ -17,7 +19,8 @@ router.get('/', async (req, res) => {
             contact,
             category,
             loginError: req.flash('loginError'),
-            passwordError: req.flash('passwordError')
+            passwordError: req.flash('passwordError'),
+            logo
         })
     }
 
