@@ -10,7 +10,7 @@ const Slider = require('../models/Slider');
 const Logo = require('../models/Logo')
 
 router.get('/', async (req, res) => {
-    const service = await Service.find()
+    const service = await (await Service.find().limit(6)).reverse()
     const advantage = await (await Advantage.find().limit(6)).reverse();
     const contact = await Contact.find()
     const HeaderText = await HeaderSliderText.find()

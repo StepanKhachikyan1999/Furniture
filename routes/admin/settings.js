@@ -29,7 +29,7 @@ var upload = multer({
 });
 
 
-router.get('/', auth, async (req, res) => {
+router.get('/',  async (req, res) => {
     const service = await (await Service.find()).reverse()
     const advantage = await (await Advantage.find()).reverse()
     const contact = await Contact.find()
@@ -39,21 +39,33 @@ router.get('/', auth, async (req, res) => {
     const logo = await Logo.find()
     const slider = await Slider.find();
 
-    if (req.session.user.role == 'User') {
-        res.redirect('/')
-    } else {
-        res.render('admin/settings', {
-            title: 'Settings',
-            service,
-            advantage,
-            contact,
-            about,
-            HeaderText,
-            category,
-            logo,
-            slider
-        })
-    }
+    // if (req.session.user.role == 'User') {
+    //     res.redirect('/')
+    // } else {
+    //     res.render('admin/settings', {
+    //         title: 'Settings',
+    //         service,
+    //         advantage,
+    //         contact,
+    //         about,
+    //         HeaderText,
+    //         category,
+    //         logo,
+    //         slider
+    //     })
+    // }
+
+    res.render('admin/settings', {
+        title: 'Settings',
+        service,
+        advantage,
+        contact,
+        about,
+        HeaderText,
+        category,
+        logo,
+        slider
+    })
 
 
 })
@@ -62,7 +74,9 @@ router.get('/', auth, async (req, res) => {
 router.post('/service', upload.single('avatar'), function (req, res, next) {
     const post = new Service({
         avatar: req.file.filename,
-        title: req.body.title
+        titleHy: req.body.titleHy,
+        titleRu: req.body.titleRu,
+        titleEn: req.body.titleEn
     })
     post.save()
     res.redirect('/admin-settings')
@@ -72,8 +86,12 @@ router.post('/service', upload.single('avatar'), function (req, res, next) {
 router.post('/advantage', upload.single('avatar'), function (req, res, next) {
     const post = new Advantage({
         avatar: req.file.filename,
-        title: req.body.title,
-        description: req.body.description
+        titleHy: req.body.titleHy,
+        descriptionHy: req.body.descriptionHy,
+        titleRu: req.body.titleRu,
+        descriptionRu: req.body.descriptionRu,
+        titleEn: req.body.titleEn,
+        descriptionEn: req.body.descriptionEn,
     })
     post.save()
     res.redirect('/admin-settings')

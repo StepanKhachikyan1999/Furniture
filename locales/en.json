@@ -4,5 +4,15 @@
 		"shop": "Shop",
 		"about": "About",
 		"contact": "Contact"
+	},
+	"hits": "Hits for sale",
+	"sales": {
+		"sale": "Sale",
+		"howWork": "How We Work"
+	},
+	"advantage": "Our advantage",
+	"contacts": {
+		"find": "Looking for a professional approach and quality services ?",
+		"come": "Come to us"
 	}
 }

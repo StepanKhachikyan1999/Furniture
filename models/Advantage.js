@@ -1,8 +1,12 @@
 const { Schema, model } = require('mongoose');
 
 const AdvantageSchema = new Schema({
-    title: String,
-    description: String,
+    titleHy: String,
+    descriptionHy: String,
+    titleRu: String,
+    descriptionRu: String,
+    titleEn: String,
+    descriptionEn: String,
     avatar: String
 })
 

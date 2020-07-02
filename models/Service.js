@@ -1,7 +1,9 @@
 const { model, Schema } = require('mongoose');
 
 const ServiceSchema = new Schema({
-    title: String,
+    titleHy: String,
+    titleRu: String,
+    titleEn: String,
     avatar: String
 })
 

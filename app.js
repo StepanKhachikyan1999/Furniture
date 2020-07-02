@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
+const helmet = require('helmet');
+const compression = require('compression');
 
 const app = express();
 
@@ -41,6 +43,9 @@ app.use(flash());
 app.use(varMiddleware);
 app.use(userMiddleware);
 
+app.use(helmet());
+app.use(compression());
+
 // translate
 var i18n = require("i18n");
 
@@ -58,6 +63,7 @@ i18n.configure({
         __n: '__n',
     },
 });
+
 app.use(i18n.init);
 
 app.use((req, res, next) => {

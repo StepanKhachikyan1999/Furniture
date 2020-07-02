@@ -142,16 +142,44 @@
                         <form class="form-group mb-5 createService" action="/admin-settings/service" method="POST"
                             accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data">
                             <h4 class="mb-3">Create service</h4>
-                            <div class="form-group">
-                                <label for="">Title</label>
-                                <input type="text" class="form-control" name="title">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Icon</label>
-                                <input type="file" name="avatar">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Create</button>
+
+                            <ul class="nav nav-tabs mt-5">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#hy1">HY</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#ru1">RU</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#en1">EN</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="hy1" class="container tab-pane active mt-3">
+                                    <div class="form-group">
+                                        <label for="">Վերնագիր</label>
+                                        <input type="text" class="form-control" name="titleHy">
+                                    </div>
+                                </div>
+                                <div id="ru1" class="container tab-pane fade mt-3">
+                                    <div class="form-group">
+                                        <label for="">название</label>
+                                        <input type="text" class="form-control" name="titleRu">
+                                    </div>
+                                </div>
+                                <div id="en1" class="container tab-pane fade mt-3">
+                                    <div class="form-group">
+                                        <label for="">Title</label>
+                                        <input type="text" class="form-control" name="titleEn">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Icon</label>
+                                    <input type="file" name="avatar">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
                             </div>
                         </form>
 
@@ -176,7 +204,7 @@
                                     <tr>
                                         <td><img src="/uploads/<%= item.avatar %>" style="width: 100px; height: 100px;">
                                         </td>
-                                        <td><%= item.title %> </td>
+                                        <td><%= item.titleEn %> </td>
                                         <td>
                                             <form action="/admin-settings/delete" method="POST">
                                                 <input type="hidden" name="id" value="<%= item.id %>">
@@ -195,20 +223,57 @@
                         <form class="form-group mb-5 mt-5 createService" action="/admin-settings/advantage"
                             method="POST" accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data">
                             <h4 class="mb-3">Our advantage</h4>
-                            <div class="form-group">
-                                <label for="">Title</label>
-                                <input type="text" class="form-control" name="title">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Description</label>
-                                <input type="text" class="form-control" name="description">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Image</label>
-                                <input type="file" name="avatar">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Add</button>
+
+                            <ul class="nav nav-tabs mt-5">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#hy2">HY</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#ru2">RU</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#en2">EN</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="hy2" class="container tab-pane active mt-3">
+                                    <div class="form-group">
+                                        <label for="">Վերնագիր</label>
+                                        <input type="text" class="form-control" name="titleHy">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Նկարագրություն</label>
+                                        <input type="text" class="form-control" name="descriptionHy">
+                                    </div>
+                                </div>
+                                <div id="ru2" class="container tab-pane fade mt-3">
+                                    <div class="form-group">
+                                        <label for="">название</label>
+                                        <input type="text" class="form-control" name="titleRu">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Описание</label>
+                                        <input type="text" class="form-control" name="descriptionRu">
+                                    </div>
+                                </div>
+                                <div id="en2" class="container tab-pane fade mt-3">
+                                    <div class="form-group">
+                                        <label for="">Title</label>
+                                        <input type="text" class="form-control" name="titleEn">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Description</label>
+                                        <input type="text" class="form-control" name="descriptionEn">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">Image</label>
+                                    <input type="file" name="avatar">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                </div>
                             </div>
                         </form>
 
@@ -235,8 +300,8 @@
                                     <tr>
                                         <td><img src="/uploads/<%= item.avatar %>" style="width: 100px; height: 100px;">
                                         </td>
-                                        <td><%= item.title %> </td>
-                                        <td><%= item.description %></td>
+                                        <td><%= item.titleEn %> </td>
+                                        <td><%= item.descriptionEn %></td>
                                         <td>
                                             <form action="/admin-settings/delete_advantage" method="POST">
                                                 <input type="hidden" name="id" value="<%= item.id %>">
@@ -312,14 +377,14 @@
 
                         <form action="/admin-settings/slider" method="POST" accept="image/x-png,image/gif,image/jpeg"
                             enctype="multipart/form-data">
-                        <h4 class="mb-3">Header slider</h4>
-                        <div class="form-group">
-                            <label for="">Choose image</label>
-                            <input type="file" name="avatar">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Add</button>
-                        </div>
+                            <h4 class="mb-3">Header slider</h4>
+                            <div class="form-group">
+                                <label for="">Choose image</label>
+                                <input type="file" name="avatar">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Add</button>
+                            </div>
                         </form>
 
                         <div class="table-responsive">
