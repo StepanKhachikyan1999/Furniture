@@ -162,7 +162,20 @@
 
                                 <div class="all-prod-box">
                                     <div class="heart-box">
-                                        <i class="icon-line-awesome-heart-o"></i>
+                                        <!-- <i class="icon-line-awesome-heart-o"></i> -->
+                                        <div class="item wishItem">
+                                            <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
+                                                data-title="<%= i.titleHy %>" data-id="<%= i.id %>"
+                                                data-code="<%= i.code %>" data-color="<%= i.colorHy %>" href="#">
+                                                <i class="icon-line-awesome-heart-o"></i>
+                                            </a>
+                                            <input type="hidden" name="price" value="<%= i.price %>"
+                                                data-price="<%= i.price %>">
+                                            <input type="hidden" name="color" value="<%= i.colorHy %>"
+                                                data-color="<%= i.colorHy %>">
+                                            <input type="hidden" name="code" value="<%= i.code %>"
+                                                data-code="<%= i.code %>">
+                                        </div>
                                     </div>
                                     <!-- <a href="#"> -->
                                     <div class="all-prod-box-img">
@@ -203,7 +216,17 @@
                                 <%} %>
                                 <div class="all-prod-box">
                                     <div class="heart-box">
-                                        <i class="icon-line-awesome-heart-o"></i>
+                                        <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
+                                            data-title="<%= i.titleRu %>" data-id="<%= i.id %>"
+                                            data-code="<%= i.code %>" data-color="<%= i.colorRu %>" href="#">
+                                            <i class="icon-line-awesome-heart-o"></i>
+                                        </a>
+                                        <input type="hidden" name="price" value="<%= i.price %>"
+                                            data-price="<%= i.price %>">
+                                        <input type="hidden" name="color" value="<%= i.colorRu %>"
+                                            data-color="<%= i.colorRu %>">
+                                        <input type="hidden" name="code" value="<%= i.code %>"
+                                            data-code="<%= i.code %>">
                                     </div>
                                     <!-- <a href="#"> -->
                                     <div class="all-prod-box-img">
@@ -244,7 +267,20 @@
                                 <%} %>
                                 <div class="all-prod-box">
                                     <div class="heart-box">
-                                        <i class="icon-line-awesome-heart-o"></i>
+                                        <!-- <i class="icon-line-awesome-heart-o"></i> -->
+                                        <div class="item wishItem">
+                                            <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
+                                                data-title="<%= i.titleEn %>" data-id="<%= i.id %>"
+                                                data-code="<%= i.code %>" data-color="<%= i.colorEn %>" href="#">
+                                                <i class="icon-line-awesome-heart-o"></i>
+                                            </a>
+                                            <input type="hidden" name="price" value="<%= i.price %>"
+                                                data-price="<%= i.price %>">
+                                            <input type="hidden" name="color" value="<%= i.colorEn %>"
+                                                data-color="<%= i.colorEn %>">
+                                            <input type="hidden" name="code" value="<%= i.code %>"
+                                                data-code="<%= i.code %>">
+                                        </div>
                                     </div>
                                     <!-- <a href="#"> -->
                                     <div class="all-prod-box-img">

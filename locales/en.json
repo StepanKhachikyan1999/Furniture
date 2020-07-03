@@ -36,6 +36,7 @@
 		"personal": "Personal account",
 		"register": "Sign up",
 		"shop": "Shop",
-		"cart": "Basket"
+		"cart": "Basket",
+		"logout": "Logout"
 	}
 }
