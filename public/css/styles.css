@@ -7401,7 +7401,7 @@ Styles 4
 
 .sale-box span{
     color: #fff;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
 }
 
@@ -7835,7 +7835,6 @@ input::-webkit-inner-spin-button {
 .type-name {
     display: block;
     position: relative;
-    padding-left: 40px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -8814,4 +8813,13 @@ td, th {
     z-index: 10;
     position: fixed;
     display: none;
+}
+
+.all-prod-box-info-color {
+    display: flex;
+    justify-content: space-between;
+}
+
+.log_reg {
+    outline: none !important;
 }

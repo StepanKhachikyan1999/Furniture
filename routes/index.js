@@ -11,7 +11,7 @@ const Logo = require('../models/Logo')
 
 router.get('/', async (req, res) => {
     const service = await (await Service.find().limit(6)).reverse()
-    const advantage = await (await Advantage.find().limit(6)).reverse();
+    const advantage = await (await Advantage.find()).reverse();
     const contact = await Contact.find()
     const HeaderText = await HeaderSliderText.find()
     const sale = await (await Sale.find().limit(6)).reverse();

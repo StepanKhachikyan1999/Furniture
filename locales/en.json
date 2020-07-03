@@ -5,7 +5,7 @@
 		"about": "About",
 		"contact": "Contact"
 	},
-	"hits": "Hits for sale",
+	"hits": "TOP sale",
 	"sales": {
 		"sale": "Sale",
 		"howWork": "How We Work"
@@ -14,5 +14,28 @@
 	"contacts": {
 		"find": "Looking for a professional approach and quality services ?",
 		"come": "Come to us"
+	},
+	"section": {
+		"1": "Get success with us!",
+		"2": "Do the right thing",
+		"3": "During necessary time."
+	},
+	"buttons": {
+		"viewAll": "View all",
+		"contactUs": "Contact us"
+	},
+	"links": {
+		"about": "About",
+		"allCategory": "All categories",
+		"changePassword": "Change password",
+		"contact": "Contact",
+		"favorite": "My favorite",
+		"home": "Home",
+		"login": "Login",
+		"orders": "Order history",
+		"personal": "Personal account",
+		"register": "Sign up",
+		"shop": "Shop",
+		"cart": "Basket"
 	}
 }

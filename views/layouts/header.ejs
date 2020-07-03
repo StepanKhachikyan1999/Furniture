@@ -133,7 +133,7 @@
 
 
                                 <ul class="megamenu-list list-col-20">
-                                    <li class="megamenu-list-title">Все категории</li>
+                                    <li class="megamenu-list-title"><%= __('links.allCategory') %></li>
                                     <% if(locale === 'hy') {%>
                                     <% category.forEach(i => {%>
                                     <li><a href="/result-search/all"><%= i.categoryHy %><strong>(15)</strong></a></li>
@@ -196,7 +196,8 @@
                         </div>
 
                         <div class="sale-icon">
-                            <a href="#" class="log_reg"><i class="icon-feather-user"></i> </a>
+                            <!-- <a href="#" class="log_reg"><i class="icon-feather-user"></i> </a> -->
+                            <button class="log_reg"><i class="icon-feather-user"></i></button>
                         </div>
 
                         <!-- <div class="sale-icon lang-box">
@@ -216,7 +217,8 @@
         <div class="login-register">
             <% if(!isAuth) {%>
             <form class="before-register-box" action="/login" method="POST">
-                <a href="#" class="close_b"> x </a>
+                
+                <!-- <button class="close_b">X</button> -->
                 <input type="email" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
                 <div class="forgot-reg">

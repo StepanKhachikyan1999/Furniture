@@ -94,7 +94,7 @@
             <% hit.forEach(i => {%>
             <div class="item">
                 <div class="prod-box">
-                    <a href="shop-single">
+                    <a href="/shop-single/<%= i.id %>">
                         <div class="item_img item-img-h">
                             <% i.avatar.forEach(j => {%>
                             <img src="/uploads/<%= j %>">
@@ -103,7 +103,7 @@
                     </a>
                     <div class="prod-box-text">
                         <h6> <span>Code :</span> <%= i.code %> </h6>
-                        <a href="#">
+                        <a href="/shop-single/<%= i.id %>">
                             <h5><%= i.titleEn %> </h5>
                         </a>
                     </div>
@@ -121,7 +121,7 @@
             <% hit.forEach(i => {%>
             <div class="item">
                 <div class="prod-box">
-                    <a href="shop-single">
+                    <a href="/shop-single/<%= i.id %>">
                         <div class="item_img item-img-h">
                             <% i.avatar.forEach(j => {%>
                             <img src="/uploads/<%= j %>">
@@ -130,7 +130,7 @@
                     </a>
                     <div class="prod-box-text">
                         <h6> <span>Код :</span> <%= i.code %> </h6>
-                        <a href="#">
+                        <a href="/shop-single/<%= i.id %>">
                             <h5><%= i.titleRu %> </h5>
                         </a>
                     </div>
@@ -148,7 +148,7 @@
             <% hit.forEach(i => {%>
             <div class="item">
                 <div class="prod-box">
-                    <a href="shop-single">
+                    <a href="/shop-single/<%= i.id %>">
                         <div class="item_img item-img-h">
                             <% i.avatar.forEach(j => {%>
                             <img src="/uploads/<%= j %>">
@@ -157,7 +157,7 @@
                     </a>
                     <div class="prod-box-text">
                         <h6> <span>Կոդ :</span> <%= i.code %> </h6>
-                        <a href="#">
+                        <a href="/shop-single/<%= i.id %>">
                             <h5><%= i.titleHy %> </h5>
                         </a>
                     </div>
@@ -215,7 +215,7 @@
                             <input type="hidden" name="code" value="<%= i.code %>" data-code="<%= i.code %>">
                         </div>
                     </div>
-                    <a href="shop-single">
+                    <a href="/shop-single/<%= i.id %>">
                         <div class="all-prod-box-img">
                             <div class="item_img all-prod-box-img-h">
                                 <% i.avatar.forEach(j => {%>
@@ -226,7 +226,7 @@
                     </a>
                     <div class="all-prod-box-info">
                         <h6> <span>Code :</span> <%= i.code %></h6>
-                        <a href="shop-single">
+                        <a href="/shop-single/<%= i.id %>">
                             <h5><%= i.titleEn %></h5>
                         </a>
                         <div class="all-prod-box-info-color">
@@ -268,7 +268,7 @@
                         <input type="hidden" name="color" value="<%= i.colorRu %>" data-color="<%= i.colorRu %>">
                         <input type="hidden" name="code" value="<%= i.code %>" data-code="<%= i.code %>">
                     </div>
-                    <a href="shop-single">
+                    <a href="/shop-single/<%= i.id %>">
                         <div class="all-prod-box-img">
                             <div class="item_img all-prod-box-img-h">
                                 <% i.avatar.forEach(j => {%>
@@ -279,7 +279,7 @@
                     </a>
                     <div class="all-prod-box-info">
                         <h6> <span>Код :</span> <%= i.code %></h6>
-                        <a href="shop-single">
+                        <a href="/shop-single/<%= i.id %>">
                             <h5><%= i.titleRu %></h5>
                         </a>
                         <div class="all-prod-box-info-color">
@@ -323,7 +323,7 @@
                             <input type="hidden" name="code" value="<%= i.code %>" data-code="<%= i.code %>">
                         </div>
                     </div>
-                    <a href="shop-single">
+                    <a href="/shop-single/<%= i.id %>">
                         <div class="all-prod-box-img">
                             <div class="item_img all-prod-box-img-h">
                                 <% i.avatar.forEach(j => {%>
@@ -334,7 +334,7 @@
                     </a>
                     <div class="all-prod-box-info">
                         <h6> <span>Կոդ :</span> <%= i.code %></h6>
-                        <a href="shop-single">
+                        <a href="/shop-single/<%= i.id %>">
                             <h5><%= i.titleHy %></h5>
                         </a>
                         <div class="all-prod-box-info-color">
@@ -354,7 +354,7 @@
         </div>
 
         <div class="box-button-all">
-            <a href="/all-category/1">посмотреть все</a>
+            <a href="/all-category/1"><%= __('buttons.viewAll') %></a>
         </div>
     </div>
 </div>
@@ -366,9 +366,9 @@
 <div class="section-block-bg" style="background-image: url(img/bg/gallery-4.jpg);">
     <div class="container">
         <div class="section-heading center-holder white-color">
-            <span>Получите успех с нами!</span>
-            <h2><strong>Делайте правильные вещи</strong></h2>
-            <h4>В нужное время.</h4>
+            <span><%= __('section.1') %></span>
+            <h2><strong><%= __('section.2') %></strong></h2>
+            <h4><%= __('section.3') %></h4>
             <!-- <a href="#" class="primary-button button-md mt-10">Become a Client</a> -->
         </div>
     </div>
@@ -385,8 +385,8 @@
         </div>
         <div class="row mt-40">
             <!-- Project Block Start -->
+            <% if(locale == "hy") {%>
             <% advantage.forEach(item => {%>
-            <% if(locale == 'hy') {%>
             <div class="col-md-6 col-sm-12 col-12">
                 <div class="case-block">
                     <div class="row">
@@ -403,13 +403,15 @@
                     </div>
                 </div>
             </div>
+            <%}) %>
             <%} %>
-            <% if(locale == 'ru') {%>
+            <% if(locale == "ru") {%>
+            <% advantage.forEach(item => {%>
             <div class="col-md-6 col-sm-12 col-12">
                 <div class="case-block">
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-12 pr-0">
-                            <div class="case-block-img" style="background-image: url(uploads/<%= item.avatar %>); ">
+                            <div class="case-block-img" style="background-image: url(uploads/<%= item.avatar %>)">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-12">
@@ -421,9 +423,10 @@
                     </div>
                 </div>
             </div>
-            <%} %>
             <%}) %>
-            <% if(locale == 'en') {%>
+            <%} %>
+            <% if(locale == "en") {%>
+            <% advantage.forEach(item => {%>
             <div class="col-md-6 col-sm-12 col-12">
                 <div class="case-block">
                     <div class="row">
@@ -440,6 +443,7 @@
                     </div>
                 </div>
             </div>
+            <%}) %>
             <%} %>
             <!-- Project Block End -->
         </div>
