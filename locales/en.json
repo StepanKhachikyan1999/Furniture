@@ -53,5 +53,22 @@
 			"message": "Message",
 			"send": "Send Message"
 		}
+	},
+	"info": {
+		"login": "Login",
+		"register": "Sign up",
+		"forgot": "Forgot your password?",
+		"myInfo": " My information ",
+		"orders": "История заказов",
+		"yourPassword": "Order history",
+		"email": "Email",
+		"password": "Password",
+		"basic": "Basic data",
+		"data": {
+			"client": "New client",
+			"register": "Sign up",
+			"info": "Creating an account will help you buy faster. You will be able to monitor the order status, as well as view orders made earlier. You will be able to accumulate bonus points and receive discount coupons. We offer a flexible system of discounts and personal service to our regular customers.",
+			"continue": "Continue"
+		}
 	}
 }

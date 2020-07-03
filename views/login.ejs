@@ -5,7 +5,7 @@
 <div class="section-block-grey border-top">
     <div class="container">
         <div class="section-heading">
-            <h5>Основные данные</h5>
+            <h5><%= __('info.basic') %></h5>
             <div class="section-heading-line-left"></div>
         </div>
         <div class="row mt-40">
@@ -14,19 +14,16 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="login-box new-client-box">
-                            <h4>Новый клиент</h4>
-                            <h6>Регистрация</h6>
-                            <p>Создание учетной записи поможет покупать быстрее. Вы сможете контролировать состояние
-                                заказа, а также просматривать заказы сделанные ранее. Вы сможете накапливать призовые
-                                баллы и получать скидочные купоны. А постоянным покупателям мы предлагаем гибкую систему
-                                скидок и персональное обслуживание.</p>
-                            <button type="submit" class="register-button">Продолжить</button>
+                            <h4><%= __('info.data.client') %></h4>
+                            <h6><%= __('info.data.register') %></h6>
+                            <p><%= __('info.data.info') %></p>
+                            <button type="submit" class="register-button"><%= __('info.data.continue') %></button>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="login-box client-login-box">
-                            <h4>Ваш пароль</h4>
+                            <h4><%= __('info.yourPassword') %></h4>
                             <div class="register-box-input mt-15">
                                 <% if(loginError.length > 0) {%>
                                 <p class="alert"><%= loginError%></p>
@@ -39,7 +36,7 @@
                                     <input type="email" name="email" placeholder="E-Mail *" required="">
                                     <input type="password" name="password" placeholder="Пароль *" required="">
 
-                                    <button type="submit" class="register-button">Продолжить</button>
+                                    <button type="submit" class="register-button"><%= __('info.data.continue') %></button>
                                 </form>
                             </div>
                         </div>
@@ -51,13 +48,13 @@
             <div class="col-lg-4 col-md-5 col-12">
                 <div class="register-box-menu">
                     <ul>
-                        <li class="register-box-menu-active"><a href="/login"> Вход </a></li>
-                        <li><a href="/register"> Регистрация </a></li>
-                        <li><a href="/change-password"> Забыли пароль? </a></li>
-                        <li><a href="/personal"> Моя информация </a></li>
-                        <li><a href="/orders"> История заказов </a></li>
-                        <li><a href="#"> Возвраты </a></li>
-                        <li><a href="#"> Условия </a></li>
+                        <li class="register-box-menu-active"><a href="/login"> <%= __('info.login') %>  </a></li>
+                        <li><a href="/register"> <%= __('info.register') %> </a></li>
+                        <li><a href="/change-password"> <%= __('info.forgot') %> </a></li>
+                        <li><a href="/personal"> <%= __('info.myInfo') %></a></li>
+                        <li><a href="/orders"> <%= __('info.orders') %> </a></li>
+                        <!-- <li><a href="#"> Возвраты </a></li>
+                        <li><a href="#"> Условия </a></li> -->
                     </ul>
                 </div>
             </div>
