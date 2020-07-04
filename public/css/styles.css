@@ -7435,6 +7435,11 @@ Styles 4
     margin-right: 7px;
 }
 
+.all-prod-box-info-color {
+    background-color: #e9ecef;
+    padding: 10px;
+}
+
 .all-prod-box-info a h5{
     color: #333;
     font-size: 15px;
