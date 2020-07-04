@@ -4,6 +4,7 @@ const Contact = require('../models/Contact');
 const Category = require('../models/Category');
 const Sale = require('../models/Sale');
 const Logo = require('../models/Logo')
+const Color = require('../models/Color')
 
 
 
@@ -19,6 +20,7 @@ router.get('/:categoryEn/:page', async (req, res) => {
     const contact = await Contact.find()
     const category = await Category.find()
     const logo = await Logo.find();
+    const color = await Color.find()
 
     let category_name = req.params.categoryEn
 
@@ -40,7 +42,8 @@ router.get('/:categoryEn/:page', async (req, res) => {
                     category,
                     category_name,
                     countSale,
-                    logo
+                    logo,
+                    color
                     // countSaleCategory
                     // currentpage
                 })

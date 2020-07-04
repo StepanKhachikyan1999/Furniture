@@ -29,9 +29,7 @@ const SaleSchema = new Schema({
     materialRu: String,
     materialHy: String,
 
-    colorHy: String,
-    colorRu: String,
-    colorEn: String,
+    color: Array,
 
     discountEn: String,
     discountHy: String,

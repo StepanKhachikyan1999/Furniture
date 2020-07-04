@@ -7448,34 +7448,14 @@ Styles 4
 }
 
 
-.all-prod-box-color-1{
+.all-prod-box-color{
     display: inline-block;
     margin-right: 10px;
     width: 30px;
     height: 30px;
     background: #826050;
 }
-.all-prod-box-color-2{
-    display: inline-block;
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
-    background: #D6C3AC;
-}
-.all-prod-box-color-3{
-    display: inline-block;
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
-    background: #2F181B;
-}
-.all-prod-box-color-4{
-    display: inline-block;
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
-    background: #E6DBC8;
-}
+
 
 .all-prod-box-info-button{
     width: 100%;
@@ -8822,10 +8802,6 @@ td, th {
     display: none;
 }
 
-.all-prod-box-info-color {
-    display: flex;
-    justify-content: space-between;
-}
 
 .log_reg {
     outline: none !important;

@@ -9,6 +9,7 @@ const HeaderSliderText = require('../../models/HeaderSliderText');
 const Category = require('../../models/Category');
 const Logo = require('../../models/Logo');
 const Slider = require('../../models/Slider')
+const Color = require('../../models/Color');
 const auth = require('../../middleware/auth');
 
 var storage = multer.diskStorage({
@@ -29,7 +30,7 @@ var upload = multer({
 });
 
 
-router.get('/',  async (req, res) => {
+router.get('/', auth, async (req, res) => {
     const service = await (await Service.find()).reverse()
     const advantage = await (await Advantage.find()).reverse()
     const contact = await Contact.find()
@@ -38,34 +39,37 @@ router.get('/',  async (req, res) => {
     const category = await Category.find()
     const logo = await Logo.find()
     const slider = await Slider.find();
+    const color = await Color.find()
 
-    // if (req.session.user.role == 'User') {
-    //     res.redirect('/')
-    // } else {
-    //     res.render('admin/settings', {
-    //         title: 'Settings',
-    //         service,
-    //         advantage,
-    //         contact,
-    //         about,
-    //         HeaderText,
-    //         category,
-    //         logo,
-    //         slider
-    //     })
-    // }
+    if (req.session.user.role == 'User') {
+        res.redirect('/')
+    } else {
+        res.render('admin/settings', {
+            title: 'Settings',
+            service,
+            advantage,
+            contact,
+            about,
+            HeaderText,
+            category,
+            logo,
+            slider,
+            color
+        })
+    }
 
-    res.render('admin/settings', {
-        title: 'Settings',
-        service,
-        advantage,
-        contact,
-        about,
-        HeaderText,
-        category,
-        logo,
-        slider
-    })
+    // res.render('admin/settings', {
+    //     title: 'Settings',
+    //     service,
+    //     advantage,
+    //     contact,
+    //     about,
+    //     HeaderText,
+    //     category,
+    //     logo,
+    //     slider,
+    //     color
+    // })
 
 
 })
@@ -198,5 +202,11 @@ router.post('/sliderDelete', async (req,res)=> {
     res.redirect('/admin-settings')
 })
 
+
+router.post('/colors', async (req,res)=> {
+    const post = new Color({color: req.body.color})
+    await post.save();
+    res.redirect('/admin-settings')
+})
 
 module.exports = router;

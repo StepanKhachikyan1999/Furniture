@@ -106,6 +106,8 @@
 		});
 	}
 
+	
+
 	$.fn.wishBar = function (options, WISHLIST) {
 
 		var that = this;
@@ -117,7 +119,7 @@
 
 			template: `<div class="col-lg-4 col-md-6 col-12" >
 			<div class="all-prod-box wishedItem" rel="${WISHLIST.ID}" id='wishItem_<%- id %>'>
-				<a href="shop-single">
+				<a href="/shop-single/<%- id %>">
 					<div class="all-prod-box-img">
 						<div class="item_img all-prod-box-img-h">
 							<img src='<%- img %>'>
@@ -125,26 +127,29 @@
 					</div>
 				</a>
 				<div class="all-prod-box-info">
-					<h6> <span>Կոդ :</span> <%- code %> </h6>
-					<a href="shop-single">
+					<h6> <span>ID :</span>AC <%- code %> </h6>
+					<a href="/shop-single/<%- id %>">
 						<h5><%- title %></h5>
 					</a>
-					<div class="all-prod-box-info-color">
-						<h5>Գույն:</h5>
-						<p><%- color %></p>
-					</div>
 					<div class="all-prod-box-info-button">
 						<a href="/shop-single/<%-id%>">Դիտել ավելին</a>
+						<button class="btn btn-outline-danger delete_wish_item_wishItem_<%- id %>">Ջնջել</button>
 					</div>
 				</div>
 			</div>
 		</div>`,
-
+			
 			//override dei metodi di manipolazione del DOM
 			addItemHtml: null,						// sovrascrive il metodo di manipolazione del DOM all'aggiunta di un item (attrbutes: data)
 			removeItemHtml: null,					// sovrascrive il metodo di manipolazione del DOM alla rimozione di un item (attrbutes: id)
 
 		}, options);
+
+		// console.log(WISHLIST.data)
+		// console.log(window.localStorage.wishlist)
+		// let stor = window.localStorage.wishlist.split();
+		
+		
 
 		//METODI DI MANIPOLAZIONE DEL DOM
 		//invocato quando si aggiunge un elemento
@@ -163,6 +168,7 @@
 			$("#wishItem_" + id).fadeOut().remove();
 		}
 
+
 		WISHLIST.propagate.wishBar = function (action, item) {
 			switch (action) {
 				case "remove": removeItem(item.id);
@@ -178,6 +184,7 @@
 		WISHLIST.data.forEach(function (value) {
 			itemList(value.attributes);
 		});
+
 
 		return this;
 	}
@@ -242,6 +249,8 @@
 		WISHLIST.removeToWish = function (id) {
 			WISHLIST.data.remove(WISHLIST.data.get(id));
 		}
+		
+		
 
 		//invocato per ripulire tutto l'oggetto locale wishlist
 		WISHLIST.clearWish = function () {

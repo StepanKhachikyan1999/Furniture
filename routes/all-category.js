@@ -4,6 +4,7 @@ const Contact = require('../models/Contact');
 const Category = require('../models/Category');
 const Sale = require('../models/Sale');
 const Logo = require('../models/Logo')
+const Color = require('../models/Color')
 
 
 router.get('/:page', async (req, res) => {
@@ -15,6 +16,7 @@ router.get('/:page', async (req, res) => {
     let countSale = await (await Sale.find()).length;
 
     const logo = await Logo.find();
+    const color = await Color.find()
 
     var perPage = 4
     var page = req.params.page || 1
@@ -36,7 +38,8 @@ router.get('/:page', async (req, res) => {
                     category,
                     url,
                     countSale,
-                    logo
+                    logo,
+                    color
                 })
             })
         })

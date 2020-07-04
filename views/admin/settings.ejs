@@ -488,6 +488,22 @@
                             </div>
                         </form>
 
+                        <div class="colors">
+                            <h4>All Colors</h4>
+                            <% color.forEach(i => {%>
+                                <div class="all-prod-box-color" style="background: <%= i.color %>;"></div>
+                            <%}) %>
+                            
+                        </div>
+
+                        <form action="/admin-settings/colors" method="POST" class="form-group mb-5 mt-5">
+                            <div class="form-group">
+                                <label for="" class="color">Enter the color name in English *</label>
+                                <input type="text" name="color" class="form-control">
+                            </div>
+                            <button class="btn btn-primary" type="submit">Add</button>
+                        </form>
+
                     </div>
                     <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
                 </div>

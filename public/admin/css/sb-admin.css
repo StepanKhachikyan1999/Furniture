@@ -444,3 +444,17 @@ body.sidebar-toggled footer.sticky-footer {
   width: 120px;
   height: 120px;
 }
+
+
+.all-prod-box-color{
+  display: inline-block;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  /* background: #826050; */
+}
+
+.colors {
+  background-color: #e9ecef;
+  padding: 15px 10px;
+}
