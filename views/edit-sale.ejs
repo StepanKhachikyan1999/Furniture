@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/admin/css/sb-admin.css">
 </head>
 
 <body>
@@ -55,6 +56,18 @@
                         <label for="">Delete New</label>
                         <input type="checkbox" name="news" value="0">
                     </div>
+                    <div class="form-group">
+                        <div class="colors">
+                            <p><b>Select a colors</b></p>
+                            <% color.forEach(i => {%>
+                            <div class="all-prod-box-color" style="background: <%= i.color %>">
+                                <div class="d-flex">
+                                    <input type="checkbox" name="color" value="<%= i.color %>">
+                                </div>
+                            </div>
+                            <%}) %>
+                        </div>
+                    </div>
                 </div>
                 <div class="tab-content">
                     <!-- HY -->
@@ -71,8 +84,8 @@
                             <label for="">Կատեգորիա</label>
                             <select name="categoryHy" id="" class="form-control">
                                 <% category.forEach(i => {%>
-                                    <option value="<%= i.categoryHy %>"><%= i.categoryHy %></option>
-                                    <%}) %>
+                                <option value="<%= i.categoryHy %>"><%= i.categoryHy %></option>
+                                <%}) %>
                             </select>
                         </div>
                         <div class="form-group">
@@ -94,10 +107,6 @@
                                 <label for="">Մատերիալ</label>
                                 <input type="text" class="form-control" name="materialHy"
                                     value="<%= sale.materialHy %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Գույնը</label>
-                                <input type="text" class="form-control" name="colorHy" value="<%= sale.colorHy %>">
                             </div>
                         </div>
                         <hr>
@@ -121,8 +130,8 @@
                             <label for="">Категория</label>
                             <select name="categoryRu" id="" class="form-control">
                                 <% category.forEach(i => {%>
-                                    <option value="<%= i.categoryRu %>"><%= i.categoryRu %></option>
-                                    <%}) %>
+                                <option value="<%= i.categoryRu %>"><%= i.categoryRu %></option>
+                                <%}) %>
                             </select>
                         </div>
                         <div class="form-group">
@@ -144,10 +153,6 @@
                                 <label for="">Материал</label>
                                 <input type="text" class="form-control" name="materialRu"
                                     value="<%= sale.materialRu %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Цвет</label>
-                                <input type="text" class="form-control" name="colorRu" value="<%= sale.colorRu %>">
                             </div>
                         </div>
                         <hr>
@@ -193,10 +198,6 @@
                                 <label for="">Material</label>
                                 <input type="text" class="form-control" name="materialEn"
                                     value="<%= sale.materialEn %>">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Color</label>
-                                <input type="text" class="form-control" name="colorEn" value="<%= sale.colorEn %>">
                             </div>
                         </div>
                         <hr>

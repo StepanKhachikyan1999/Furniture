@@ -81,11 +81,13 @@ router.post('/delete', async (req, res) => {
 router.get('/:id/edit', async (req, res) => {
     const sale = await Sale.findById(req.params.id)
     const category = await Category.find()
+    const color = await Color.find()
 
     res.render('edit-sale', {
         title: `Change`,
         sale,
-        category
+        category,
+        color
     })
 })
 
