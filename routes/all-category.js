@@ -16,10 +16,25 @@ router.get('/:page', async (req, res) => {
     let countSale = await (await Sale.find()).length;
 
     const logo = await Logo.find();
-    const color = await Color.find()
+    const color = await Color.find();
 
     var perPage = 4
     var page = req.params.page || 1
+
+    
+    let min_price = req.query.min_price;
+    let max_price = req.query.max_price;
+
+    
+    sales_filter = []
+
+    const sales = await Sale.find();
+    sales.forEach(i => {
+        if (i.price >= min_price && i.price <= max_price) {
+            sales_filter.push(i)
+        }
+    })
+    // console.log(sales_filter)
 
     Sale
         .find({})
@@ -33,17 +48,20 @@ router.get('/:page', async (req, res) => {
                     sale: sale,
                     current: page,
                     pages: Math.ceil(count / perPage),
-                    title: 'Все категории',
+                    title: 'Բոլոր կատեգորիաները',
                     contact,
                     category,
                     url,
                     countSale,
                     logo,
-                    color
+                    color,
+                    sales_filter
                 })
             })
         })
 })
+
+
 
 
 

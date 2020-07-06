@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const logo = await Logo.find();
 
     res.render('contact', {
-        title: 'Контакт',
+        title: 'Կապ',
         contact,
         category,
         logo

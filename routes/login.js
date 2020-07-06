@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
         res.redirect('/')
     } else {
         res.render('login', {
-            title: 'Авторизация',
+            title: 'Մուտք',
             contact,
             category,
             loginError: req.flash('loginError'),

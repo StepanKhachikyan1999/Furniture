@@ -206,11 +206,16 @@
                     <div class="heart-box">
                         <div class="item wishItem">
                             <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
-                                data-title="<%= i.titleEn %>" data-id="<%= i.id %>" data-code="<%= i.code %>"
-                                href="#">
+                                data-title="<%= i.titleEn %>" data-id="<%= i.id %>" data-code="<%= i.code %>" href="#">
                                 <i class="icon-line-awesome-heart-o"></i>
                             </a>
+                            <% if(i.discountEn) {%>
+                            <input type="hidden" name="price" value="<%= i.discountEn %>"
+                                data-price="<%= i.discountEn %>">
+                            <%} else {%>
                             <input type="hidden" name="price" value="<%= i.price %>" data-price="<%= i.price %>">
+                            <%} %>
+
                             <input type="hidden" name="code" value="<%= i.code %>" data-code="<%= i.code %>">
                         </div>
                     </div>
@@ -231,9 +236,9 @@
                         <div class="all-prod-box-info-color">
                             <h5 class="mb-3">Color:</h5>
                             <% i.color.forEach(l => {%>
-                                <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                            <div class="all-prod-box-color" style="background: <%= l %>;"></div>
                             <%}) %>
-                            
+
                         </div>
                         <div class="all-prod-box-info-button">
                             <a href="/shop-single/<%=i.id%>">More detailed </a>
@@ -262,11 +267,14 @@
                 <div class="all-prod-box">
                     <div class="heart-box">
                         <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
-                            data-title="<%= i.titleRu %>" data-id="<%= i.id %>" data-code="<%= i.code %>"
-                            href="#">
+                            data-title="<%= i.titleRu %>" data-id="<%= i.id %>" data-code="<%= i.code %>" href="#">
                             <i class="icon-line-awesome-heart-o"></i>
                         </a>
+                        <% if(i.discountRu) {%>
+                        <input type="hidden" name="price" value="<%= i.discountRu %>" data-price="<%= i.discountRu %>">
+                        <%} else {%>
                         <input type="hidden" name="price" value="<%= i.price %>" data-price="<%= i.price %>">
+                        <%} %>
                         <input type="hidden" name="code" value="<%= i.code %>" data-code="<%= i.code %>">
                     </div>
                     <a href="/shop-single/<%= i.id %>">
@@ -286,7 +294,7 @@
                         <div class="all-prod-box-info-color">
                             <h5 class="mb-3">Цвет:</h5>
                             <% i.color.forEach(l => {%>
-                                <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                            <div class="all-prod-box-color" style="background: <%= l %>;"></div>
                             <%}) %>
                         </div>
                         <div class="all-prod-box-info-button">
@@ -317,11 +325,15 @@
                     <div class="heart-box">
                         <div class="item wishItem">
                             <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
-                                data-title="<%= i.titleHy %>" data-id="<%= i.id %>" data-code="<%= i.code %>"
-                                href="#">
+                                data-title="<%= i.titleHy %>" data-id="<%= i.id %>" data-code="<%= i.code %>" href="#">
                                 <i class="icon-line-awesome-heart-o"></i>
                             </a>
+                            <% if(i.discountHy) {%>
+                            <input type="hidden" name="price" value="<%= i.discountHy %>"
+                                data-price="<%= i.discountHy %>">
+                            <%} else {%>
                             <input type="hidden" name="price" value="<%= i.price %>" data-price="<%= i.price %>">
+                            <%} %>
                             <input type="hidden" name="code" value="<%= i.code %>" data-code="<%= i.code %>">
                         </div>
                     </div>
@@ -342,7 +354,7 @@
                         <div class="all-prod-box-info-color">
                             <h5 class="mb-3">Գույն:</h5>
                             <% i.color.forEach(l => {%>
-                                <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                            <div class="all-prod-box-color" style="background: <%= l %>;"></div>
                             <%}) %>
                         </div>
                         <div class="all-prod-box-info-button">

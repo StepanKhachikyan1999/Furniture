@@ -14,7 +14,7 @@ router.get('/', auth, async  (req, res) => {
 
 
     res.render('personal', {
-        title: 'Личный Кабинет',
+        title: 'Անձնական սենյակ',
         contact,
         category,
         logo,

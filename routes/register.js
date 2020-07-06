@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
         res.redirect('/')
     } else {
         res.render('register', {
-            title: 'Регистрация',
+            title: 'Գրանցվել',
             contact,
             category,
             regError: req.flash('regError'),

@@ -133,7 +133,7 @@
 					</a>
 					<div class="all-prod-box-info-button">
 						<a href="/shop-single/<%-id%>">Դիտել ավելին</a>
-						<button class="btn btn-outline-danger delete_wish_item_wishItem_<%- id %>">Ջնջել</button>
+						<button class="btn btn-outline-danger delete_wish_item_wishItem" data-id="<%- id %>">Ջնջել</button>
 					</div>
 				</div>
 			</div>
@@ -249,6 +249,11 @@
 		WISHLIST.removeToWish = function (id) {
 			WISHLIST.data.remove(WISHLIST.data.get(id));
 		}
+
+		$(document).on('click', '.delete_wish_item_wishItem', function(){
+			var data = $(this).data('id');
+			WISHLIST.removeToWish(data);
+		})
 		
 		
 

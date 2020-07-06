@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
     const checkout = await Checkout.find();
 
     res.render('shoping-cart', {
-        title: 'Корзина покупок',
+        title: 'Գնումների զամբյուղ',
         contact,
         category,
         checkout,

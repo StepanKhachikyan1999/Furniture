@@ -10,7 +10,7 @@ router.get('/', async (req,res)=> {
     const logo = await Logo.find();
 
     res.render('favorite', {
-        title: 'Мои избранники',
+        title: 'Իմ նախընտրածները',
         contact,
         category,
         logo

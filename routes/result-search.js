@@ -24,6 +24,19 @@ router.get('/:categoryEn/:page', async (req, res) => {
 
     let category_name = req.params.categoryEn
 
+    let min_price = req.query.min_price;
+    let max_price = req.query.max_price;
+
+    
+    sales_filter = []
+
+    const sales = await Sale.find({categoryEn: req.params.categoryEn});
+    sales.forEach(i => {
+        if (i.price >= min_price && i.price <= max_price) {
+            sales_filter.push(i)
+        }
+    })
+
 
     Sale
         .find({categoryEn: req.params.categoryEn})
@@ -37,13 +50,14 @@ router.get('/:categoryEn/:page', async (req, res) => {
                     sale_by_category: sale_by_category,
                     current: page,
                     pages: Math.ceil(count / perPage),
-                    title: 'Все категории',
+                    title: "Կատեգորիա  " + category_name,
                     contact,
                     category,
                     category_name,
                     countSale,
                     logo,
-                    color
+                    color,
+                    sales_filter
                     // countSaleCategory
                     // currentpage
                 })

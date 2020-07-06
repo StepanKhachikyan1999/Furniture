@@ -111,11 +111,14 @@
                             <%}) %>
 
                             <%} %>
+
+
+
                         </div>
 
 
 
-                        <div class="header-section-name type-box">
+                        <!-- <div class="header-section-name type-box">
                             <h4>Оплата</h4>
                         </div>
 
@@ -128,23 +131,30 @@
                                 <input type="radio" name="radio">
                                 <span class="checkmark-rad"></span>
                             </label>
-                        </div>
+                        </div> -->
 
                         <!-- input type="number" -->
                         <div class="header-section-name type-box">
                             <h4>Цена</h4>
                         </div>
 
-                        <div class="filter-price main-div">
-                            <input type="number" name="min-price" placeholder="0 &ensp; ֏">
-                            <input type="number" name="max-price" placeholder="100000 &ensp;֏">
-                        </div>
+                        <form class="filter-price main-div" action="/all-category/1" method="GET">
+                            <div class="form-group">
+                                <input type="number" name="min_price" placeholder="0 &ensp; ֏">
+                                <input type="number" name="max_price" placeholder="100000 &ensp;֏">
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-outline-danger" type="submit">Искать</button>
+                            </div>
+
+                        </form>
 
                     </div>
 
-                    <div class="search-box">
+                    <!-- <div class="search-box">
                         <a href="#" class=""> Искать </a>
-                    </div>
+                    </div> -->
 
                 </div>
                 <!-- end of col-md-3 -->
@@ -155,7 +165,61 @@
                     <div class="blog-list-left">
                         <div class="row mt-50">
                             <!-- hy -->
-                            <% if(locale === 'hy') {%>
+
+                            <% if(locale === "hy") {%>
+                            <% if(!sales_filter.length == 0) {%>
+                            <% sales_filter.forEach(i => {%>
+                            <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
+                                <% if(i.news){%>
+                                <div class="sale-box">
+                                    <span>Նոր</span>
+                                </div>
+                                <%} %>
+
+                                <div class="all-prod-box">
+                                    <div class="heart-box">
+                                        <!-- <i class="icon-line-awesome-heart-o"></i> -->
+                                        <div class="item wishItem">
+                                            <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
+                                                data-title="<%= i.titleHy %>" data-id="<%= i.id %>"
+                                                data-code="<%= i.code %>" href="#">
+                                                <i class="icon-line-awesome-heart-o"></i>
+                                            </a>
+                                            <input type="hidden" name="price" value="<%= i.price %>"
+                                                data-price="<%= i.price %>">
+                                            <input type="hidden" name="code" value="<%= i.code %>"
+                                                data-code="<%= i.code %>">
+                                        </div>
+                                    </div>
+                                    <!-- <a href="#"> -->
+                                    <div class="all-prod-box-img">
+                                        <div class="item_img all-prod-box-img-h">
+                                            <% i.avatar.forEach(j => {%>
+                                            <img src="uploads/<%= j %>">
+                                            <%}) %>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+                                    <div class="all-prod-box-info">
+                                        <h6> <span>ID :</span>AC <%= i.code %></h6>
+                                        <a href="/shop-single/<%= i.id %>">
+                                            <h5><%= i.titleHy %></h5>
+                                        </a>
+                                        <div class="all-prod-box-info-color">
+                                            <h5>Գույն:</h5>
+                                            <% i.color.forEach(l => {%>
+                                            <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                                            <%}) %>
+                                        </div>
+                                        <div class="all-prod-box-info-button">
+                                            <a href="/shop-single/<%=i.id%>">Ավելին </a>
+                                            <h4><%= i.price %> &#1423</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}) %>
+                            <%} else {%>
                             <% sale.forEach(i => {%>
                             <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
                                 <% if(i.news){%>
@@ -189,14 +253,14 @@
                                     </div>
                                     <!-- </a> -->
                                     <div class="all-prod-box-info">
-                                        <h6> <span>ID  :</span>AC <%= i.code %></h6>
+                                        <h6> <span>ID :</span>AC <%= i.code %></h6>
                                         <a href="/shop-single/<%= i.id %>">
                                             <h5><%= i.titleHy %></h5>
                                         </a>
                                         <div class="all-prod-box-info-color">
                                             <h5>Գույն:</h5>
                                             <% i.color.forEach(l => {%>
-                                                <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                                            <div class="all-prod-box-color" style="background: <%= l %>;"></div>
                                             <%}) %>
                                         </div>
                                         <div class="all-prod-box-info-button">
@@ -208,9 +272,60 @@
                             </div>
                             <%}) %>
                             <%} %>
+                            <%} %>
 
                             <!-- ru -->
-                            <% if(locale === 'ru') {%>
+
+                            <% if(locale === "ru") {%>
+                            <% if(!sales_filter.length == 0) {%>
+                            <% sales_filter.forEach(i => {%>
+                            <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
+                                <% if(i.news){%>
+                                <div class="sale-box">
+                                    <span>Новый</span>
+                                </div>
+                                <%} %>
+                                <div class="all-prod-box">
+                                    <div class="heart-box">
+                                        <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
+                                            data-title="<%= i.titleRu %>" data-id="<%= i.id %>"
+                                            data-code="<%= i.code %>" href="#">
+                                            <i class="icon-line-awesome-heart-o"></i>
+                                        </a>
+                                        <input type="hidden" name="price" value="<%= i.price %>"
+                                            data-price="<%= i.price %>">
+                                        <input type="hidden" name="code" value="<%= i.code %>"
+                                            data-code="<%= i.code %>">
+                                    </div>
+                                    <!-- <a href="#"> -->
+                                    <div class="all-prod-box-img">
+                                        <div class="item_img all-prod-box-img-h">
+                                            <% i.avatar.forEach(j => {%>
+                                            <img src="uploads/<%= j %>">
+                                            <%}) %>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+                                    <div class="all-prod-box-info">
+                                        <h6> <span>ID :</span>AC <%= i.code %></h6>
+                                        <a href="/shop-single/<%= i.id %>">
+                                            <h5><%= i.titleRu %></h5>
+                                        </a>
+                                        <div class="all-prod-box-info-color">
+                                            <h5>Цвет:</h5>
+                                            <% i.color.forEach(l => {%>
+                                            <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                                            <%}) %>
+                                        </div>
+                                        <div class="all-prod-box-info-button">
+                                            <a href="/shop-single/<%=i.id%>">Подробное </a>
+                                            <h4><%= i.price %> &#1423</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}) %>
+                            <%} else {%>
                             <% sale.forEach(i => {%>
                             <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
                                 <% if(i.news){%>
@@ -240,14 +355,14 @@
                                     </div>
                                     <!-- </a> -->
                                     <div class="all-prod-box-info">
-                                        <h6> <span>ID  :</span>AC <%= i.code %></h6>
+                                        <h6> <span>ID :</span>AC <%= i.code %></h6>
                                         <a href="/shop-single/<%= i.id %>">
                                             <h5><%= i.titleRu %></h5>
                                         </a>
                                         <div class="all-prod-box-info-color">
                                             <h5>Цвет:</h5>
                                             <% i.color.forEach(l => {%>
-                                                <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                                            <div class="all-prod-box-color" style="background: <%= l %>;"></div>
                                             <%}) %>
                                         </div>
                                         <div class="all-prod-box-info-button">
@@ -259,9 +374,63 @@
                             </div>
                             <%}) %>
                             <%} %>
+                            <%} %>
 
                             <!-- en -->
-                            <% if(locale === 'en') {%>
+
+                            <% if(locale === "en") {%>
+                            <% if(!sales_filter.length == 0) {%>
+                            <% sales_filter.forEach(i => {%>
+                            <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
+                                <% if(i.news){%>
+                                <div class="sale-box">
+                                    <span>New</span>
+                                </div>
+                                <%} %>
+                                <div class="all-prod-box">
+                                    <div class="heart-box">
+                                        <!-- <i class="icon-line-awesome-heart-o"></i> -->
+                                        <div class="item wishItem">
+                                            <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
+                                                data-title="<%= i.titleEn %>" data-id="<%= i.id %>"
+                                                data-code="<%= i.code %>" href="#">
+                                                <i class="icon-line-awesome-heart-o"></i>
+                                            </a>
+                                            <input type="hidden" name="price" value="<%= i.price %>"
+                                                data-price="<%= i.price %>">
+                                            <input type="hidden" name="code" value="<%= i.code %>"
+                                                data-code="<%= i.code %>">
+                                        </div>
+                                    </div>
+                                    <!-- <a href="#"> -->
+                                    <div class="all-prod-box-img">
+                                        <div class="item_img all-prod-box-img-h">
+                                            <% i.avatar.forEach(j => {%>
+                                            <img src="uploads/<%= j %>">
+                                            <%}) %>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+                                    <div class="all-prod-box-info">
+                                        <h6> <span>ID :</span>AC <%= i.code %></h6>
+                                        <a href="/shop-single/<%= i.id %>">
+                                            <h5><%= i.titleEn %></h5>
+                                        </a>
+                                        <div class="all-prod-box-info-color">
+                                            <h5>Color:</h5>
+                                            <% i.color.forEach(l => {%>
+                                            <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                                            <%}) %>
+                                        </div>
+                                        <div class="all-prod-box-info-button">
+                                            <a href="/shop-single/<%=i.id%>">Detailed </a>
+                                            <h4><%= i.price %> &#1423</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}) %>
+                            <%} else {%>
                             <% sale.forEach(i => {%>
                             <div class="col-lg-6 col-md-12 col-12 <%= i.categoryEn %>">
                                 <% if(i.news){%>
@@ -294,14 +463,14 @@
                                     </div>
                                     <!-- </a> -->
                                     <div class="all-prod-box-info">
-                                        <h6> <span>ID  :</span>AC <%= i.code %></h6>
+                                        <h6> <span>ID :</span>AC <%= i.code %></h6>
                                         <a href="/shop-single/<%= i.id %>">
                                             <h5><%= i.titleEn %></h5>
                                         </a>
                                         <div class="all-prod-box-info-color">
                                             <h5>Color:</h5>
                                             <% i.color.forEach(l => {%>
-                                                <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                                            <div class="all-prod-box-color" style="background: <%= l %>;"></div>
                                             <%}) %>
                                         </div>
                                         <div class="all-prod-box-info-button">
@@ -313,6 +482,8 @@
                             </div>
                             <%}) %>
                             <%} %>
+                            <%} %>
+
                         </div>
 
                         <div class="box-pagination">

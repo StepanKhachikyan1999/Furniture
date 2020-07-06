@@ -8026,7 +8026,7 @@ input::-webkit-inner-spin-button {
 
 .filter-price{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .filter-price input{
     height: 40px;

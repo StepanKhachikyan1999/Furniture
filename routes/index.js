@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
     const color = await Color.find()
 
     res.render('index', {
-        title: 'Главная',
+        title: 'Գլխավոր',
         service,
         advantage,
         contact,

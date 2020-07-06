@@ -17,7 +17,7 @@ router.get('/', auth, async  (req, res) => {
     const logo = await Logo.find();
 
     res.render('orders', {
-        title: 'История заказов',
+        title: 'Գնումների պատմություն',
         contact,
         category,
         cash,
