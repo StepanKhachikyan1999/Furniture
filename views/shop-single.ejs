@@ -44,9 +44,11 @@
 
                     <!-- Price Start -->
                     <div class="single-product-price">
-
+                        <% if(sale.discountHy) {%>
+                        <h4><%= sale.discountHy %>&nbsp;֏</h4>
+                        <%} else {%>
                         <h4><%= sale.price %>&nbsp;֏</h4>
-
+                        <%} %>
                     </div>
                     <!-- Price End -->
                     <p><%= sale.infoHy %></p>
@@ -56,16 +58,22 @@
                     <!-- Quantity Form and Button Start -->
                     <form action="" data-cesta-feira-form>
                         <div class="quantity mt-30">
-                            <input type="number" name="quantity" min="1" max="99" step="1" value="1" data-cesta-feira-attribute>
+                            <input type="number" name="quantity" min="1" max="99" step="1" value="1"
+                                data-cesta-feira-attribute>
                         </div>
                         <input type="hidden" name="title" value="<%= sale.titleHy %>" data-cesta-feira-attribute="">
+                        <% if(sale.discountHy) {%>
+                        <input type="hidden" name="price" value="<%= sale.discountHy %>" data-cesta-feira-attribute="">
+                        <%} else {%>
                         <input type="hidden" name="price" value="<%= sale.price %>" data-cesta-feira-attribute="">
+                        <%} %>
+
                         <input type="hidden" name="avatar" value="<%= sale.avatar[0] %>" data-cesta-feira-attribute="">
                         <input type="hidden" name="id" value="<%= sale.id %>" data-cesta-feira-item-id>
                         <!-- <input type="submit" class="dark-pulse-button add-to-cart-button" value="Купить сейчас"/> -->
                         <button type="submit" class="dark-pulse-button add-to-cart-button">Купить сейчас</button>
                     </form>
-                  
+
                     <!-- Quantity Form and Button End -->
 
                     <div class="product-categories">

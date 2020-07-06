@@ -157,7 +157,7 @@
                 <div class="col-lg-9 col-md-6 col-xs-12">
                     <div class="blog-list-left">
                         <div class="row mt-50">
-                    
+
                             <!-- hy -->
 
                             <% if(locale === "hy") {%>
@@ -169,7 +169,11 @@
                                     <span>Նոր</span>
                                 </div>
                                 <%} %>
-
+                                <% if(i.discountHy) {%>
+                                <div class="sale-box">
+                                    <span><%= i.discountHy %></span>
+                                </div>
+                                <%} %>
                                 <div class="all-prod-box">
                                     <div class="heart-box">
                                         <!-- <i class="icon-line-awesome-heart-o"></i> -->
@@ -221,7 +225,11 @@
                                     <span>Նոր</span>
                                 </div>
                                 <%} %>
-
+                                <% if(i.discountHy) {%>
+                                <div class="sale-box">
+                                    <span><%= i.discountHy %></span>
+                                </div>
+                                <%} %>
                                 <div class="all-prod-box">
                                     <div class="heart-box">
                                         <!-- <i class="icon-line-awesome-heart-o"></i> -->
@@ -279,6 +287,11 @@
                                     <span>Новый</span>
                                 </div>
                                 <%} %>
+                                <% if(i.discountRu) {%>
+                                <div class="sale-box">
+                                    <span><%= i.discountRu %></span>
+                                </div>
+                                <%} %>
                                 <div class="all-prod-box">
                                     <div class="heart-box">
                                         <a class="wishAction addToWish" data-img="uploads/<%= i.avatar[0] %>"
@@ -325,6 +338,11 @@
                                 <% if(i.news){%>
                                 <div class="sale-box">
                                     <span>Новый</span>
+                                </div>
+                                <%} %>
+                                <% if(i.discountRu) {%>
+                                <div class="sale-box">
+                                    <span><%= i.discountRu %></span>
                                 </div>
                                 <%} %>
                                 <div class="all-prod-box">
@@ -381,6 +399,11 @@
                                     <span>New</span>
                                 </div>
                                 <%} %>
+                                <% if(i.discountEn) {%>
+                                <div class="sale-box">
+                                    <span><%= i.discountEn %></span>
+                                </div>
+                                <%} %>
                                 <div class="all-prod-box">
                                     <div class="heart-box">
                                         <!-- <i class="icon-line-awesome-heart-o"></i> -->
@@ -430,6 +453,11 @@
                                 <% if(i.news){%>
                                 <div class="sale-box">
                                     <span>New</span>
+                                </div>
+                                <%} %>
+                                <% if(i.discountEn) {%>
+                                <div class="sale-box">
+                                    <span><%= i.discountEn %></span>
                                 </div>
                                 <%} %>
                                 <div class="all-prod-box">
