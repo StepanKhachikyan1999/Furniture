@@ -7,6 +7,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const helmet = require('helmet');
 const compression = require('compression');
+const csrf = require('csurf');
 
 const app = express();
 
@@ -33,11 +34,13 @@ app.use(session({
 
 //middlwares
 
+
 const errorHandler = require('./middleware/error');
 const varMiddleware = require('./middleware/variables');
 const userMiddleware = require('./middleware/user');
 
 
+app.use(csrf());
 app.use(cookieParser());
 app.use(flash());
 app.use(varMiddleware);

@@ -225,6 +225,7 @@
                     <a href="/change-password">Забыли пароль?</a><br>
                     <a href="/register">Регистрация</a>
                 </div>
+                <input type="hidden" name="_csrf" value="<%= csrf %>">
                 <button class="submit-button" type="submit">Войти</button>
             </form>
             <%} else {%>
