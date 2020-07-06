@@ -126,6 +126,7 @@
                                         <input type="file" name="avatar">
                                     </div>
                                     <input type="hidden" value="<%=logo[0].id%>" name="id">
+                                    <input type="hidden" name="_csrf" value="<%= csrf %>">
                                     <button type="submit" class="btn btn-primary">Change</button>
                                 </form>
                             </div>
@@ -178,6 +179,7 @@
                                     <input type="file" name="avatar">
                                 </div>
                                 <div class="form-group">
+                                    <input type="hidden" name="_csrf" value="<%= csrf %>">
                                     <button type="submit" class="btn btn-primary">Create</button>
                                 </div>
                             </div>
@@ -208,6 +210,7 @@
                                         <td>
                                             <form action="/admin-settings/delete" method="POST">
                                                 <input type="hidden" name="id" value="<%= item.id %>">
+                                                <input type="hidden" name="_csrf" value="<%= csrf %>">
                                                 <button class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
@@ -272,6 +275,7 @@
                                     <input type="file" name="avatar">
                                 </div>
                                 <div class="form-group">
+                                    <input type="hidden" name="_csrf" value="<%= csrf %>">
                                     <button type="submit" class="btn btn-primary">Add</button>
                                 </div>
                             </div>
@@ -334,6 +338,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="hidden" value="<%=about[0].id%>" name="id">
+                                <input type="hidden" name="_csrf" value="<%= csrf %>">
                                 <button type="submit" class="btn btn-primary">Change</button>
                             </div>
 
@@ -368,6 +373,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="hidden" value="<%=contact[0].id%>" name="id">
+                                <input type="hidden" name="_csrf" value="<%= csrf %>">
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
@@ -383,6 +389,7 @@
                                 <input type="file" name="avatar">
                             </div>
                             <div class="form-group">
+                                <input type="hidden" name="_csrf" value="<%= csrf %>">
                                 <button type="submit" class="btn btn-primary">Add</button>
                             </div>
                         </form>
@@ -434,6 +441,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="id" value="<%= HeaderText[0].id %>">
+                                <input type="hidden" name="_csrf" value="<%= csrf %>">
                                 <button type="submit" class="btn btn-primary">Change</button>
                             </div>
                         </form>
@@ -484,6 +492,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <input type="hidden" name="_csrf" value="<%= csrf %>">
                                 <button type="submit" class="btn btn-primary">Create</button>
                             </div>
                         </form>
@@ -501,6 +510,7 @@
                                 <label for="" class="color">Enter the color name in English *</label>
                                 <input type="text" name="color" class="form-control">
                             </div>
+                            <input type="hidden" name="_csrf" value="<%= csrf %>">
                             <button class="btn btn-primary" type="submit">Add</button>
                         </form>
 
@@ -549,6 +559,7 @@
 
                                 <div class="form-group">
                                     <input type="hidden" name="id" value="<%= condition[0].id %>">
+                                    <input type="hidden" name="_csrf" value="<%= csrf %>">
                                     <button type="submit" class="btn btn-primary">Change</button>
                                 </div>
                             </div>
