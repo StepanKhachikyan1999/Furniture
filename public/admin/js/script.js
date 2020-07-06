@@ -13,3 +13,4 @@ document.querySelectorAll('.date').forEach(node => {
     node.textContent = toDate(node.textContent)
 })
 
+

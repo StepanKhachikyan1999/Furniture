@@ -458,3 +458,8 @@ body.sidebar-toggled footer.sticky-footer {
   background-color: #e9ecef;
   padding: 15px 10px;
 }
+
+.pass_photo {
+  width: 100px;
+  height: 100px;
+}

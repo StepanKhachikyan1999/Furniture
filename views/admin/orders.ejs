@@ -211,9 +211,9 @@
                                 <tbody>
                                     <% withoutBank.forEach(i => {%>
                                     <tr>
-                                        <td><img src="/uploads/<%= i.avatar[0] %>" style="width: 100px; height: 100px;"></td>
-                                        <td><img src="/uploads/<%= i.avatar[1] %>" style="width: 100px; height: 100px;"></td>
-                                        <td><img src="/uploads/<%= i.avatar[2] %>" style="width: 100px; height: 100px;"></td>
+                                        <td><img src="/uploads/<%= i.avatar[0] %>"  class="pass_photo"></td>
+                                        <td><img src="/uploads/<%= i.avatar[1] %>"  class="pass_photo"></td>
+                                        <td><img src="/uploads/<%= i.avatar[2] %>"  class="pass_photo"></td>
                                         <td>
                                             <% i.title.forEach(j => {%>
                                             <p><%= j %></p>
@@ -281,9 +281,9 @@
                                         <td><%= i.email %></td>
                                         <td><%= i.phone %></td>
                                         <td><%= i.address %></td>
-                                        <td><img src="/uploads/<%= i.avatar[0] %>" style="width: 100px; height: 100px;"></td>
-                                        <td><img src="/uploads/<%= i.avatar[1] %>" style="width: 100px; height: 100px;"></td>
-                                        <td><img src="/uploads/<%= i.avatar[2] %>" style="width: 100px; height: 100px;"></td>
+                                        <td><img src="/uploads/<%= i.avatar[0] %>" class="pass_photo"></td>
+                                        <td><img src="/uploads/<%= i.avatar[1] %>" class="pass_photo"></td>
+                                        <td><img src="/uploads/<%= i.avatar[2] %>" class="pass_photo"></td>
                                         <td>
                                             <% i.title.forEach(j => {%>
                                             <p><%= j %></p>
