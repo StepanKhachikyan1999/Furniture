@@ -110,6 +110,7 @@ const ordersRouter = require('./routes/orders');
 const favoriteRouter = require('./routes/favorite');
 const changePasswordRouter = require('./routes/change-password');
 const allCategoryRouter = require('./routes/all-category')
+const conditionRouter = require('./routes/condition');
 
 
 app.use('/', indexRouter);
@@ -124,7 +125,8 @@ app.use('/personal', personalRouter);
 app.use('/orders', ordersRouter);
 app.use('/favorite', favoriteRouter);
 app.use('/change-password', changePasswordRouter);
-app.use('/all-category', allCategoryRouter)
+app.use('/all-category', allCategoryRouter);
+app.use('/condition', conditionRouter);
 
 
 //admin routes

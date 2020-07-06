@@ -11,6 +11,7 @@ const Logo = require('../../models/Logo');
 const Slider = require('../../models/Slider')
 const Color = require('../../models/Color');
 const auth = require('../../middleware/auth');
+const Condition = require('../../models/Condition');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -39,7 +40,8 @@ router.get('/', auth, async (req, res) => {
     const category = await Category.find()
     const logo = await Logo.find()
     const slider = await Slider.find();
-    const color = await Color.find()
+    const color = await Color.find();
+    const condition = await Condition.find();
 
     if (req.session.user.role == 'User') {
         res.redirect('/')
@@ -54,7 +56,8 @@ router.get('/', auth, async (req, res) => {
             category,
             logo,
             slider,
-            color
+            color,
+            condition
         })
     }
 
@@ -195,7 +198,7 @@ router.post('/slider', upload.single('avatar'), async function (req, res, next) 
     return false;
 })
 
-router.post('/sliderDelete', async (req,res)=> {
+router.post('/sliderDelete', async (req, res) => {
     const { id } = req.body
     delete req.body.id
     await Slider.findByIdAndRemove(id)
@@ -203,10 +206,28 @@ router.post('/sliderDelete', async (req,res)=> {
 })
 
 
-router.post('/colors', async (req,res)=> {
-    const post = new Color({color: req.body.color})
+router.post('/colors', async (req, res) => {
+    const post = new Color({ color: req.body.color })
     await post.save();
     res.redirect('/admin-settings')
 })
+
+
+router.post('/condition', async (req, res) => {
+    // const post = new Condition({
+    //     conditionHy: req.body.conditionHy,
+    //     conditionRu: req.body.conditionRu,
+    //     conditionEn: req.body.conditionEn,
+    // })
+    // await post.save();
+
+    const { id } = req.body
+    delete req.body.id
+    await Condition.findByIdAndUpdate(id, req.body)
+
+   
+    res.redirect('/admin-settings')
+})
+
 
 module.exports = router;
