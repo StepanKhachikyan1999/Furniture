@@ -63,6 +63,8 @@
 		"yourPassword": "Order history",
 		"email": "Email",
 		"password": "Password",
+		"confirm": "Confirm password",
+		"text": "I have read and agree to the terms of security and processing of personal data",
 		"basic": "Basic data",
 		"data": {
 			"client": "New client",
@@ -71,5 +73,29 @@
 			"continue": "Continue"
 		}
 	},
-	"condition": "Conditions"
+	"condition": "Conditions",
+	"shoping_cart": {
+		"howToPay": "How do you want to pay ?",
+		"orderReg": "Order registration",
+		"onlinePayment": "Online payment",
+		"cash": {
+			"cash": "Split in place",
+			"name": "Name *",
+			"surname": "Surname *",
+			"email": "Email *",
+			"phone": "Phone *",
+			"city": "City *",
+			"address": "Address *"
+		},
+		"credit_without_bank": {
+			"without": "Sale on credit without a Bank",
+			"certificate": "Photo of the certificate of ownership",
+			"front_side": "Passport photo front side",
+			"back_side": "Passport photo back side"
+		},
+		"withBank": {
+			"withBank": "Sale on credit through a Bank",
+			"conditions": "I have read and agree to the above terms and conditions"
+		}
+	}
 }

@@ -106,7 +106,7 @@
 		});
 	}
 
-	
+
 
 	$.fn.wishBar = function (options, WISHLIST) {
 
@@ -138,7 +138,7 @@
 				</div>
 			</div>
 		</div>`,
-			
+
 			//override dei metodi di manipolazione del DOM
 			addItemHtml: null,						// sovrascrive il metodo di manipolazione del DOM all'aggiunta di un item (attrbutes: data)
 			removeItemHtml: null,					// sovrascrive il metodo di manipolazione del DOM alla rimozione di un item (attrbutes: id)
@@ -148,8 +148,8 @@
 		// console.log(WISHLIST.data)
 		// console.log(window.localStorage.wishlist)
 		// let stor = window.localStorage.wishlist.split();
-		
-		
+
+
 
 		//METODI DI MANIPOLAZIONE DEL DOM
 		//invocato quando si aggiunge un elemento
@@ -235,8 +235,18 @@
 			}
 		}, options);
 
+
+
 		WISHLIST.ID = ID;
 		WISHLIST.propagate = {};
+
+		// var wishCounter = $('.wishCounter');
+
+		// if (wishCounter.text() == 0) {
+		// 	wishCounter.hide()
+		// } else {
+		// 	wishCounter.show()
+		// }
 
 		//METODI GESTIONE OGGETTI COLLEZIONI BACKBONE DI WISHLIST
 		//invocato per aggiungere un'istanza all'oggetto locale wishlist
@@ -250,12 +260,12 @@
 			WISHLIST.data.remove(WISHLIST.data.get(id));
 		}
 
-		$(document).on('click', '.delete_wish_item_wishItem', function(){
+		$(document).on('click', '.delete_wish_item_wishItem', function () {
 			var data = $(this).data('id');
 			WISHLIST.removeToWish(data);
 		})
-		
-		
+
+
 
 		//invocato per ripulire tutto l'oggetto locale wishlist
 		WISHLIST.clearWish = function () {

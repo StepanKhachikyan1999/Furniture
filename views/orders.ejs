@@ -9,6 +9,62 @@
         </div>
         <div class="row mt-40">
             <% if(cash.length > 0) {%>
+            <!-- hy -->
+            <% if(locale == 'hy') {%>
+            <div class="col-lg-8 col-md-7 col-12 mb-30">
+                <h4 class="mb-5">Վճարումը տեղում</h4>
+                <div class="orders-box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Պատվերի համար</th>
+                                <th>Հաճախորդ</th>
+                                <th>Անվանում</th>
+                                <th>Քանակ</th>
+                                <th>Ընդհանուր</th>
+                                <th>Պատվիրվել է</th>
+                                <th>Կարգավիճակ</th>
+                                <!-- <th>Детали</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% cash.forEach((i) => {%>
+                            <% if(userId == timeId) {%>
+                            <tr>
+                                <td data-column="First Name">
+                                    <% for(index in cash) {%>
+                                    <%= Number(index+1) %>
+                                    <%} %>
+                                </td>
+                                <td data-column="Last Name"><%= i.name %> &nbsp; <%= i.surname %></td>
+                                <td>
+                                    <% i.title.forEach(j => {%>
+                                    <p><%= j %></p>
+                                    <hr>
+                                    <%}) %>
+                                </td>
+                                <td data-column="Job Title">
+                                    <% i.quantity.forEach(k => {%>
+                                    <p><%= k %> &nbsp; Հատ</p>
+                                    <hr>
+                                    <%}) %>
+                                </td>
+                                <!-- <td data-column="Twitter">в ожидании</td> -->
+                                <td data-column="Twitter"><%= i.totalValue %></td>
+                                <td data-column="Twitter"><span class="date"><small><%= i.now %></small></span></td>
+                                <!-- <td data-column="Twitter"><a href="" class="primary-button-cub button-xs">Подробнее</a>
+                                                </td> -->
+                                <td><%= i.status %></td>
+                            </tr>
+                            <%} %>
+                            <%}) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <%} %>
+            <!-- ru -->
+            <% if(locale == 'ru') {%>
             <div class="col-lg-8 col-md-7 col-12 mb-30">
                 <h4 class="mb-5">Օплата на месте</h4>
                 <div class="orders-box">
@@ -51,7 +107,7 @@
                                 <td data-column="Twitter"><%= i.totalValue %></td>
                                 <td data-column="Twitter"><span class="date"><small><%= i.now %></small></span></td>
                                 <!-- <td data-column="Twitter"><a href="" class="primary-button-cub button-xs">Подробнее</a>
-                                            </td> -->
+                                                </td> -->
                                 <td><%= i.status %></td>
                             </tr>
                             <%} %>
@@ -60,6 +116,64 @@
                     </table>
                 </div>
             </div>
+            <%} %>
+            <!-- en -->
+            <% if(locale == 'en') {%>
+            <div class="col-lg-8 col-md-7 col-12 mb-30">
+                <h4 class="mb-5">Split in place</h4>
+                <div class="orders-box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>№ Order's</th>
+                                <th>Client</th>
+                                <th>Title</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Added</th>
+                                <th>Status</th>
+                                <!-- <th>Детали</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% cash.forEach((i) => {%>
+                            <% if(userId == timeId) {%>
+                            <tr>
+                                <td data-column="First Name">
+                                    <% for(index in cash) {%>
+                                    <%= Number(index+1) %>
+                                    <%} %>
+                                </td>
+                                <td data-column="Last Name"><%= i.name %> &nbsp; <%= i.surname %></td>
+                                <td>
+                                    <% i.title.forEach(j => {%>
+                                    <p><%= j %></p>
+                                    <hr>
+                                    <%}) %>
+                                </td>
+                                <td data-column="Job Title">
+                                    <% i.quantity.forEach(k => {%>
+                                    <p><%= k %> &nbsp; pieces</p>
+                                    <hr>
+                                    <%}) %>
+                                </td>
+                                <!-- <td data-column="Twitter">в ожидании</td> -->
+                                <td data-column="Twitter"><%= i.totalValue %></td>
+                                <td data-column="Twitter"><span class="date"><small><%= i.now %></small></span></td>
+                                <!-- <td data-column="Twitter"><a href="" class="primary-button-cub button-xs">Подробнее</a>
+                                                    </td> -->
+                                <td><%= i.status %></td>
+                            </tr>
+                            <%} %>
+                            <%}) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <%} %>
+
+
+
             <%} %>
 
 
@@ -182,13 +296,11 @@
             <div class="col-lg-4 col-md-5 col-12">
                 <div class="register-box-menu">
                     <ul>
-                        <li><a href="/login"> Вход </a></li>
-                        <li><a href="/register"> Регистрация </a></li>
-                        <li><a href="/change-password"> Забыли пароль? </a></li>
-                        <li><a href="/personal"> Личный Кабинет </a></li>
-                        <li class="register-box-menu-active"><a href="/orders"> История заказов </a></li>
-                        <li><a href="#"> Возвраты </a></li>
-                        <li><a href="#"> Условия </a></li>
+                        <li><a href="/login"> <%= __('info.login') %> </a></li>
+                        <li><a href="/register"> <%= __('info.register') %> </a></li>
+                        <li><a href="/change-password"> <%= __('info.forgot') %> </a></li>
+                        <li><a href="/personal"> <%= __('info.myInfo') %> </a></li>
+                        <li class="register-box-menu-active"><a href="/orders"> <%= __('info.orders') %> </a></li>
                     </ul>
                 </div>
             </div>

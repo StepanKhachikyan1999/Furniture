@@ -223,13 +223,13 @@
             <form class="before-register-box" action="/login" method="POST">
                 
                 <!-- <button class="close_b">X</button> -->
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
+                <input type="email" name="email" placeholder="<%= __('info.email') %>">
+                <input type="password" name="password" placeholder="<%= __('info.password') %>">
                 <div class="forgot-reg">
-                    <a href="/change-password">Забыли пароль?</a><br>
-                    <a href="/register">Регистрация</a>
+                    <a href="/change-password"><%= __('info.forgot') %></a><br>
+                    <a href="/register"><%= __('info.register') %></a>
                 </div>
-                <button class="submit-button" type="submit">Войти</button>
+                <button class="submit-button" type="submit"><%= __('info.login') %></button>
             </form>
             <%} else {%>
             <div class="after-register-box">

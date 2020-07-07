@@ -23,7 +23,7 @@
 
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="login-box client-login-box">
-                            <h4><%= __('info.yourPassword') %></h4>
+                            <h4><%= __('info.login') %></h4>
                             <div class="register-box-input mt-15">
                                 <% if(loginError.length > 0) {%>
                                 <p class="alert"><%= loginError%></p>
@@ -33,8 +33,8 @@
                                 <%} %>
                                 <form action="/login" method="POST" novalidate>
 
-                                    <input type="email" name="email" placeholder="E-Mail *" required="">
-                                    <input type="password" name="password" placeholder="Пароль *" required="">
+                                    <input type="email" name="email" placeholder="<%= __('info.email') %>" required="">
+                                    <input type="password" name="password" placeholder="<%= __('info.password') %>" required="">
 
                                     <button type="submit" class="register-button"><%= __('info.data.continue') %></button>
                                 </form>

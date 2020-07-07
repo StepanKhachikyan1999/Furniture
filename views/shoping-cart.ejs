@@ -33,10 +33,9 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-12 mt-60">
                 <div class="section-heading">
-                    <h5>Как вы хотите платить ?</h5>
+                    <h5><%= __('shoping_cart.howToPay') %></h5>
                     <div class="section-heading-line-left"></div>
                 </div>
-
                 <div class="panel-group mt-40" id="accordion2" role="tablist" aria-multiselectable="true">
 
                     <div class="panel panel-grey accordion">
@@ -44,7 +43,7 @@
                             <h4 class="panel-title accordion-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
                                     href="#ac_col1" aria-expanded="true" aria-controls="ac_col1">
-                                    Օплата на месте
+                                    <%= __('shoping_cart.cash.cash') %>
                                 </a>
                             </h4>
                         </div>
@@ -57,16 +56,22 @@
                                         <form action="/shoping-cart/cash" method="POST">
                                             <div class="buy-box-input" id="cash">
                                                 <!-- <h4>Name</h4>    -->
-                                                <input type="text" name="name" placeholder="Имя *" required="">
-                                                <input type="text" name="surname" placeholder="Фамилия *" required="">
-                                                <input type="email" name="email" placeholder="E-Mail *" required="">
-                                                <input type="number" name="phone" placeholder="Телефон *" required="">
+                                                <input type="text" name="name"
+                                                    placeholder="<%= __('shoping_cart.cash.name') %>" required="">
+                                                <input type="text" name="surname"
+                                                    placeholder="<%= __('shoping_cart.cash.surname') %>" required="">
+                                                <input type="email" name="email"
+                                                    placeholder="<%= __('shoping_cart.cash.email') %>" required="">
+                                                <input type="number" name="phone"
+                                                    placeholder="<%= __('shoping_cart.cash.phone') %>" required="">
 
-                                                <input type="text" name="city" placeholder="Город *" required="">
-                                                <input type="text" name="address" placeholder="Адрес, дом *"
-                                                    required="">
+                                                <input type="text" name="city"
+                                                    placeholder="<%= __('shoping_cart.cash.city') %>" required="">
+                                                <input type="text" name="address"
+                                                    placeholder="<%= __('shoping_cart.cash.address') %>" required="">
                                             </div>
-                                            <button class="submit-button-buy" type="submit" id="cashPayment">Оформление заказа</button>
+                                            <button class="submit-button-buy" type="submit"
+                                                id="cashPayment"><%= __('shoping_cart.orderReg') %></button>
                                         </form>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-12 mb-30"></div>
@@ -80,7 +85,7 @@
                             <h4 class="panel-title accordion-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
                                     href="#ac_col2" aria-expanded="false" aria-controls="ac_col2">
-                                    Онлайн оплата
+                                    <%= __('shoping_cart.onlinePayment') %>
                                 </a>
                             </h4>
                         </div>
@@ -101,7 +106,7 @@
                             <h4 class="panel-title accordion-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
                                     href="#ac_col3" aria-expanded="false" aria-controls="ac_col3">
-                                    Продажа в кредит без банка
+                                    <%= __('shoping_cart.credit_without_bank.without') %>
                                 </a>
                             </h4>
                         </div>
@@ -113,21 +118,21 @@
                                     id="withoutbank">
 
                                     <div class="add-user-img mt-10">
-                                        <h5>Фото свидетельства о собственности</h5>
+                                        <h5><%= __('shoping_cart.credit_without_bank.certificate') %></h5>
                                         <!-- <input type='file' required onchange="rentURL(this);" name="property_certificates"> -->
                                         <input type='file' required onchange="rentURL(this);" name="avatar">
                                         <img id="blah_02" src="img/user-info/images.jpg" alt="img" />
                                     </div>
 
                                     <div class="add-license-img">
-                                        <h5>Фото паспорта <span>лицевая сторона</span></h5>
+                                        <h5><%= __('shoping_cart.credit_without_bank.front_side') %></h5>
                                         <!-- <input type="file" required="" onchange="readsURL(this);" name="passport_photo_front_side"> -->
                                         <input type="file" required="" onchange="readsURL(this);" name="avatar">
                                         <img id="blah" src="img/user-info/dr-license.png" alt="img">
                                     </div>
 
                                     <div class="add-license-img">
-                                        <h5>Фото паспорта <span>обратная сторона</span></h5>
+                                        <h5><%= __('shoping_cart.credit_without_bank.back_side') %></h5>
                                         <!-- <input type="file" required="" onchange="reads2URL(this);" name="passport_photo_back_side"> -->
                                         <input type="file" required="" onchange="reads2URL(this);" name="avatar">
                                         <img id="blah2" src="img/user-info/dr-license.png" alt="img">
@@ -141,7 +146,8 @@
                                             </div>
                                         </div>
                                     </div> -->
-                                    <button class="submit-button-buy" type="submit" id="withoutBankPayment">Оформление заказа</button>
+                                    <button class="submit-button-buy" type="submit"
+                                        id="withoutBankPayment"><%= __('shoping_cart.orderReg') %></button>
                                 </form>
 
                             </div>
@@ -153,7 +159,7 @@
                             <h4 class="panel-title accordion-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
                                     href="#ac_col4" aria-expanded="false" aria-controls="ac_col4">
-                                    Продажа в кредит через банка
+                                    <%= __('shoping_cart.withBank.withBank') %>
                                 </a>
                             </h4>
                         </div>
@@ -167,7 +173,7 @@
                                     <div class="register-agree">
                                         <div class="row">
                                             <div class="col-lg-8 col-12">
-                                                <h4>Я прочитал и согласен с вышеуказанными условиями</h4>
+                                                <h4><%= __('shoping_cart.withBank.conditions') %></h4>
                                                 <label class="type-name">
                                                     <input type="checkbox" name="checkbox" required="">
                                                     <span class="checkmark-check"></span>
@@ -182,17 +188,18 @@
                                     <div class="row">
                                         <div class="col-lg-8 col-md-8 col-12 mb-30">
                                             <form action="/shoping-cart/withbank" method="POST"
-                                                accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data" id="withBank">
+                                                accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data"
+                                                id="withBank">
                                                 <div class="add-info-user">
                                                     <div class="add-user-img mt-10">
-                                                        <h5>Ваша фото</h5>
+                                                        <h5><%= __('shoping_cart.credit_without_bank.certificate') %></h5>
                                                         <input type='file' required onchange="rentURL(this);"
                                                             name="avatar">
                                                         <img id="acra_auser" src="img/user-info/images.jpg" alt="img" />
                                                     </div>
 
                                                     <div class="add-license-img mt-50">
-                                                        <h5>Фото паспорта <span>лицевая сторона</span></h5>
+                                                        <h5><%= __('shoping_cart.credit_without_bank.front_side') %></h5>
                                                         <input type="file" required="" onchange="acra_readURL(this);"
                                                             name="avatar">
                                                         <img id="blah_acra" src="img/user-info/dr-license.png"
@@ -200,7 +207,7 @@
                                                     </div>
 
                                                     <div class="add-license-img">
-                                                        <h5>Фото паспорта <span>обратная сторона</span></h5>
+                                                        <h5><%= __('shoping_cart.credit_without_bank.back_side') %></h5>
                                                         <input type="file" required="" onchange="acra_2_readURL(this);"
                                                             name="avatar">
                                                         <img id="blah_acra_2" src="img/user-info/dr-license.png"
@@ -219,19 +226,18 @@
 
                                                 <div class="buy-box-input add-info-user-bank-input mt-10">
                                                     <!-- <h4>Name</h4>    -->
-                                                    <input type="text" name="name" placeholder="Имя *"
-                                                        required="zxc">
-                                                    <input type="text" name="surname" placeholder="Фамилия *"
+                                                    <input type="text" name="name" placeholder="<%= __('shoping_cart.cash.name') %>" required="zxc">
+                                                    <input type="text" name="surname" placeholder="<%= __('shoping_cart.cash.surname') %>"
                                                         required="">
-                                                    <input type="email" name="email" placeholder="E-Mail *" required="">
-                                                    <input type="number" name="phone" placeholder="Телефон *"
+                                                    <input type="email" name="email" placeholder="<%= __('shoping_cart.cash.email') %>" required="">
+                                                    <input type="number" name="phone" placeholder="<%= __('shoping_cart.cash.phone') %>"
                                                         required="">
 
-                                                    <input type="text" name="address" placeholder="Адрес, дом *"
+                                                    <input type="text" name="address" placeholder="<%= __('shoping_cart.cash.address') %>"
                                                         required="">
                                                 </div>
-                                                <button class="submit-button-buy" type="submit" id="withBankPayment">Оформление
-                                                    заказа</button>
+                                                <button class="submit-button-buy" type="submit"
+                                                    id="withBankPayment"><%= __('shoping_cart.orderReg') %></button>
                                             </form>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-12 mb-30"></div>

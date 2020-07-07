@@ -12,26 +12,24 @@
             <div class="col-lg-8 col-md-7 col-12 mb-30">
                 <div class="personal-info-box">
                     <ul>
-                        <li><b>Name:</b>&nbsp;<%= user.name %></li>
-                        <li><b>Surname:</b>&nbsp;<%= user.surname %></li>
-                        <li><b>Email:</b>&nbsp;<%= user.email %></li>
-                        <li><b>Phone:</b>&nbsp;<%= user.phone %></li>
+                        <li><b><%= __('shoping_cart.cash.name') %>:</b>&nbsp;<%= user.name %></li>
+                        <li><b><%= __('shoping_cart.cash.surname') %>:</b>&nbsp;<%= user.surname %></li>
+                        <li><b><%= __('info.email') %>:</b>&nbsp;<%= user.email %></li>
+                        <li><b><%= __('shoping_cart.cash.phone') %>:</b>&nbsp;<%= user.phone %></li>
                         <!-- <li>Password - <span>******</span></li> -->
                     </ul>
-                    <a href="/register" class="primary-button-cub button-md mt-20">Изменить</a>
+                    <!-- <a href="/register" class="primary-button-cub button-md mt-20">Изменить</a> -->
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-5 col-12">
                 <div class="register-box-menu">
                     <ul>
-                        <li><a href="/login"> Вход </a></li>
-                        <li><a href="/register"> Регистрация </a></li>
-                        <li><a href="/change-password"> Забыли пароль? </a></li>
-                        <li class="register-box-menu-active"><a href="/personal"> Личный Кабинет </a></li>
-                        <li><a href="/orders"> История заказов </a></li>
-                        <li><a href="#"> Возвраты </a></li>
-                        <li><a href="#"> Условия </a></li>
+                        <li><a href="/login"> <%= __('info.login') %> </a></li>
+                        <li><a href="/register"> <%= __('info.register') %> </a></li>
+                        <li><a href="/change-password"> <%= __('info.forgot') %> </a></li>
+                        <li class="register-box-menu-active"><a href="/personal"> <%= __('info.myInfo') %> </a></li>
+                        <li><a href="/orders"> <%= __('info.orders') %> </a></li>
                     </ul>
                 </div>
             </div>
