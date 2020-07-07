@@ -132,6 +132,7 @@
                                         <th>totalValueTemp</th>
                                         <th>totalValue</th>
                                         <th>Date</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -147,6 +148,7 @@
                                         <th>totalValueTemp</th>
                                         <th>totalValue</th>
                                         <th>Date</th>
+                                        <th>Status</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -173,6 +175,20 @@
                                             <%}) %></td>
                                         <td><%= i.totalValue %>&nbsp; Դ</td>
                                         <td><%= i.now %></td>
+                                        <td>
+                                            <form action="/shoping-cart/cash/status" method="POST">
+                                                <select name="status" class="form-control">
+                                                    <option value="Ընթացքում">Ընթացքում</option>
+                                                    <option value="Առկա">Առկա</option>
+                                                    <option value="Մերժված">Մերժված</option>
+                                                    <option value="Հաստատված">Հաստատված</option>
+                                                </select>
+                                                <div class="form-group mt-3">
+                                                    <input type="hidden" name="id" value="<%= i.id %>">
+                                                    <button type="submit" class="btn btn-primary">Change</button>
+                                                </div>
+                                            </form>
+                                        </td>
                                     </tr>
                                     <%}) %>
 
@@ -194,6 +210,7 @@
                                         <th>totalValueTemp</th>
                                         <th>totalValue</th>
                                         <th>Date</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -206,14 +223,15 @@
                                         <th>totalValueTemp</th>
                                         <th>totalValue</th>
                                         <th>Date</th>
+                                        <th>Status</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     <% withoutBank.forEach(i => {%>
                                     <tr>
-                                        <td><img src="/uploads/<%= i.avatar[0] %>"  class="pass_photo"></td>
-                                        <td><img src="/uploads/<%= i.avatar[1] %>"  class="pass_photo"></td>
-                                        <td><img src="/uploads/<%= i.avatar[2] %>"  class="pass_photo"></td>
+                                        <td><img src="/uploads/<%= i.avatar[0] %>" class="pass_photo"></td>
+                                        <td><img src="/uploads/<%= i.avatar[1] %>" class="pass_photo"></td>
+                                        <td><img src="/uploads/<%= i.avatar[2] %>" class="pass_photo"></td>
                                         <td>
                                             <% i.title.forEach(j => {%>
                                             <p><%= j %></p>
@@ -229,6 +247,22 @@
                                             <%}) %></td>
                                         <td><%= i.totalValue %>&nbsp; Դ</td>
                                         <td><%= i.now %></td>
+                                        <td>
+                                        <td>
+                                            <form action="/shoping-cart/withoutbank/status" method="POST">
+                                                <select name="status" class="form-control">
+                                                    <option value="Ընթացքում">Ընթացքում</option>
+                                                    <option value="Առկա">Առկա</option>
+                                                    <option value="Մերժված">Մերժված</option>
+                                                    <option value="Հաստատված">Հաստատված</option>
+                                                </select>
+                                                <div class="form-group mt-3">
+                                                    <input type="hidden" name="id" value="<%= i.id %>">
+                                                    <button type="submit" class="btn btn-primary">Change</button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        </td>
                                     </tr>
                                     <%}) %>
 
@@ -254,6 +288,7 @@
                                         <th>totalValueTemp</th>
                                         <th>totalValue</th>
                                         <th>Date</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -271,6 +306,7 @@
                                         <th>totalValueTemp</th>
                                         <th>totalValue</th>
                                         <th>Date</th>
+                                        <th>Status</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -299,6 +335,20 @@
                                             <%}) %></td>
                                         <td><%= i.totalValue %>&nbsp; Դ</td>
                                         <td><%= i.now %></td>
+                                        <td>
+                                            <form action="/shoping-cart/withbank/status" method="POST">
+                                                <select name="status" class="form-control">
+                                                    <option value="Ընթացքում">Ընթացքում</option>
+                                                    <option value="Առկա">Առկա</option>
+                                                    <option value="Մերժված">Մերժված</option>
+                                                    <option value="Հաստատված">Հաստատված</option>
+                                                </select>
+                                                <div class="form-group mt-3">
+                                                    <input type="hidden" name="id" value="<%= i.id %>">
+                                                    <button type="submit" class="btn btn-primary">Change</button>
+                                                </div>
+                                            </form>
+                                        </td>
                                     </tr>
                                     <%}) %>
 

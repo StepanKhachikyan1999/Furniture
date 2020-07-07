@@ -13,6 +13,17 @@ const CashSchema = new Schema({
     totalValueTemp: Array,
     totalValue: Number,
     now: String,
+
+    user: {
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    },
+
+    status: String
 })
+
+
 
 module.exports = model('Cash', CashSchema);

@@ -7,7 +7,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const helmet = require('helmet');
 const compression = require('compression');
-const csrf = require('csurf');
+// const csrf = require('csurf');
 
 const app = express();
 
@@ -40,7 +40,7 @@ const varMiddleware = require('./middleware/variables');
 const userMiddleware = require('./middleware/user');
 
 
-app.use(csrf());
+// app.use(csrf());
 app.use(cookieParser());
 app.use(flash());
 app.use(varMiddleware);
@@ -48,6 +48,7 @@ app.use(userMiddleware);
 
 app.use(helmet());
 app.use(compression());
+
 
 // translate
 var i18n = require("i18n");

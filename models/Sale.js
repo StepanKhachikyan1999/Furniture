@@ -40,7 +40,12 @@ const SaleSchema = new Schema({
     code: String,
     hit: Number,
     news: Number,
-    avatar: Array
+    avatar: Array,
+
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 })
 
 module.exports = model('Sale', SaleSchema);

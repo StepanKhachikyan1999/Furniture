@@ -14,6 +14,13 @@ const WithBankSchema = new Schema({
     totalValue: Number,
     now: String,
 
+    user: {
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    },
+    status: String,
 })
 
 module.exports = model('With Bank', WithBankSchema);

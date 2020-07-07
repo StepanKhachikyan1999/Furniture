@@ -66,6 +66,7 @@ router.post('/create', async function (req, res, next) {
             titleEn, infoEn, categoryEn, more_infoEn, sizeEn, weightEn, materialEn, discountEn,
             titleHy, infoHy, categoryHy, more_infoHy, sizeHy, weightHy, materialHy, discountHy,
             titleRu, infoRu, categoryRu, more_infoRu, sizeRu, weightRu, materialRu, discountRu,
+            userId: req.user
         })
         await post.save();
         res.redirect('/admin-sale')

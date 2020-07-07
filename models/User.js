@@ -7,7 +7,18 @@ const UserSchema = new Schema({
     password: String,
     phone: Number,
     avatar: String,
-    role: String
+    role: String,
+
+    cart: {
+        items: [
+            {
+                saleId: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'Sale'
+                }
+            }
+        ]
+    }
 })
 
 module.exports = model('User', UserSchema);

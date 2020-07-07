@@ -153,7 +153,6 @@
                                         <td>
                                             <form action="/admin-users/delete" method="POST">
                                                 <input type="hidden" name="id" value="<%=i.id %>">
-                                                <input type="hidden" name="_csrf" value="<%= csrf %>">
                                                 <button class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
@@ -247,7 +246,6 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" name="_csrf" value="<%= csrf %>">
                     <button type="submit" class="btn btn-primary">Add</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
