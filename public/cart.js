@@ -1,5 +1,6 @@
 
 
+
 function initListaOrcamento() {
     var products = $.CestaFeira({
         debug: true
@@ -14,6 +15,7 @@ function initListaOrcamento() {
 
     function updateTotalValue() {
 
+    
         var totalValue = 0;
 
         $.each($('[data-item-total-value]'), function (index, item) {
@@ -27,6 +29,8 @@ function initListaOrcamento() {
     }
 
     function mountLayout(index, data) {
+
+    
         var totalValueTemp = parseFloat(data.price) * parseInt(data.quantity);
 
         var $layout = `<div class="col-lg-12 col-md-12 col-12" id="product-${index}">
@@ -131,9 +135,18 @@ $('.addToWish').on('click', function() {
 })
 
 
+
 $(document).ready(function () {
+    
+    
 
     initListaOrcamento();
+
+    if ($('#cart-items').children().length == 0) {
+        $('.basket-box').hide();
+        $('.payment_box').hide();
+        $('.favorite-info-box-basket').show();
+    }
 
 });
 

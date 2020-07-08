@@ -99,8 +99,8 @@
                 </div>
                 <div class="col-md-3 col-12">
                     <ul class="social-icons hidden-md-down">
-                        <li><a href="<%= contact[0].facebook %>"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="<%= contact[0].instagram %>"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="http://<%= contact[0].facebook %>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="http://<%= contact[0].instagram %>" target="_blank"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -130,9 +130,6 @@
                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                         consequat.</p>
-                                    <!-- <div class="megamenu-list-bg-button">
-                    <a href="#">shop now</a>
-                </div> -->
                                 </ul>
 
 
@@ -204,18 +201,18 @@
                             <button class="log_reg"><i class="icon-feather-user"></i></button>
                         </div>
 
-                        <!-- <div class="sale-icon lang-box">
+                        <div class="sale-icon lang-box" onmouseover="openLang(this)" onmouseout="closeLang(this)">
                             <a href="/hy"><span id="am-lang" class="por-lang chosen"
                                     onclick="changeLang('am-lang', this)"></span></a>
                             <a href="/en"><span id="en-lang" class="eng-lang"
                                     onclick="changeLang('en-lang', this)"></span></a>
                             <a href="/ru"><span id="ru-lang" class="esp-lang"
                                     onclick="changeLang('ru-lang', this)"></span></a>
-                        </div> -->
+                        </div>
                     </div>
-                    <li><a href="/hy"> <img src="/img/am.png" class="flag"> </a></li>
+                    <!-- <li><a href="/hy"> <img src="/img/am.png" class="flag"> </a></li>
                     <li><a href="/ru"> <img src="/img/ru.png" class="flag"></a></li>
-                    <li><a href="/en"><img src="/img/usa.png" class="flag"></a></li>
+                    <li><a href="/en"><img src="/img/usa.png" class="flag"></a></li> -->
             </div>
         </nav>
         <div class="login-register">
@@ -241,11 +238,6 @@
                 </ul>
             </div>
             <%} %>
-
-
-            
-
-
         </div>
     </header>
     <!-- Navbar END -->

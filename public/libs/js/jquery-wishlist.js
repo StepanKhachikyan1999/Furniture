@@ -109,7 +109,17 @@
 
 
 	$.fn.wishBar = function (options, WISHLIST) {
+		
+		$(document).ready(function() {
+			if ($('#wishList').children().length == 0) {
+				$('.wishBar').hide();
+				$('.favorite-info-box').show()
+			}
+		})
 
+		
+		
+	
 		var that = this;
 
 		var settings = this.settings = $.extend({
@@ -267,6 +277,7 @@
 
 
 
+
 		//invocato per ripulire tutto l'oggetto locale wishlist
 		WISHLIST.clearWish = function () {
 			WISHLIST.data.reset();
@@ -316,7 +327,6 @@
 				ids.push(item.id)
 			});
 			$.cookie(settings.setCookie.name + "_IDS", JSON.stringify(ids));
-			console.log($.cookie(settings.setCookie.name + "_IDS"));
 		}
 
 		//METODI GESTIONE COOKIE WISHLIST
@@ -383,5 +393,11 @@
 
 		return WISHLIST;
 	}
+
+
+
+
+
+
 
 }(jQuery));

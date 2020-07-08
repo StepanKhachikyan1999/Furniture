@@ -1668,32 +1668,47 @@ $('.hide-product').on("click", function () {
 
 //  LANG-BOX -------------
 
-function changeLang(language, langEl) {
+// function changeLang(language, langEl) {
+//   var langItems = document.querySelectorAll(".lang-box span");
+//   if (document.querySelector(".lang-box span.por-lang.opened") == null) {
+//     for (var o = 0; o < langItems.length; o++) {
+//       langItems[o].classList.add('opened');
+//     }
+//   } else {
+//     for (var o = 0; o < langItems.length; o++) {
+//       langItems[o].classList.remove('opened');
+//     }
+//     if (document.querySelector('.lang-box .chosen') != language) {
+//       for (var o = 0; o < langItems.length; o++) {
+//         langItems[o].classList.remove('chosen');
+//         langEl.classList.add('chosen');
+//       }
+//       // console.log('You chose another language!');
+//       if(language == "am-lang"){
+//         window.location.href = "#";
+//       }
+//       else if(language == "ru-lang"){
+//         window.location.href = "#";
+//       }
+//       else{
+//         window.location.href = "#";
+//       }
+//     }
+//   }
+// }
+
+function openLang(x) {
   var langItems = document.querySelectorAll(".lang-box span");
   if (document.querySelector(".lang-box span.por-lang.opened") == null) {
     for (var o = 0; o < langItems.length; o++) {
       langItems[o].classList.add('opened');
     }
-  } else {
-    for (var o = 0; o < langItems.length; o++) {
-      langItems[o].classList.remove('opened');
-    }
-    if (document.querySelector('.lang-box .chosen') != language) {
-      for (var o = 0; o < langItems.length; o++) {
-        langItems[o].classList.remove('chosen');
-        langEl.classList.add('chosen');
-      }
-      // console.log('You chose another language!');
-      if(language == "am-lang"){
-        window.location.href = "#";
-      }
-      else if(language == "ru-lang"){
-        window.location.href = "#";
-      }
-      else{
-        window.location.href = "#";
-      }
-    }
   }
-  
+}
+
+function closeLang() {
+  var langItems = document.querySelectorAll(".lang-box span");
+  for (var o = 0; o < langItems.length; o++) {
+    langItems[o].classList.remove('opened');
+  }
 }

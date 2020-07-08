@@ -41,3 +41,6 @@ withoutBank.onclick = function() {
 withBank.onclick = function() {
     localStorage.clear();
 }
+
+
+

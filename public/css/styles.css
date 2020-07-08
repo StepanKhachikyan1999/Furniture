@@ -8702,6 +8702,21 @@ td, th {
     letter-spacing: 1px;
 }
 
+.favorite-info-box-basket{
+    border: 1px solid #ccc;
+    padding: 50px 25px;
+    text-align: center;
+    display: none;
+}
+
+.favorite-info-box-basket h2{                  
+    color: #000;
+    font-size: 35px;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
 
 /* OWL ICONS ------*/
 .owl-theme .owl-nav [class*='owl-']  {
@@ -8793,7 +8808,7 @@ td, th {
     z-index: 10;
     position: fixed;
     right: 0;
-    margin: -30px 0px;
+    /* margin: -30px 0px; */
     display: none;
 }
 
@@ -8803,11 +8818,15 @@ td, th {
     z-index: 10;
     position: fixed;
     right: 0;
-    margin: -30px 0px;
+    /* margin: -30px 0px; */
     display: none;
 }
 
 
 .log_reg {
     outline: none !important;
+}
+
+.favorite-info-box {
+    display: none;
 }

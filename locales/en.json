@@ -97,5 +97,7 @@
 			"withBank": "Sale on credit through a Bank",
 			"conditions": "I have read and agree to the above terms and conditions"
 		}
-	}
+	},
+	"wishlist_empty": "You don't have any favorite products",
+	"basket_empty": "Basket is empty"
 }
