@@ -1,11 +1,26 @@
 const { Schema, model } = require('mongoose');
 
 const WithBankSchema = new Schema({
-    name: String,
-    surname: String,
-    email: String,
-    phone: Number,
-    address: String,
+    name: {
+        type: String,
+        required: true
+    },
+    surname: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: Number,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
 
     avatar: Array,
     title: Array,

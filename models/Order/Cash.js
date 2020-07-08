@@ -1,12 +1,31 @@
 const { Schema, model } = require('mongoose');
 
 const CashSchema = new Schema({
-    name: String,
-    surname: String,
-    email: String,
-    phone: Number,
-    address: String,
-    city: String,
+    name: {
+        type: String,
+        required: true
+    },
+    surname: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    
+    phone: {
+        type: Number,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    city: {
+        type: String,
+        required: true
+    },
 
     title: Array,
     quantity: Array,
