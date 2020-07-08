@@ -74,25 +74,25 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/admin-users">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Users</span>
+                    <span>Օգտատերեր</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin-settings">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Settings</span>
+                    <span>Կարգավորումներ</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin-sale">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Sale</span>
+                    <span>Ապրանքներ</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link" href="/admin-orders">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Orders</span>
+                    <span>Գնումներ</span>
                 </a>
             </li>
         </ul>
@@ -104,42 +104,42 @@
                 <!-- Breadcrumbs-->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#">Dashboard</a>
+                        <a href="#">Վահանակ</a>
                     </li>
-                    <li class="breadcrumb-item active">Users</li>
+                    <li class="breadcrumb-item active">Օգտատերեր</li>
                 </ol>
 
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fas fa-table"></i>
-                        Data Users
+                        Օգտատերերի տվյալներ
                         <button type="button" class="btn btn-small btn-primary" data-toggle="modal"
-                            data-target="#myModal" style="margin: 0px 5px;">Add User</button>
+                            data-target="#myModal" style="margin: 0px 5px;">Ավելացնել օգտատեր</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Role</th>
-                                        <th>Delete</th>
-                                        <th>Edit</th>
+                                        <th>Անուն</th>
+                                        <th>Ազգանուն</th>
+                                        <th>Էլ․ հասցե</th>
+                                        <th>Հեռախոսահամար</th>
+                                        <th>Դեր</th>
+                                        <th>Ջնջել</th>
+                                        <th>Փոփոխել</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Role</th>
-                                        <th>Delete</th>
-                                        <th>Edit</th>
+                                        <th>Անուն</th>
+                                        <th>Ազգանուն</th>
+                                        <th>Էլ․ հասցե</th>
+                                        <th>Հեռախոսահամար</th>
+                                        <th>Դեր</th>
+                                        <th>Ջնջել</th>
+                                        <th>Փոփոխել</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -153,12 +153,12 @@
                                         <td>
                                             <form action="/admin-users/delete" method="POST">
                                                 <input type="hidden" name="id" value="<%=i.id %>">
-                                                <button class="btn btn-danger">Delete</button>
+                                                <button class="btn btn-danger">Ջնջել</button>
                                             </form>
                                         </td>
                                         <td>
                                             <a href="/admin-users/<%= i.id %>/edit?allow=true"
-                                                class="btn btn-success">Edit</a>
+                                                class="btn btn-success">Փոփոխել</a>
                                         </td>
                                     </tr>
                                     <%}) %>
@@ -188,15 +188,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body"></div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/register/logout">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Չեղարկել</button>
+                    <a class="btn btn-primary" href="/register/logout">Դուրս գալ</a>
                 </div>
             </div>
         </div>

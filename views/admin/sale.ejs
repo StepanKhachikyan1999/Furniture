@@ -74,25 +74,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin-users">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Users</span>
+                    <span>Օգտատերեր</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin-settings">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Settings</span>
+                    <span>Կարգավորումներ</span>
                 </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/admin-sale">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Sale</span>
+                    <span>Ապրանքներ</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin-orders">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Orders</span>
+                    <span>Գնումներ</span>
                 </a>
             </li>
         </ul>
@@ -104,48 +104,48 @@
                 <!-- Breadcrumbs-->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#">Dashboard</a>
+                        <a href="#">Վահանակ</a>
                     </li>
-                    <li class="breadcrumb-item active">Sale</li>
+                    <li class="breadcrumb-item active">Ապրանքներ</li>
                 </ol>
 
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fas fa-table"></i>
-                        Data Sale
+                        Ապրանքների տվյալներ
                         <button type="button" class="btn btn-small btn-primary" data-toggle="modal"
-                            data-target="#myModal" style="margin: 0px 5px;">Create sale</button>
+                            data-target="#myModal" style="margin: 0px 5px;">Ավելացնել ապրանք</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Avatars</th>
+                                        <th>Նկարներ</th>
                                         <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Price</th>
-                                        <th>Information</th>
-                                        <th>Category</th>
-                                        <th>Features</th>
-                                        <th>Additional information</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Գին</th>
+                                        <th>Տեղեկատվություն</th>
+                                        <th>Կատեգորիա</th>
+                                        <th>Նկարագրություն</th>
+                                        <th>Լրացուցիչ տեղեկություններ</th>
+                                        <th>Փոփոխել</th>
+                                        <th>Ջնջել</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Avatars</th>
+                                        <th>Նկարներ</th>
                                         <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Price</th>
-                                        <th>Information</th>
-                                        <th>Category</th>
-                                        <th>Features</th>
-                                        <th>Additional information</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Գին</th>
+                                        <th>Տեղեկատվություն</th>
+                                        <th>Կատեգորիա</th>
+                                        <th>Նկարագրություն</th>
+                                        <th>Լրացուցիչ տեղեկություններ</th>
+                                        <th>Փոփոխել</th>
+                                        <th>Ջնջել</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -157,25 +157,27 @@
                                             <%}) %>
                                         </td>
                                         <td>AC <%= item.code %></td>
-                                        <td><%= item.titleEn %></td>
+                                        <td><%= item.titleHy %></td>
                                         <td><%= item.price %></td>
-                                        <td><%= item.infoEn %></td>
-                                        <td><%= item.categoryEn %></td>
+                                        <td><%= item.infoHy %></td>
+                                        <td><%= item.categoryHy %></td>
                                         <td>
-                                            <div><%= item.sizeEn %></div>
-                                            <div><%= item.weightEn %></div>
-                                            <div><%= item.materialEn %></div>
-                                            <div><%= item.colorEn %></div>
+                                            <div><%= item.sizeHy %></div>
+                                            <div><%= item.weightHy %></div>
+                                            <div><%= item.materialHy %></div>
+                                            <div><% item.color.forEach(j => {%>
+                                                <div class="all-prod-box-color" style="background: <%= j %>;"></div>
+                                            <%}) %></div>
                                         </td>
-                                        <td><%= item.more_infoEn %></td>
+                                        <td><%= item.more_infoHy %></td>
                                         <td>
                                             <a href="/admin-sale/<%=item.id%>/edit?allow=true"
-                                                class="btn btn-success">Edit</a>
+                                                class="btn btn-success">Փոփոխել</a>
                                         </td>
                                         <td>
                                             <form action="/admin-sale/delete" method="POST">
                                                 <input type="hidden" name="id" value="<%= item.id %>">
-                                                <button class="btn btn-danger">Delete</button>
+                                                <button class="btn btn-danger">Ջնջել</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -206,15 +208,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body"></div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/register/logout">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Չեղարկել</button>
+                    <a class="btn btn-primary" href="/register/logout">Դուրս գալ</a>
                 </div>
             </div>
         </div>

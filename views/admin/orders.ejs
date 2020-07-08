@@ -74,25 +74,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin-users">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Users</span>
+                    <span>Օգտատերեր</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin-settings">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Settings</span>
+                    <span>Կարգավորումներ</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin-sale">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Sale</span>
+                    <span>Ապրանքներ</span>
                 </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/admin-orders">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Orders</span>
+                    <span>Գնումներ</span>
                 </a>
             </li>
         </ul>
@@ -104,51 +104,52 @@
                 <!-- Breadcrumbs-->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#">Dashboard</a>
+                        <a href="#">Վահանակ</a>
                     </li>
-                    <li class="breadcrumb-item active">Orders</li>
+                    <li class="breadcrumb-item active">Գնումներ</li>
                 </ol>
 
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fas fa-table"></i>
-                        Data Orders
+                        Գնումների տվյալներ
                     </div>
                     <div class="card-body">
-                        <h3 class="mb-5">Payment in cash</h3>
+                        <% if(!cash.length == 0) {%>
+                        <h3 class="mb-5">Կանխիկ գնումներ</h3>
                         <div class="table-responsive mb-5">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
-                                        <th>City</th>
-                                        <th>Title</th>
-                                        <th>Quantity</th>
-                                        <th>totalValueTemp</th>
-                                        <th>totalValue</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th>Անուն</th>
+                                        <th>Ազգանուն</th>
+                                        <th>Էլ․ հասցե</th>
+                                        <th>Հեռախոսահամար</th>
+                                        <th>Հասցե</th>
+                                        <th>Քաղաք</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Քանակ</th>
+                                        <th>Ապրանքի գինը</th>
+                                        <th>Ընդհանուր գինը</th>
+                                        <th>Ամսաթիվ</th>
+                                        <th>Կարգավիճակ</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
-                                        <th>City</th>
-                                        <th>Title</th>
-                                        <th>Quantity</th>
-                                        <th>totalValueTemp</th>
-                                        <th>totalValue</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th>Անուն</th>
+                                        <th>Ազգանուն</th>
+                                        <th>Էլ․ հասցե</th>
+                                        <th>Հեռախոսահամար</th>
+                                        <th>Հասցե</th>
+                                        <th>Քաղաք</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Քանակ</th>
+                                        <th>Ապրանքի գինը</th>
+                                        <th>Ընդհանուր գինը</th>
+                                        <th>Ամսաթիվ</th>
+                                        <th>Կարգավիճակ</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -195,35 +196,38 @@
                                 </tbody>
                             </table>
                         </div>
+                        <%} %>
+
                         <hr>
 
-                        <h3 class="mb-5">Sale on credit without a bank</h3>
+                        <% if(!withoutBank.length == 0) {%>
+                        <h3 class="mb-5">Ապառիկ վաճառք առանց բանկի</h3>
                         <div class="table-responsive mb-5">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>passport photo front side</th>
-                                        <th>passport photo back side</th>
-                                        <th>property certificates</th>
-                                        <th>Title</th>
-                                        <th>Quantity</th>
-                                        <th>totalValueTemp</th>
-                                        <th>totalValue</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th>Անձնագրի նկար (Դիմացի մաս)</th>
+                                        <th>Անձնագրի նկար (Ետնամաս)</th>
+                                        <th>Սեփականության վկայականի նկար</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Քանակ</th>
+                                        <th>Ապրանքի գինը</th>
+                                        <th>Ընդհանուր գինը</th>
+                                        <th>Ամսաթիվ</th>
+                                        <th>Կարգավիճակ</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>passport photo front side</th>
-                                        <th>passport photo back side</th>
-                                        <th>property certificates</th>
-                                        <th>Title</th>
-                                        <th>Quantity</th>
-                                        <th>totalValueTemp</th>
-                                        <th>totalValue</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th>Անձնագրի նկար (Դիմացի մաս)</th>
+                                        <th>Անձնագրի նկար (Ետնամաս)</th>
+                                        <th>Սեփականության վկայականի նկար</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Քանակ</th>
+                                        <th>Ապրանքի գինը</th>
+                                        <th>Ընդհանուր գինը</th>
+                                        <th>Ամսաթիվ</th>
+                                        <th>Կարգավիճակ</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -269,44 +273,48 @@
                                 </tbody>
                             </table>
                         </div>
+                        <%} %>
 
-                        <h3 class="mb-5">Credit sale through a bank</h3>
+                        <hr>
+
+                        <% if(!withBank.length == 0) {%>
+                        <h3 class="mb-5">Ապառիկ վաճառք բանկի միջոցով</h3>
                         <div class="table-responsive mb-5">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
-                                        <th>passport photo front side</th>
-                                        <th>passport photo back side</th>
-                                        <th>property certificates</th>
-                                        <th>Title</th>
-                                        <th>Quantity</th>
-                                        <th>totalValueTemp</th>
-                                        <th>totalValue</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th>Անուն</th>
+                                        <th>Ազգանուն</th>
+                                        <th>Էլ․ հասցե</th>
+                                        <th>Հեռախոսահամար</th>
+                                        <th>Հասցե</th>
+                                        <th>Անձնագրի նկար (Դիմացի մաս)</th>
+                                        <th>Անձնագրի նկար (Ետնամաս)</th>
+                                        <th>Սեփականության վկայականի նկար</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Քանակ</th>
+                                        <th>Ապրանքի գինը</th>
+                                        <th>Ընդհանուր գինը</th>
+                                        <th>Ամսաթիվ</th>
+                                        <th>Կարգավիճակ</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
-                                        <th>passport photo front side</th>
-                                        <th>passport photo back side</th>
-                                        <th>property certificates</th>
-                                        <th>Title</th>
-                                        <th>Quantity</th>
-                                        <th>totalValueTemp</th>
-                                        <th>totalValue</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
+                                        <th>Անուն</th>
+                                        <th>Ազգանուն</th>
+                                        <th>Էլ․ հասցե</th>
+                                        <th>Հեռախոսահամար</th>
+                                        <th>Հասցե</th>
+                                        <th>Անձնագրի նկար (Դիմացի մաս)</th>
+                                        <th>Անձնագրի նկար (Ետնամաս)</th>
+                                        <th>Սեփականության վկայականի նկար</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Քանակ</th>
+                                        <th>Ապրանքի գինը</th>
+                                        <th>Ընդհանուր գինը</th>
+                                        <th>Ամսաթիվ</th>
+                                        <th>Կարգավիճակ</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -355,6 +363,8 @@
                                 </tbody>
                             </table>
                         </div>
+                        <%} %>
+
                     </div>
                     <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
                 </div>
@@ -378,15 +388,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body"></div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/register/logout">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Չեղարկել</button>
+                    <a class="btn btn-primary" href="/register/logout">Դուրս գալ</a>
                 </div>
             </div>
         </div>

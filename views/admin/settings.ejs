@@ -71,28 +71,28 @@
 
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link" href="/admin-users">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Users</span>
+                    <span>Օգտատերեր</span>
                 </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/admin-settings">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Settings</span>
+                    <span>Կարգավորումներ</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin-sale">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Sale</span>
+                    <span>Ապրանքներ</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link" href="/admin-orders">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Orders</span>
+                    <span>Գնումներ</span>
                 </a>
             </li>
         </ul>
@@ -104,29 +104,29 @@
                 <!-- Breadcrumbs-->
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#">Dashboard</a>
+                        <a href="#">Վահանակ</a>
                     </li>
-                    <li class="breadcrumb-item active">Settings</li>
+                    <li class="breadcrumb-item active">Կարգավորումներ</li>
                 </ol>
 
                 <!-- DataTables Example -->
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fas fa-table"></i>
-                        Data Settings
+                        Կարգավորումների տվյալներ
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
                                 <form action="/admin-settings/logo" method="POST" class="form-group mb-5"
                                     accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data">
-                                    <h4 class="mb-3">Logo</h4>
+                                    <h4 class="mb-3">Լոգո</h4>
                                     <div class="form-group">
-                                        <label for="">Choose logo</label>
+                                        <label for="">Ընտրեք լոգոն</label>
                                         <input type="file" name="avatar">
                                     </div>
                                     <input type="hidden" value="<%=logo[0].id%>" name="id">
-                                    <button type="submit" class="btn btn-primary">Change</button>
+                                    <button type="submit" class="btn btn-primary">Փոփոխել</button>
                                 </form>
                             </div>
                             <div class="col-6">
@@ -141,7 +141,7 @@
 
                         <form class="form-group mb-5 createService" action="/admin-settings/service" method="POST"
                             accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data">
-                            <h4 class="mb-3">Create service</h4>
+                            <h4 class="mb-3">Ավելացնել ծառայություն</h4>
 
                             <ul class="nav nav-tabs mt-5">
                                 <li class="nav-item">
@@ -178,7 +178,7 @@
                                     <input type="file" name="avatar">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Create</button>
+                                    <button type="submit" class="btn btn-primary">Ավելացնել</button>
                                 </div>
                             </div>
                         </form>
@@ -187,16 +187,16 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Icon</th>
-                                        <th>Title</th>
-                                        <th>Delete</th>
+                                        <th>Նկար</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Ջնջել</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Icon</th>
-                                        <th>Title</th>
-                                        <th>Delete</th>
+                                        <th>Նկար</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Ջնջել</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -204,11 +204,11 @@
                                     <tr>
                                         <td><img src="/uploads/<%= item.avatar %>" style="width: 100px; height: 100px;">
                                         </td>
-                                        <td><%= item.titleEn %> </td>
+                                        <td><%= item.titleHy %> </td>
                                         <td>
                                             <form action="/admin-settings/delete" method="POST">
                                                 <input type="hidden" name="id" value="<%= item.id %>">
-                                                <button class="btn btn-danger">Delete</button>
+                                                <button class="btn btn-danger">Ջնջել</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -222,7 +222,7 @@
 
                         <form class="form-group mb-5 mt-5 createService" action="/admin-settings/advantage"
                             method="POST" accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data">
-                            <h4 class="mb-3">Our advantage</h4>
+                            <h4 class="mb-3">Առավելություններ</h4>
 
                             <ul class="nav nav-tabs mt-5">
                                 <li class="nav-item">
@@ -272,7 +272,7 @@
                                     <input type="file" name="avatar">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Add</button>
+                                    <button type="submit" class="btn btn-primary">Ավելացնել</button>
                                 </div>
                             </div>
                         </form>
@@ -281,18 +281,18 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Delete</th>
+                                        <th>Նկար</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Նկարագրություն</th>
+                                        <th>Ջնջել</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Delete</th>
+                                        <th>Նկար</th>
+                                        <th>Վերնագիր</th>
+                                        <th>Նկարագրություն</th>
+                                        <th>Ջնջել</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -300,12 +300,12 @@
                                     <tr>
                                         <td><img src="/uploads/<%= item.avatar %>" style="width: 100px; height: 100px;">
                                         </td>
-                                        <td><%= item.titleEn %> </td>
-                                        <td><%= item.descriptionEn %></td>
+                                        <td><%= item.titleHy %> </td>
+                                        <td><%= item.descriptionHy %></td>
                                         <td>
                                             <form action="/admin-settings/delete_advantage" method="POST">
                                                 <input type="hidden" name="id" value="<%= item.id %>">
-                                                <button class="btn btn-danger">Delete</button>
+                                                <button class="btn btn-danger">Ջնջել</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -319,22 +319,22 @@
 
                         <form action="/admin-settings/about" method="POST" class="form-group mt-5 mb-5 createService"
                             accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data">
-                            <h4 class="mb-3">About</h4>
+                            <h4 class="mb-3">Մեր մասին</h4>
                             <div class="form-group">
-                                <label for="">Title</label>
+                                <label for="">Վերնագիր</label>
                                 <input type="text" class="form-control" name="title" value="<%=about[0].title%>">
                             </div>
                             <div class="form-group">
-                                <label for="">Information</label>
+                                <label for="">Տեղեկություն</label>
                                 <textarea class="form-control" name="info"><%=about[0].info%></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="">Image</label>
+                                <label for="">Նկար</label>
                                 <input type="file" name="avatar">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" value="<%=about[0].id%>" name="id">
-                                <button type="submit" class="btn btn-primary">Change</button>
+                                <button type="submit" class="btn btn-primary">Փոփոխել</button>
                             </div>
 
                         </form>
@@ -342,17 +342,17 @@
                         <hr>
 
                         <form class="form-group mb-5 mt-5" action="/admin-settings/contact" method="POST">
-                            <h4 class="mb-3">Contact</h4>
+                            <h4 class="mb-3">Կապ</h4>
                             <div class="form-group">
-                                <label for="">Phone</label>
+                                <label for="">Հեռախոսահամար</label>
                                 <input type="text" class="form-control" name="phone" value="<%= contact[0].phone %>">
                             </div>
                             <div class="form-group">
-                                <label for="">Email</label>
+                                <label for="">Էլ․ հասցե</label>
                                 <input type="text" class="form-control" name="email" value="<%= contact[0].email %>">
                             </div>
                             <div class="form-group">
-                                <label for="">Working hours</label>
+                                <label for="">Աշխատանքային ժամեր</label>
                                 <div>
                                     <textarea class="contact_textarea"
                                         name="workingHourse"><%= contact[0].workingHourse %></textarea>
@@ -368,7 +368,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="hidden" value="<%=contact[0].id%>" name="id">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Թարմացնել</button>
                             </div>
                         </form>
 
@@ -377,13 +377,13 @@
 
                         <form action="/admin-settings/slider" method="POST" accept="image/x-png,image/gif,image/jpeg"
                             enctype="multipart/form-data">
-                            <h4 class="mb-3">Header slider</h4>
+                            <h4 class="mb-3">Գլխավոր slider</h4>
                             <div class="form-group">
-                                <label for="">Choose image</label>
+                                <label for="">Ընտրեք նկար</label>
                                 <input type="file" name="avatar">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn btn-primary">Ավելացնել</button>
                             </div>
                         </form>
 
@@ -391,14 +391,14 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Delete</th>
+                                        <th>Նկար</th>
+                                        <th>Ջնջել</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Delete</th>
+                                        <th>Նկար</th>
+                                        <th>Ջնջել</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -409,7 +409,7 @@
                                         <td>
                                             <form action="/admin-settings/sliderDelete" method="POST">
                                                 <input type="hidden" name="id" value="<%= item.id %>">
-                                                <button class="btn btn-danger">Delete</button>
+                                                <button class="btn btn-danger">Ջնջել</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -422,26 +422,26 @@
                         <hr>
 
                         <form action="/admin-settings/header" method="POST" class="form-group mb-5 mt-5">
-                            <h4 class="mb-3">Header > Slider > Text</h4>
+                            <h4 class="mb-3">Գլխավոր > Slider > տեքստ</h4>
                             <div class="form-group">
-                                <label for="">Title</label>
+                                <label for="">Վերնագիր</label>
                                 <input type="text" class="form-control" name="title" value="<%= HeaderText[0].title %>">
                             </div>
                             <div class="form-group">
-                                <label for="">Description</label>
+                                <label for="">Նկարագրություն</label>
                                 <input type="text" class="form-control" name="description"
                                     value="<%= HeaderText[0].description %>">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="id" value="<%= HeaderText[0].id %>">
-                                <button type="submit" class="btn btn-primary">Change</button>
+                                <button type="submit" class="btn btn-primary">Փոփոխել</button>
                             </div>
                         </form>
 
                         <form action="/admin-settings/category" method="POST" class="form-group mb-5 mt-5">
-                            <h4 class="mb-3">Categories</h4>
+                            <h4 class="mb-3">կատեգորիաներ</h4>
                             <div class="form-group">
-                                <label for="">All Categories</label>
+                                <label for="">Բոլոր կատեգորիաները</label>
                                 <ul>
                                     <% category.forEach(i => {%>
                                     <li>
@@ -484,12 +484,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-primary">Ավելացնել</button>
                             </div>
                         </form>
 
                         <div class="colors">
-                            <h4>All Colors</h4>
+                            <h4>Բոլոր գույները</h4>
                             <% color.forEach(i => {%>
                             <div class="all-prod-box-color" style="background: <%= i.color %>;"></div>
                             <%}) %>
@@ -498,10 +498,10 @@
 
                         <form action="/admin-settings/colors" method="POST" class="form-group mb-5 mt-5">
                             <div class="form-group">
-                                <label for="" class="color">Enter the color name in English *</label>
+                                <label for="" class="color">Մուտքագրեք գույնի անուն Անգլերեն *</label>
                                 <input type="text" name="color" class="form-control">
                             </div>
-                            <button class="btn btn-primary" type="submit">Add</button>
+                            <button class="btn btn-primary" type="submit">Ավելացնել</button>
                         </form>
 
                         <hr>
@@ -509,7 +509,7 @@
                         <form action="/admin-settings/condition" method="POST" class="form-group mb-5 mt-5">
                             <div class="form-group">
                                 <label for="">
-                                    <h4>Condition</h4>
+                                    <h4>Պայմաններ</h4>
                                 </label>
 
                             </div>
@@ -549,7 +549,7 @@
 
                                 <div class="form-group">
                                     <input type="hidden" name="id" value="<%= condition[0].id %>">
-                                    <button type="submit" class="btn btn-primary">Change</button>
+                                    <button type="submit" class="btn btn-primary">Փոփոխել</button>
                                 </div>
                             </div>
                         </form>
@@ -577,15 +577,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body"></div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/register/logout">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Չեղարկել</button>
+                    <a class="btn btn-primary" href="/register/logout">Դուրս գալ</a>
                 </div>
             </div>
         </div>
