@@ -4,7 +4,7 @@
 <div class="section-block">
     <div class="container">
 
-        <div class="favorite-info-box-basket"> 
+        <div class="favorite-info-box-basket">
             <h2><%= __('basket_empty') %></h2>
         </div>
 
@@ -76,8 +76,14 @@
                                                 <input type="text" name="address"
                                                     placeholder="<%= __('shoping_cart.cash.address') %>" required="">
                                             </div>
+                                            <% if(!isAuth) {%>
+                                            <button class="submit-button-buy"
+                                                type="submit"><%= __('shoping_cart.orderReg') %></button>
+                                            <%} else {%>
                                             <button class="submit-button-buy" type="submit"
                                                 id="cashPayment"><%= __('shoping_cart.orderReg') %></button>
+                                            <%} %>
+
                                         </form>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-12 mb-30"></div>
@@ -152,8 +158,14 @@
                                             </div>
                                         </div>
                                     </div> -->
+                                    <% if(!isAuth) {%>
+                                    <button class="submit-button-buy"
+                                        type="submit"><%= __('shoping_cart.orderReg') %></button>
+                                    <%} else {%>
                                     <button class="submit-button-buy" type="submit"
                                         id="withoutBankPayment"><%= __('shoping_cart.orderReg') %></button>
+                                    <%} %>
+
                                 </form>
 
                             </div>
@@ -198,14 +210,16 @@
                                                 id="withBank">
                                                 <div class="add-info-user">
                                                     <div class="add-user-img mt-10">
-                                                        <h5><%= __('shoping_cart.credit_without_bank.certificate') %></h5>
+                                                        <h5><%= __('shoping_cart.credit_without_bank.certificate') %>
+                                                        </h5>
                                                         <input type='file' required onchange="rentURL(this);"
                                                             name="avatar">
                                                         <img id="acra_auser" src="img/user-info/images.jpg" alt="img" />
                                                     </div>
 
                                                     <div class="add-license-img mt-50">
-                                                        <h5><%= __('shoping_cart.credit_without_bank.front_side') %></h5>
+                                                        <h5><%= __('shoping_cart.credit_without_bank.front_side') %>
+                                                        </h5>
                                                         <input type="file" required="" onchange="acra_readURL(this);"
                                                             name="avatar">
                                                         <img id="blah_acra" src="img/user-info/dr-license.png"
@@ -232,18 +246,29 @@
 
                                                 <div class="buy-box-input add-info-user-bank-input mt-10">
                                                     <!-- <h4>Name</h4>    -->
-                                                    <input type="text" name="name" placeholder="<%= __('shoping_cart.cash.name') %>" required="zxc">
-                                                    <input type="text" name="surname" placeholder="<%= __('shoping_cart.cash.surname') %>"
+                                                    <input type="text" name="name"
+                                                        placeholder="<%= __('shoping_cart.cash.name') %>"
+                                                        required="zxc">
+                                                    <input type="text" name="surname"
+                                                        placeholder="<%= __('shoping_cart.cash.surname') %>"
                                                         required="">
-                                                    <input type="email" name="email" placeholder="<%= __('shoping_cart.cash.email') %>" required="">
-                                                    <input type="number" name="phone" placeholder="<%= __('shoping_cart.cash.phone') %>"
-                                                        required="">
+                                                    <input type="email" name="email"
+                                                        placeholder="<%= __('shoping_cart.cash.email') %>" required="">
+                                                    <input type="number" name="phone"
+                                                        placeholder="<%= __('shoping_cart.cash.phone') %>" required="">
 
-                                                    <input type="text" name="address" placeholder="<%= __('shoping_cart.cash.address') %>"
+                                                    <input type="text" name="address"
+                                                        placeholder="<%= __('shoping_cart.cash.address') %>"
                                                         required="">
                                                 </div>
+                                                <% if(!isAuth) {%>
+                                                <button class="submit-button-buy"
+                                                    type="submit"><%= __('shoping_cart.orderReg') %></button>
+                                                <%} else {%>
                                                 <button class="submit-button-buy" type="submit"
                                                     id="withBankPayment"><%= __('shoping_cart.orderReg') %></button>
+                                                <%} %>
+
                                             </form>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-12 mb-30"></div>
