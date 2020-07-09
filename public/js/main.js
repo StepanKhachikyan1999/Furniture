@@ -1717,7 +1717,7 @@ function closeLang() {
 $(document).ready(function() {
   $('.delivery_city').on('change', function() {
     var data = $(this).val();
-    console.log(data)
+    // console.log(data)
     $.ajax({
       url: '/shoping-cart',
       type: 'GET',

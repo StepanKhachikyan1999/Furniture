@@ -21,11 +21,21 @@ router.get('/:page', async (req, res) => {
     var perPage = 4
     var page = req.params.page || 1
 
-    
+
     let min_price = req.query.min_price;
     let max_price = req.query.max_price;
 
-    
+    let $sale = await Sale.find()
+
+    var array_price = []
+    $sale.forEach(i => {
+        let price = i.price
+        array_price.push(price)
+    })
+    var sale_max_price = Math.max.apply(null, array_price)
+    var sale_min_price = Math.min.apply(null, array_price);
+
+
     sales_filter = []
 
     const sales = await Sale.find();
@@ -55,7 +65,9 @@ router.get('/:page', async (req, res) => {
                     countSale,
                     logo,
                     color,
-                    sales_filter
+                    sales_filter,
+                    sale_max_price,
+                    sale_min_price
                 })
             })
         })

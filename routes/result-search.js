@@ -27,7 +27,8 @@ router.get('/:categoryEn/:page', async (req, res) => {
     let min_price = req.query.min_price;
     let max_price = req.query.max_price;
 
-    
+
+    var array_price = []
     sales_filter = []
 
     const sales = await Sale.find({categoryEn: req.params.categoryEn});
@@ -35,7 +36,10 @@ router.get('/:categoryEn/:page', async (req, res) => {
         if (i.price >= min_price && i.price <= max_price) {
             sales_filter.push(i)
         }
+        array_price.push(i.price)
     })
+    var sale_max_price = Math.max.apply(null, array_price)
+    var sale_min_price = Math.min.apply(null, array_price);
 
 
     Sale
@@ -57,7 +61,9 @@ router.get('/:categoryEn/:page', async (req, res) => {
                     countSale,
                     logo,
                     color,
-                    sales_filter
+                    sales_filter,
+                    sale_max_price,
+                    sale_min_price
                     // countSaleCategory
                     // currentpage
                 })
