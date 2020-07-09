@@ -1712,3 +1712,19 @@ function closeLang() {
     langItems[o].classList.remove('opened');
   }
 }
+
+
+$(document).ready(function() {
+  $('.delivery_city').on('change', function() {
+    var data = $(this).val();
+    console.log(data)
+    $.ajax({
+      url: '/shoping-cart',
+      type: 'GET',
+      data: data
+    })
+    var delivery_price = $('.delivery_price');
+    delivery_price.append(`<p>Առաքման գումար</p><b>${data} &nbsp; Դ</b>`)
+    $('#cash').append(`<input type="hidden" name="delivery_price" value="${data}" />`)
+  })
+})

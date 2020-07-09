@@ -27,11 +27,13 @@ const CashSchema = new Schema({
         required: true
     },
 
+
     title: Array,
     quantity: Array,
     totalValueTemp: Array,
     totalValue: Number,
     now: String,
+    delivery_price: Number,
 
     user: {
         userId: {

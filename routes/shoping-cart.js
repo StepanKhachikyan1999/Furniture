@@ -10,6 +10,7 @@ const multer = require('multer');
 const Logo = require('../models/Logo');
 const auth = require('../middleware/auth');
 const Withbank = require('../models/Order/Withbank');
+const DeliveryCity = require('../models/Delivery_city');
 
 var storage = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -27,6 +28,7 @@ router.get('/', async (req, res) => {
     const contact = await Contact.find()
     const category = await Category.find();
     const logo = await Logo.find();
+    const deliveryCity = await DeliveryCity.find()
 
     const checkout = await Checkout.find();
 
@@ -35,7 +37,8 @@ router.get('/', async (req, res) => {
         contact,
         category,
         checkout,
-        logo
+        logo,
+        deliveryCity
     })
 })
 
@@ -54,14 +57,17 @@ router.post('/cash', auth, async (req, res) => {
     let now = new Date()
 
 
+    var delivery_price = req.body.delivery_price;
+    delivery_price = parseInt(delivery_price) + parseInt(totalValue)
+    // console.log(delivery_price)
+
     const post = new Cash({
-        name, surname, email, phone, address, city, title, quantity, totalValueTemp, now, totalValue,
+        name, surname, email, phone, address, city, title, quantity, totalValueTemp, now, totalValue, delivery_price,
         user: {
             userId: req.user
         },
         status: "Ընթացքում"
     })
-    // console.log(post)
     await post.save();
     res.redirect('/orders')
 })
@@ -74,6 +80,9 @@ router.post('/withoutbank', auth, function (req, res, next) {
 
         const { title, quantity, totalValueTemp, totalValue } = req.body;
 
+        // var delivery_price = req.body.delivery_price;
+        // delivery_price = parseInt(delivery_price) + parseInt(totalValue)
+
         let img = req.files;
         let avatar = []
         img.forEach(i => {
@@ -83,7 +92,7 @@ router.post('/withoutbank', auth, function (req, res, next) {
 
         let now = new Date()
 
-        const post = new Withoutbank({ title, quantity, totalValueTemp, totalValue, avatar, now, status: "Ընթացքում" })
+        const post = new Withoutbank({ title, quantity, totalValueTemp, totalValue, avatar,  now, status: "Ընթացքում" })
         await post.save();
         res.redirect('/orders')
     });
@@ -95,6 +104,9 @@ router.post('/withbank', auth, function (req, res, next) {
 
         const { title, quantity, totalValueTemp, totalValue, name, surname, email, phone, address, } = req.body;
 
+        // var delivery_price = req.body.delivery_price;
+        // delivery_price = parseInt(delivery_price) + parseInt(totalValue)
+
         let img = req.files;
         let avatar = []
         img.forEach(i => {
@@ -104,7 +116,7 @@ router.post('/withbank', auth, function (req, res, next) {
 
         let now = new Date()
 
-        const post = new WithBank({ name, surname, email, phone, address, avatar, title, quantity, totalValueTemp, totalValue, now, status: "Ընթացքում" })
+        const post = new WithBank({ name, surname, email, phone, address, avatar, title, quantity, totalValueTemp, totalValue,  now, status: "Ընթացքում" })
 
 
         await post.save();
@@ -134,6 +146,11 @@ router.post("/withbank/status", async (req, res) => {
     await Withbank.findByIdAndUpdate(id, req.body)
     res.redirect('/admin-orders')
 })
+
+
+
+
+
 
 
 

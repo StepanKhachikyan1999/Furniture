@@ -11,6 +11,7 @@ const WithoutBankSchema = new Schema({
     totalValueTemp: Array,
     totalValue: Number,
     now: String,
+    // delivery_price: Number,
 
     user: {
         userId: {

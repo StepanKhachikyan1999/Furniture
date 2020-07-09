@@ -19,7 +19,12 @@
                 <div class="col-lg-4 col-md-4 col-12">
                     <div class="shop-cart-info-price clearfix">
                         <ul class="right-info-price">
-                            <li>Ընդհանուր: <h6 id="total-value"> ֏</h6>
+                            <li>
+                                <div id="total-value">
+                                    <!-- <p>Ընդհանուր</p> -->
+                                    <!-- <h6 id="total-value"> ֏</h6> -->
+                                </div>
+                                <div class="delivery_price"></div>
                             </li>
 
                             <!-- <li>Shipping Price: <h6>$85.00</h6></li> -->
@@ -70,9 +75,13 @@
                                                     placeholder="<%= __('shoping_cart.cash.email') %>" required="">
                                                 <input type="number" name="phone"
                                                     placeholder="<%= __('shoping_cart.cash.phone') %>" required="">
-
-                                                <input type="text" name="city"
-                                                    placeholder="<%= __('shoping_cart.cash.city') %>" required="">
+                                                <label for=""><%= __('shoping_cart.cash.city') %></label>
+                                                <select name="city" class="delivery_city">
+                                                    <% deliveryCity.forEach(i => {%>
+                                                    <option value="<%= i.price %>"><%= i.name %></option>
+                                                    <%}) %>
+                                                </select>
+                                                <br>
                                                 <input type="text" name="address"
                                                     placeholder="<%= __('shoping_cart.cash.address') %>" required="">
                                             </div>

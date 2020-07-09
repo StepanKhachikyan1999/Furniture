@@ -25,7 +25,8 @@ function initListaOrcamento() {
         $('#withBank').append(`<input type="hidden" name="totalValue" value="${totalValue}" />`)
         $('#cash').append(`<input type="hidden" name="totalValue" value="${totalValue}" />`)
         $('#withoutbank').append(`<input type="hidden" name="totalValue" value="${totalValue}" />`)
-        $('#total-value').html(parseFloat(totalValue).toFixed(2) + "&nbsp; Դ");
+        // $('#total-value').html(parseFloat(totalValue).toFixed(2) + "&nbsp; Դ");
+        $('#total-value').append(`<p>Ընդհանուր</p><p><b>${parseFloat(totalValue).toFixed(2)}&nbsp; Դ</b></p>`)
     }
 
     function mountLayout(index, data) {
