@@ -46,35 +46,41 @@ router.get('/:page', async (req, res) => {
     })
     // console.log(sales_filter)
 
-    Sale
-        .find({})
-        .skip((perPage * page) - perPage)
-        .limit(perPage)
-        .exec(function (err, sale) {
-            Sale.countDocuments().exec(function (err, count) {
-
-                if (err) return next(err)
-                res.render('all-category', {
-                    sale: sale,
-                    current: page,
-                    pages: Math.ceil(count / perPage),
-                    title: 'Բոլոր կատեգորիաները',
-                    contact,
-                    category,
-                    url,
-                    countSale,
-                    logo,
-                    color,
-                    sales_filter,
-                    sale_max_price,
-                    sale_min_price
-                })
+    Sale.find({}).skip((perPage * page) - perPage).sort({date: -1}).limit(perPage).exec(function (err, sale) {
+        Sale.countDocuments().exec(function (err, count) {
+            if (err) return next(err)
+            res.render('all-category', {
+                sale: sale,
+                current: page,
+                pages: Math.ceil(count / perPage),
+                title: 'Բոլոր կատեգորիաները',
+                contact,
+                category,
+                url,
+                countSale,
+                logo,
+                color,
+                sales_filter,
+                sale_max_price,
+                sale_min_price
             })
         })
+    })
 })
 
 
+router.post('/delate', async function(req,res){
+    const {id} = req.body
 
+    if(!id){
+        return res.json({message:"bad request!"})
+    }
+
+    const thisCategorien = await Category.destroy({where:{id}})
+
+    const category = await Category.find()
+    return res.json(category)
+})
 
 
 module.exports = router;

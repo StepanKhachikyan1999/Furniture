@@ -2,7 +2,9 @@
 <html lang="zxx">
 
 <head>
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
     <meta charset="UTF-8">
     <base href="/">
     <link rel="shortcut icon" href="img/logos/logo-shortcut.png" />
@@ -24,6 +26,8 @@
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
 
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Color Switcher -->
     <link rel="stylesheet" type="text/css" href="css/switcher.css">
 
@@ -79,35 +83,7 @@
 
 
     <!-- Top-Bar START -->
-    <div id="top-bar" class="hidden-sm-down">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 col-12">
-                    <!-- <div class="top-bar-welcome">
-          <ul>
-            <li>Welcome to Professional Consulting Agency</li>
-          </ul>
-        </div> -->
-                    <div class="top-bar-info">
-                        <ul>
-                            <li><i class="fa fa-phone"></i><%= contact[0].phone %>
-                            <li>
-                            <li><i class="fa fa-envelope"></i><%= contact[0].email %>
-                            <li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-12">
-                    <ul class="social-icons hidden-md-down">
-                        <li><a href="http://<%= contact[0].facebook %>" target="_blank"><i
-                                    class="fa fa-facebook"></i></a></li>
-                        <li><a href="http://<%= contact[0].instagram %>" target="_blank"><i
-                                    class="fa fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- Top-Bar END -->
 
 
@@ -116,13 +92,18 @@
         <nav id="navigation4" class="container navigation">
             <div class="nav-header">
                 <a class="nav-brand" href="/">
-                    <img src="uploads/<%= logo[0].avatar %>" class="main-logo" alt="logo" id="main_logo">
+                    <% if(logo.length) {%>
+                        <img src="uploads/<%= logo[0].avatar %>" class="main-logo" alt="logo" id="main_logo">
+                    <%} %>
+
                 </a>
                 <div class="nav-toggle"></div>
             </div>
             <div class="nav-menus-wrapper">
                 <ul class="nav-menu align-to-right">
-                    <li><a href="/"><%= __('menu.home') %></a>
+                    <li><a href="/">
+                            <%= __('menu.home') %>
+                        </a>
                         <div class="megamenu-panel">
                             <div class="megamenu-lists">
 
@@ -136,29 +117,37 @@
 
 
                                 <ul class="megamenu-list list-col-20" style="width: 60%;">
-                                    <li class="megamenu-list-title"><%= __('links.allCategory') %></li>
-                                    <div class="row menu_items_navbar" style="padding: 0px 15px;" >
-                                        <% if(locale === 'hy') {%>
-                                        <% category.forEach(i => {%>
-                                        <div class="col-3 mb-3">
-                                            <li><a href="/all-category/1"><%= i.categoryHy %><strong></strong></a></li>
-                                        </div>
-                                        <%}) %>
-                                        <%} %>
+                                    <li class="megamenu-list-title">
+                                        <%= __('links.allCategory') %>
+                                    </li>
+                                    <div class="row menu_items_navbar" style="padding: 0px 15px;">
+                                        <% if(locale==='hy' ) {%>
+                                            <% category.forEach(i=> {%>
+                                                <div class="col-3 mb-3">
+                                                    <li><a href="/all-category/1">
+                                                            <%= i.categoryHy %><strong></strong>
+                                                        </a></li>
+                                                </div>
+                                                <%}) %>
+                                                    <%} %>
                                     </div>
 
-                                    <% if(locale === 'ru') {%>
-                                    <% category.forEach(i => {%>
-                                    <li><a href="/all-category/1"><%= i.categoryRu %><strong></strong></a></li>
-                                    <%}) %>
-                                    <%} %>
+                                    <% if(locale==='ru' ) {%>
+                                        <% category.forEach(i=> {%>
+                                            <li><a href="/all-category/1">
+                                                    <%= i.categoryRu %><strong></strong>
+                                                </a></li>
+                                            <%}) %>
+                                                <%} %>
 
 
-                                    <% if(locale === 'en') {%>
-                                    <% category.forEach(i => {%>
-                                    <li><a href="/all-category/1"><%= i.categoryEn %><strong></strong></a></li>
-                                    <%}) %>
-                                    <%} %>
+                                                    <% if(locale==='en' ) {%>
+                                                        <% category.forEach(i=> {%>
+                                                            <li><a href="/all-category/1">
+                                                                    <%= i.categoryEn %><strong></strong>
+                                                                </a></li>
+                                                            <%}) %>
+                                                                <%} %>
                                 </ul>
 
                                 <!-- <ul class="megamenu-list list-col-20">
@@ -182,13 +171,21 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="/all-category/1"><%= __('menu.shop') %></a> </li>
+                    <li><a href="/all-category/1">
+                            <%= __('menu.shop') %>
+                        </a> </li>
 
-                    <li><a href="about"><%= __('menu.about') %></a> </li>
+                    <li><a href="about">
+                            <%= __('menu.about') %>
+                        </a> </li>
 
-                    <li><a href="contact"><%= __('menu.contact') %></a> </li>
+                    <li><a href="contact">
+                            <%= __('menu.contact') %>
+                        </a> </li>
 
+                       
 
+                     
                     <div class="save">
                         <div class="sale-icon">
                             <a href="/shoping-cart" data-cesta-feira-items-count><i
@@ -198,7 +195,7 @@
 
                         <div class="sale-icon">
                             <a href="/favorite"><i class="icon-line-awesome-heart"></i> </a>
-                            <span class="wishCounter">0</span>
+                            <span class="wishCounter"></span>
                         </div>
 
                         <div class="sale-icon">
@@ -206,43 +203,68 @@
                             <button class="log_reg"><i class="icon-feather-user"></i></button>
                         </div>
 
-                        <div class="sale-icon lang-box" onmouseover="openLang(this)" onmouseout="closeLang(this)">
+
+                        
+                            <div class="chooseLang">
+                                <div>
+                                <span id="am-lang" class="por-lang opened" onclick="changeLang('am-lang', this)" title="Հայերեն"></span>
+                                <span id="en-lang" class="ing-lang opened" onclick="changeLang('en-lang', this)" title="English"></span>
+                                <span id="ru-lang" class="esp-lang chosen opened" onclick="changeLang('ru-lang', this)" title="Русский"></span>
+                            </div>
+                            </div>
+                   
+
+                        <!-- <div class="sale-icon lang-box" onmouseover="openLang(this)" onmouseout="closeLang(this)">
                             <a href="/hy"><span id="am-lang" class="por-lang chosen"
                                     onclick="changeLang('am-lang', this)"></span></a>
                             <a href="/en"><span id="en-lang" class="eng-lang"
                                     onclick="changeLang('en-lang', this)"></span></a>
                             <a href="/ru"><span id="ru-lang" class="esp-lang"
                                     onclick="changeLang('ru-lang', this)"></span></a>
-                        </div>
+                        </div>  -->
                     </div>
-                    <!-- <li><a href="/hy"> <img src="/img/am.png" class="flag"> </a></li>
-                    <li><a href="/ru"> <img src="/img/ru.png" class="flag"></a></li>
-                    <li><a href="/en"><img src="/img/usa.png" class="flag"></a></li> -->
+
+                    
+     </ul>
             </div>
         </nav>
         <div class="login-register">
             <% if(!isAuth) {%>
-            <form class="before-register-box" action="/login" method="POST">
+                <form class="before-register-box" action="/login" method="POST">
 
-                <!-- <button class="close_b">X</button> -->
-                <input type="email" name="email" placeholder="<%= __('info.email') %>">
-                <input type="password" name="password" placeholder="<%= __('info.password') %>">
-                <div class="forgot-reg">
-                    <a href="/change-password"><%= __('info.forgot') %></a><br>
-                    <a href="/register"><%= __('info.register') %></a>
-                </div>
-                <button class="submit-button" type="submit"><%= __('info.login') %></button>
-            </form>
-            <%} else {%>
-            <div class="after-register-box">
-                <ul>
-                    <li><a href="/personal"> <%= __('links.personal') %> </a></li>
-                    <li><a href="/orders"> <%= __('links.orders') %> </a></li>
-                    <li><a href="/favorite"> <%= __('links.favorite') %> </a></li>
-                    <li><a href="/register/logout"> <%= __('links.logout') %> </a></li>
-                </ul>
-            </div>
-            <%} %>
+                    <!-- <button class="close_b">X</button> -->
+                    <input type="email" name="email" placeholder="<%= __('info.email') %>">
+                    <input type="password" name="password" placeholder="<%= __('info.password') %>">
+                    <div class="forgot-reg">
+                        <a href="/change-password">
+                            <%= __('info.forgot') %>
+                        </a><br>
+                        <a href="/register">
+                            <%= __('info.register') %>
+                        </a>
+                    </div>
+                    <button class="submit-button" type="submit">
+                        <%= __('info.login') %>
+                    </button>
+                </form>
+                <%} else {%>
+                    <div class="after-register-box">
+                        <ul>
+                            <li><a href="/personal">
+                                    <%= __('links.personal') %>
+                                </a></li>
+                            <li><a href="/orders">
+                                    <%= __('links.orders') %>
+                                </a></li>
+                            <li><a href="/favorite">
+                                    <%= __('links.favorite') %>
+                                </a></li>
+                            <li><a href="/register/logout">
+                                    <%= __('links.logout') %>
+                                </a></li>
+                        </ul>
+                    </div>
+                    <%} %>
         </div>
     </header>
     <!-- Navbar END -->

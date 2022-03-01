@@ -53,7 +53,19 @@
                     <div class="left-box">
 
                         <div class="header-section-name type-box">
-                            <h4>Тип</h4>
+                            <h4>
+                                <% if(locale === 'en') {%>      
+                                    <h4>Type</h4>
+                                <%} %>
+
+                                <% if(locale === 'ru') {%>      
+                                    <h4>Тип</h4>
+                                <%} %>
+
+                                <% if(locale === 'hy') {%>      
+                                    <h4>Տեսակ</h4>
+                                <%} %>
+                            </h4>
                         </div>
                         <div class="type-box main-div clearfix">
                             <% if(locale == 'hy') {%>
@@ -135,7 +147,18 @@
 
                         <!-- input type="number" -->
                         <div class="header-section-name type-box">
-                            <h4>Цена</h4>
+                            <% if(locale === 'en') {%>      
+                                    <h4>Price</h4>
+                                <%} %>
+
+                                <% if(locale === 'ru') {%>      
+                                    <h4>Цена</h4>
+                                <%} %>
+
+                                <% if(locale === 'hy') {%>      
+                                    <h4>Գին</h4>
+                                <%} %>
+                            <!-- <h4>Цена</h4> -->
                         </div>
 
                         <form class="filter-price main-div" action="/all-category/1" method="GET">
@@ -145,7 +168,17 @@
                             </div>
 
                             <div class="form-group">
-                                <button class="btn btn-outline-danger" type="submit">Искать</button>
+                                <button class="btn btn-outline-danger" type="submit">
+                                    <% if(locale === 'en') {%>      
+                                        <h4 style="font-size:1em;font-style:italic">Search</h4>
+                                    <%} %>
+                                    <% if(locale === 'ru') {%>      
+                                        <h4 style="font-size:1em;font-style:italic">искать</h4>
+                                    <%} %>
+                                    <% if(locale === 'hy') {%>      
+                                        <h4 style="font-size:1em;font-style:italic">Փնտրել</h4>
+                                    <%} %>                                
+                                </button>
                             </div>
 
                         </form>

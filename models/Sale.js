@@ -42,6 +42,8 @@ const SaleSchema = new Schema({
     news: Number,
     avatar: Array,
 
+    date: Date,
+
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'

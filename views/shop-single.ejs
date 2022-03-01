@@ -9,21 +9,20 @@
                 <div class="product-images">
                     <!-- Begin Product Images Slider -->
                     <div class="main-img-slider">
-                        <% sale.avatar.forEach(i => {%>
-                        <figure>
-                            <a href="#" data-size="1400x1400">
-                                <img src="/uploads/<%= i %>" alt="img" />
-                            </a>
-                        </figure>
-                        <%}) %>
-
+                        <% sale.avatar.forEach(i => { %>
+                            <figure>
+                                <a href="#" data-size="1400x1400">
+                                    <img src="/uploads/<%= i %>" alt="img"/>
+                                </a>
+                            </figure>
+                        <% }) %>
                     </div>
                     <!-- End Product Images Slider -->
                     <!-- Begin product thumb nav -->
                     <ul class="thumb-nav">
-                        <% sale.avatar.forEach(i => {%>
-                        <li><img src="/uploads/<%= i %>" alt="product-thumb" /></li>
-                        <%}) %>
+                        <% sale.avatar.forEach(i => { %>
+                            <li><img src="/uploads/<%= i %>" alt="product-thumb"/></li>
+                        <% }) %>
                     </ul>
                     <!-- End product thumb nav -->
                 </div>
@@ -31,7 +30,16 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="single-product">
 
-                    <h2><%= sale.titleHy %></h2>
+                    <% if (locale === 'hy') { %>
+                        <h2><%= sale.titleHy %></h2>
+                    <% } %>
+                    <% if (locale === 'ru') { %>
+                        <h2><%= sale.titleRu %></h2>
+                    <% } %>
+                    <% if (locale === 'en') { %>
+                        <h2><%= sale.titleEn %></h2>
+                    <% } %>
+
                     <!-- <div class="product-review-area">
 							<i class="fa fa-star" aria-hidden="true"></i>
 							<i class="fa fa-star" aria-hidden="true"></i>
@@ -44,43 +52,60 @@
 
                     <!-- Price Start -->
                     <div class="single-product-price">
-                        <% if(sale.discountHy) {%>
-                        <h4><%= sale.discountHy %>&nbsp;֏</h4>
-                        <%} else {%>
-                        <h4><%= sale.price %>&nbsp;֏</h4>
-                        <%} %>
+                        <% if(sale.discountHy) { %>
+                            <h4><%= sale.price %>&nbsp;֏</h4>
+                        <% } else { %>
+                            <h4><%= sale.discountHy %>&nbsp;֏</h4>
+                        <% } %>
                     </div>
                     <!-- Price End -->
-                    <p><%= sale.infoHy %></p>
-
-
+                    <% if (locale === 'hy') { %>
+                        <p><%= sale.infoHy %></p>
+                    <% } %>
+                    <% if (locale === 'en') { %>
+                        <p><%= sale.infoEn %></p>
+                    <% } %>
+                    <% if (locale === 'ru') { %>
+                        <p><%= sale.infoRu %></p>
+                    <% } %>
 
                     <!-- Quantity Form and Button Start -->
                     <form action="" data-cesta-feira-form>
                         <div class="quantity mt-30">
                             <input type="number" name="quantity" min="1" max="99" step="1" value="1"
-                                data-cesta-feira-attribute>
+                                   data-cesta-feira-attribute>
                         </div>
                         <input type="hidden" name="title" value="<%= sale.titleHy %>" data-cesta-feira-attribute="">
-                        <% if(sale.discountHy) {%>
-                        <input type="hidden" name="price" value="<%= sale.discountHy %>" data-cesta-feira-attribute="">
-                        <%} else {%>
-                        <input type="hidden" name="price" value="<%= sale.price %>" data-cesta-feira-attribute="">
-                        <%} %>
+                        <% if(sale.price) { %>
+                            <input type="hidden" name="price" value="<%= sale.price %>"
+                                   data-cesta-feira-attribute="">
+                        <% } else { %>
+                            <input type="hidden" name="price" value="<%= sale.price %>" data-cesta-feira-attribute="">
+                        <% } %>
 
                         <input type="hidden" name="avatar" value="<%= sale.avatar[0] %>" data-cesta-feira-attribute="">
                         <input type="hidden" name="id" value="<%= sale.id %>" data-cesta-feira-item-id>
                         <!-- <input type="submit" class="dark-pulse-button add-to-cart-button" value="Купить сейчас"/> -->
-                        <button type="submit" class="dark-pulse-button add-to-cart-button">Купить сейчас</button>
+                        <button type="submit"
+                                class="dark-pulse-button add-to-cart-button"><%= __('detail.buy_now') %></button>
                     </form>
 
                     <!-- Quantity Form and Button End -->
 
                     <div class="product-categories">
                         <div class="display-b">
-                            <span>Category: </span>
+                            <span><%= __('detail.category') %>: </span>
                             <ul>
-                                <li><%= sale.categoryHy %></li>
+                                <% if (locale === 'hy') { %>
+                                    <li><%= sale.categoryHy %></li>
+                                <% } %>
+                                <% if (locale === 'ru') { %>
+                                    <li><%= sale.categoryRu %></li>
+                                <% } %>
+                                <% if (locale === 'hy') { %>
+                                    <li><%= sale.categoryEn %></li>
+                                <% } %>
+
                             </ul>
                         </div>
                         <div class="display-b">
@@ -107,7 +132,7 @@
 					</div> -->
 
                     <div class="product-share mt-20">
-                        <span>Share: </span>
+                        <span><%= __('detail.share') %>: </span>
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
@@ -125,27 +150,58 @@
                 <div class="shop-tabs">
                     <div class='tabs tabs_animate mt-70'>
                         <ul class="tab-menu left-holder">
-                            <li><a href="#tab-1">Features </a></li>
-                            <li><a href="#tab-2">Additional information</a></li>
+                            <li><a href="#tab-1"><%= __('detail.features') %> </a></li>
+                            <li><a href="#tab-2"><%= __('detail.info') %></a></li>
                         </ul>
 
                         <!-- Tab 2 Start -->
                         <div id='tab-1' class="clearfix product-tab-body">
-                            <h3>Features </h3>
+                            <h3><%= __('detail.features') %> </h3>
                             <ul>
-                                <li><span>Size:</span><%= sale.sizeHy %></li>
-                                <li><span>Weight:</span><%= sale.weightHy %></li>
-                                <li><span>Material:</span><%= sale.materialHy %></li>
-                                <li><span>Color:</span><%= sale.colorHy %></li>
+                                <% if (locale === 'hy') { %>
+                                    <li><span><%= __('detail.size') %>:</span><%= sale.sizeHy %></li>
+                                    <li><span><%= __('detail.weight') %>:</span><%= sale.weightHy %></li>
+                                    <li><span><%= __('detail.material') %>:</span><%= sale.materialHy %></li>
+                                    <li><span>Գույն</span> <% sale.color.forEach(l => {%>
+                                        <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                                        <%}) %>
+                                    </li>
+                                <% } %>
+                                <% if (locale === 'ru') { %>
+                                    <li><span><%= __('detail.size') %>:</span><%= sale.sizeRu %></li>
+                                    <li><span><%= __('detail.weight') %>:</span><%= sale.weightRu %></li>
+                                    <li><span><%= __('detail.material') %>:</span><%= sale.materialRu %></li>
+                                    <li><span>Цвет</span> <% sale.color.forEach(l => {%>
+                                        <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                                        <%}) %>
+                                    </li>
+                                
+                                <% } %>
+                                <% if (locale === 'en') { %>
+                                    <li><span><%= __('detail.size') %>:</span><%= sale.sizeEn %></li>
+                                    <li><span><%= __('detail.weight') %>:</span><%= sale.weightEn %></li>
+                                    <li><span><%= __('detail.material') %>:</span><%= sale.materialEn %></li>
+                                    <li><span>Color</span> <% sale.color.forEach(l => {%>
+                                        <div class="all-prod-box-color" style="background: <%= l %>;"></div>
+                                        <%}) %>
+                                    </li>
+                                <% } %>
                             </ul>
                         </div>
                         <!-- Tab 2 End -->
 
                         <!-- Tab 1 Start -->
                         <div id='tab-2' class="clearfix product-tab-body">
-                            <h3>Additional information</h3>
-
-                            <p><%= sale.more_infoHy %></p>
+                            <h3><%= __('detail.info') %></h3>
+                            <% if (locale === 'hy') { %>
+                                <p><%= sale.more_infoHy %></p>
+                            <% } %>
+                            <% if (locale === 'ru') { %>
+                                <p><%= sale.more_infoRu %></p>
+                            <% } %>
+                            <% if (locale === 'en') { %>
+                                <p><%= sale.more_infoEn %></p>
+                            <% } %>
 
                         </div>
                         <!-- Tab 1 End -->

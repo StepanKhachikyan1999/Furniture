@@ -14,6 +14,9 @@ document.querySelectorAll('.date').forEach(node => {
 })
 
 
+let date = document.querySelector(".footer-date")
+date.innerHTML = new Date().getFullYear()
+
 // $(document).ready(function() {
 //     $('#cashPayment').on('click', function() {
 //         localStorage.clear();
@@ -41,6 +44,3 @@ withoutBank.onclick = function() {
 withBank.onclick = function() {
     localStorage.clear();
 }
-
-
-

@@ -46,6 +46,7 @@ router.get('/:categoryEn/:page', async (req, res) => {
         .find({categoryEn: req.params.categoryEn})
         .skip((perPage * page) - perPage)
         .limit(perPage)
+        .sort({date: -1})
         .exec(function (err, sale_by_category) {
             Sale.countDocuments().exec(function (err, count) {
                 // let currentpages = '/result-search/'+page

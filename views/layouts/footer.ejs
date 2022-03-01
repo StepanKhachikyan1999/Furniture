@@ -4,39 +4,89 @@
         <div class="row">
             <!-- Column 1 Start -->
             <div class="col-md-4 col-sm-6 col-12">
-                <h3>Կապ</h3>
+                <h3>
+                    <% if(locale === 'en') {%>      
+                        Feed Back
+                    <%} %>
+
+                    <% if(locale === 'ru') {%>      
+                        связь
+                    <%} %>
+
+                    <% if(locale === 'hy') {%>      
+                        Կապ
+                    <%} %>
+                    </h3>
                 <div class="phone-footer mt-25">
-                    <ul>
-                        <li> <i class="fa fa-phone"></i><%= contact[0].phone %></li>
-                        <li> <i class="icon-material-outline-email"></i><%= contact[0].email %></li>
-                    </ul>
+                    <% if(contact.length) {%>
+                        <ul>
+                            <li> <i class="fa fa-phone"></i>
+                                <%= contact[0].phone %>
+                            </li>
+                            <li> <i class="icon-material-outline-email"></i>
+                                <%= contact[0].email %>
+                            </li>
+                        </ul>
+                        <%} %>
+
                 </div>
             </div>
             <!-- Column 1 End -->
 
             <!-- Column 2 Start -->
             <div class="col-md-4 col-sm-6 col-12">
-                <h3>Աշխատանքային ժամեր</h3>
+                <h3>
+                    <% if(locale === 'en') {%>      
+                        Opening times
+                    <%} %>
+
+                    <% if(locale === 'ru') {%>      
+                       рабочие часы
+                    <%} %>
+
+                    <% if(locale === 'hy') {%>      
+                        Աշխատանքային ժամեր
+                    <%} %>
+                </h3>
                 <ul class="footer-list">
-                    <li><%= contact[0].workingHourse %></li>
-                    <!-- <li><a href="#">Market Research</a></li> -->
+                    <% if(contact.length) {%>
+                        <li>
+                            <%= contact[0].workingHourse %>
+                        </li>
+                        <%} %>
+                            <!-- <li><a href="#">Market Research</a></li> -->
                 </ul>
             </div>
             <!-- Column 2 End -->
 
             <!-- Column 3 Start -->
             <div class="col-md-4 col-sm-6 col-12">
-                <h3>Գտեք մեզ</h3>
+                <h3>
+
+                    <% if(locale === 'en') {%>      
+                        Find us
+                    <%} %>
+
+                    <% if(locale === 'ru') {%>      
+                        Найди нас
+                    <%} %>
+
+                    <% if(locale === 'hy') {%>      
+                        Գտեք մեզ
+                    <%} %>
+                </h3>
 
                 <div class="footer-social-icons mt-25">
                     <ul>
-                        <li><a href="http://<%= contact[0].facebook %>" target="_blank"><i
-                                    class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="http://<%= contact[0].instagram %>" target="_blank"><i
-                                    class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="icon-feather-mail"></i></a></li>
-                        <!-- <li><a href="#"><i class="fa fa-skype"></i></a></li> -->
-                        <!-- <li><a href="#"><i class="fa fa-youtube"></i></a></li> -->
+                        <% if(contact.length) {%>
+                            <li><a href="http://<%= contact[0].facebook %>" target="_blank"><i
+                                        class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="http://<%= contact[0].instagram %>" target="_blank"><i
+                                        class="fa fa-instagram"></i></a></li>
+                            <%} %>
+                                <li><a href="#"><i class="icon-feather-mail"></i></a></li>
+                                <!-- <li><a href="#"><i class="fa fa-skype"></i></a></li> -->
+                                <!-- <li><a href="#"><i class="fa fa-youtube"></i></a></li> -->
                     </ul>
                 </div>
 
@@ -53,8 +103,11 @@
         </div>
         <!-- Footer Bar Start -->
         <div class="footer-bar">
-            <p><a href="http://armcoding.com/" target="_blank"><span class="primary-color"> ArmCoding</span></a> © 2020
-                All Rights Reserved.</p>
+            <p>
+                <a href="http://armcoding.com/" target="_blank"><span class="primary-color"> ArmCoding</span>
+            </a> © <span class="footer-date" ></span>
+                All Rights Reserved.
+            </p>
         </div>
         <!-- Footer Bar End -->
     </div>

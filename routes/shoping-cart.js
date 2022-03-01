@@ -59,7 +59,7 @@ router.post('/cash', auth, async (req, res) => {
 
     var delivery_price = req.body.delivery_price;
     delivery_price = parseInt(delivery_price) + parseInt(totalValue)
-    // console.log(delivery_price)
+    console.log(delivery_price)
 
     const post = new Cash({
         name, surname, email, phone, address, city, title, quantity, totalValueTemp, now, totalValue, delivery_price,
@@ -146,11 +146,6 @@ router.post("/withbank/status", async (req, res) => {
     await Withbank.findByIdAndUpdate(id, req.body)
     res.redirect('/admin-orders')
 })
-
-
-
-
-
 
 
 

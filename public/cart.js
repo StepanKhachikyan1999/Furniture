@@ -30,9 +30,12 @@ function initListaOrcamento() {
     }
 
     function mountLayout(index, data) {
+    console.log("🚀 ~ file: cart.js ~ line 33 ~ mountLayout ~ data", data)
 
     
-        var totalValueTemp = parseFloat(data.price) * parseInt(data.quantity);
+        var totalValueTemp =  parseInt(data.price) * parseInt(data.quantity);
+        console.log("🚀 ~ file: cart.js ~ line 36 ~ mountLayout ~ totalValueTemp", totalValueTemp)
+        // var totalValueTemp = parseInt(data.price) * parseInt(data.quantity);
 
         var $layout = `<div class="col-lg-12 col-md-12 col-12" id="product-${index}">
         <div class="shop-cart-box" id="1">

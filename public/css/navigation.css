@@ -79,7 +79,16 @@
 }
 
 .align-to-right {
-  float: right;
+  /* float: right; */
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  .align-to-right {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .nav-header {
@@ -101,6 +110,25 @@
 
 .navigation-hidden .nav-header {
   display: none;
+}
+
+.chooseLang {
+  position: absolute;
+  right: -30px;
+  top: 25px;
+}
+
+@media only screen and (max-width:1200px) {
+  .chooseLang {
+    right: -110px;
+  }
+}
+
+@media only screen and (max-width:1000px) {
+  .chooseLang {
+    right: 83px !important;
+    top: 5px !important;
+  }
 }
 
 .nav-brand {

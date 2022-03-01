@@ -9,7 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
 
     <!-- Bootstrap core CSS-->
     <link href="/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +39,7 @@
 
         <!-- Navbar Search -->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <div class="input-group">
+            <!-- <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for..." aria-label="Search"
                     aria-describedby="basic-addon2">
                 <div class="input-group-append">
@@ -45,7 +47,7 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-            </div>
+            </div> -->
         </form>
 
         <!-- Navbar -->
@@ -125,13 +127,19 @@
                                         <label for="">Ընտրեք լոգոն</label>
                                         <input type="file" name="avatar">
                                     </div>
-                                    <input type="hidden" value="<%=logo[0].id%>" name="id">
-                                    <button type="submit" class="btn btn-primary">Փոփոխել</button>
+                                    <% if(logo.length) {%>
+                                        <input type="hidden" value="<%=logo[0].id%>" name="id">
+                                        <%} %>
+
+                                            <button type="submit" class="btn btn-primary">Փոփոխել</button>
                                 </form>
                             </div>
                             <div class="col-6">
                                 <div class="logo">
-                                    <img src="/uploads/<%= logo[0].avatar %>">
+                                    <% if(logo.length) {%>
+                                        <img src="/uploads/<%= logo[0].avatar %>">
+                                        <%} %>
+
                                 </div>
 
                             </div>
@@ -201,18 +209,21 @@
                                 </tfoot>
                                 <tbody>
                                     <% service.forEach(item=> {%>
-                                    <tr>
-                                        <td><img src="/uploads/<%= item.avatar %>" style="width: 100px; height: 100px;">
-                                        </td>
-                                        <td><%= item.titleHy %> </td>
-                                        <td>
-                                            <form action="/admin-settings/delete" method="POST">
-                                                <input type="hidden" name="id" value="<%= item.id %>">
-                                                <button class="btn btn-danger">Ջնջել</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <%}) %>
+                                        <tr>
+                                            <td><img src="/uploads/<%= item.avatar %>"
+                                                    style="width: 100px; height: 100px;">
+                                            </td>
+                                            <td>
+                                                <%= item.titleHy %>
+                                            </td>
+                                            <td>
+                                                <form action="/admin-settings/delete" method="POST">
+                                                    <input type="hidden" name="id" value="<%= item.id %>">
+                                                    <button class="btn btn-danger">Ջնջել</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <%}) %>
 
                                 </tbody>
                             </table>
@@ -297,19 +308,24 @@
                                 </tfoot>
                                 <tbody>
                                     <% advantage.forEach(item=> {%>
-                                    <tr>
-                                        <td><img src="/uploads/<%= item.avatar %>" style="width: 100px; height: 100px;">
-                                        </td>
-                                        <td><%= item.titleHy %> </td>
-                                        <td><%= item.descriptionHy %></td>
-                                        <td>
-                                            <form action="/admin-settings/delete_advantage" method="POST">
-                                                <input type="hidden" name="id" value="<%= item.id %>">
-                                                <button class="btn btn-danger">Ջնջել</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <%}) %>
+                                        <tr>
+                                            <td><img src="/uploads/<%= item.avatar %>"
+                                                    style="width: 100px; height: 100px;">
+                                            </td>
+                                            <td>
+                                                <%= item.titleHy %>
+                                            </td>
+                                            <td>
+                                                <%= item.descriptionHy %>
+                                            </td>
+                                            <td>
+                                                <form action="/admin-settings/delete_advantage" method="POST">
+                                                    <input type="hidden" name="id" value="<%= item.id %>">
+                                                    <button class="btn btn-danger">Ջնջել</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <%}) %>
 
                                 </tbody>
                             </table>
@@ -322,19 +338,29 @@
                             <h4 class="mb-3">Մեր մասին</h4>
                             <div class="form-group">
                                 <label for="">Վերնագիր</label>
-                                <input type="text" class="form-control" name="title" value="<%=about[0].title%>">
+                                <% if (about.length) {%>
+                                    <input type="text" class="form-control" name="title" value="<%=about[0].title%>">
+                                    <%} else {%>
+                                        <input type="text" class="form-control" name="title" value="">
+                                        <%} %>
                             </div>
                             <div class="form-group">
                                 <label for="">Տեղեկություն</label>
-                                <textarea class="form-control" name="info"><%=about[0].info%></textarea>
+                                <% if (about.length) {%>
+                                    <textarea class="form-control" name="info"><%=about[0].info%></textarea>
+                                    <%} else {%>
+                                        <textarea class="form-control" name="info"></textarea>
+                                        <%} %>
                             </div>
                             <div class="form-group">
                                 <label for="">Նկար</label>
                                 <input type="file" name="avatar">
                             </div>
                             <div class="form-group">
-                                <input type="hidden" value="<%=about[0].id%>" name="id">
-                                <button type="submit" class="btn btn-primary">Փոփոխել</button>
+                                <% if(about.length) {%>
+                                    <input type="hidden" value="<%=about[0].id%>" name="id">
+                                    <%} %>
+                                        <button type="submit" class="btn btn-primary">Փոփոխել</button>
                             </div>
 
                         </form>
@@ -345,30 +371,62 @@
                             <h4 class="mb-3">Կապ</h4>
                             <div class="form-group">
                                 <label for="">Հեռախոսահամար</label>
-                                <input type="text" class="form-control" name="phone" value="<%= contact[0].phone %>">
+                                <% if(contact.length) {%>
+                                    <input type="text" class="form-control" name="phone"
+                                        value="<%= contact[0].phone %>">
+                                    <%} else {%>
+                                        <input type="text" class="form-control" name="phone" value="">
+                                        <%} %>
+
                             </div>
                             <div class="form-group">
                                 <label for="">Էլ․ հասցե</label>
-                                <input type="text" class="form-control" name="email" value="<%= contact[0].email %>">
+                                <% if(contact.length) {%>
+                                    <input type="text" class="form-control" name="email"
+                                        value="<%= contact[0].email %>">
+                                    <%} else {%>
+                                        <input type="text" class="form-control" name="email" value="">
+                                        <%} %>
+
                             </div>
                             <div class="form-group">
                                 <label for="">Աշխատանքային ժամեր</label>
                                 <div>
-                                    <textarea class="contact_textarea"
-                                        name="workingHourse"><%= contact[0].workingHourse %></textarea>
+                                    <% if(contact.length) {%>
+                                        <textarea class="contact_textarea"
+                                            name="workingHourse"><%= contact[0].workingHourse %></textarea>
+                                        <%} else {%>
+                                            <textarea class="contact_textarea" name="workingHourse"></textarea>
+                                            <%} %>
+
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="instagram" placeholder="Instagram"
-                                    value="<%= contact[0].instagram %>">
+                                <% if(contact.length) {%>
+                                    <input type="text" class="form-control" name="instagram" placeholder="Instagram"
+                                        value="<%= contact[0].instagram %>">
+                                    <%} else {%>
+                                        <input type="text" class="form-control" name="instagram" placeholder="Instagram"
+                                            value="<">
+                                        <%} %>
+
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="facebook" placeholder="Facebook"
-                                    value="<%= contact[0].facebook %>">
+                                <% if(contact.length) {%>
+                                    <input type="text" class="form-control" name="facebook" placeholder="Facebook"
+                                        value="<%= contact[0].facebook %>">
+                                    <%} else {%>
+                                        <input type="text" class="form-control" name="facebook" placeholder="Facebook"
+                                            value="">
+                                        <%} %>
+
                             </div>
                             <div class="form-group">
-                                <input type="hidden" value="<%=contact[0].id%>" name="id">
-                                <button type="submit" class="btn btn-primary">Թարմացնել</button>
+                                <% if(contact.length) {%>
+                                    <input type="hidden" value="<%=contact[0].id%>" name="id">
+                                    <%} %>
+
+                                        <button type="submit" class="btn btn-primary">Թարմացնել</button>
                             </div>
                         </form>
 
@@ -403,17 +461,18 @@
                                 </tfoot>
                                 <tbody>
                                     <% slider.forEach(item=> {%>
-                                    <tr>
-                                        <td><img src="/uploads/<%= item.avatar %>" style="width: 200px; height: 200px;">
-                                        </td>
-                                        <td>
-                                            <form action="/admin-settings/sliderDelete" method="POST">
-                                                <input type="hidden" name="id" value="<%= item.id %>">
-                                                <button class="btn btn-danger">Ջնջել</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <%}) %>
+                                        <tr>
+                                            <td><img src="/uploads/<%= item.avatar %>"
+                                                    style="width: 200px; height: 200px;">
+                                            </td>
+                                            <td>
+                                                <form action="/admin-settings/sliderDelete" method="POST">
+                                                    <input type="hidden" name="id" value="<%= item.id %>">
+                                                    <button class="btn btn-danger">Ջնջել</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <%}) %>
 
                                 </tbody>
                             </table>
@@ -425,16 +484,30 @@
                             <h4 class="mb-3">Գլխավոր > Slider > տեքստ</h4>
                             <div class="form-group">
                                 <label for="">Վերնագիր</label>
-                                <input type="text" class="form-control" name="title" value="<%= HeaderText[0].title %>">
+                                <% if(HeaderText.length) {%>
+                                    <input type="text" class="form-control" name="title"
+                                        value="<%= HeaderText[0].title %>">
+                                    <%} else {%>
+                                        <input type="text" class="form-control" name="title" value="">
+                                        <% } %>
+
                             </div>
                             <div class="form-group">
                                 <label for="">Նկարագրություն</label>
-                                <input type="text" class="form-control" name="description"
-                                    value="<%= HeaderText[0].description %>">
+                                <% if(HeaderText.length) {%>
+                                    <input type="text" class="form-control" name="description"
+                                        value="<%= HeaderText[0].description %>">
+                                    <%} else {%>
+                                        <input type="text" class="form-control" name="description" value="">
+                                        <% } %>
+
                             </div>
                             <div class="form-group">
-                                <input type="hidden" name="id" value="<%= HeaderText[0].id %>">
-                                <button type="submit" class="btn btn-primary">Փոփոխել</button>
+                                <% if(HeaderText.length) {%>
+                                    <input type="hidden" name="id" value="<%= HeaderText[0].id %>">
+                                    <%} %>
+
+                                        <button type="submit" class="btn btn-primary">Փոփոխել</button>
                             </div>
                         </form>
 
@@ -443,13 +516,21 @@
                             <div class="form-group">
                                 <label for="">Բոլոր կատեգորիաները</label>
                                 <ul>
-                                    <% category.forEach(i => {%>
-                                    <li>
-                                        <small><%= i.categoryHy %></small>,
-                                        &nbsp; <small><%= i.categoryRu %></small>,
-                                        &nbsp; <small><%= i.categoryEn %></small>
-                                    </li>
-                                    <%}) %>
+                                    <% category.forEach(i=> {%>
+                                        <li>
+                                            <small>
+                                                <%= i.categoryHy %>
+                                            </small>,
+                                            &nbsp; <small>
+                                                <%= i.categoryRu %>
+                                            </small>,
+                                            &nbsp; <small>
+                                                <%= i.categoryEn %>
+                                            </small>
+                                            <span class="delBtn" style="cursor: pointer;background: red;" title="delete category">X</span>
+                                        </li>
+                                        <%}) %>
+                                        
                                 </ul>
                             </div>
                             <ul class="nav nav-tabs mt-5">
@@ -490,9 +571,9 @@
 
                         <div class="colors">
                             <h4>Բոլոր գույները</h4>
-                            <% color.forEach(i => {%>
-                            <div class="all-prod-box-color" style="background: <%= i.color %>;"></div>
-                            <%}) %>
+                            <% color.forEach(i=> {%>
+                                <div class="all-prod-box-color" style="background: <%= i.color %>;"></div>
+                                <%}) %>
 
                         </div>
 
@@ -525,32 +606,58 @@
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div id="hy3" class="container tab-pane active mt-3">
-                                    <div class="form-group">
-                                        <label for="">Պայմաններ</label>
-                                        <textarea name="conditionHy"
-                                            class="form-control"><%= condition[0].conditionHy %></textarea>
+                                <% if(condition.length) {%>
+                                    <div id="hy3" class="container tab-pane active mt-3">
+                                        <div class="form-group">
+                                            <label for="">Պայմաններ</label>
+                                            <textarea name="conditionHy"
+                                                class="form-control"><%= condition[0].conditionHy %></textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div id="ru3" class="container tab-pane fade mt-3">
-                                    <div class="form-group">
-                                        <label for="">Условия</label>
-                                        <textarea name="conditionRu"
-                                            class="form-control"><%= condition[0].conditionRu %></textarea>
+                                    <div id="ru3" class="container tab-pane fade mt-3">
+                                        <div class="form-group">
+                                            <label for="">Условия</label>
+                                            <textarea name="conditionRu"
+                                                class="form-control"><%= condition[0].conditionRu %></textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div id="en3" class="container tab-pane fade mt-3">
-                                    <div class="form-group">
-                                        <label for="">Condition</label>
-                                        <textarea name="conditionEn"
-                                            class="form-control"><%= condition[0].conditionEn %></textarea>
+                                    <div id="en3" class="container tab-pane fade mt-3">
+                                        <div class="form-group">
+                                            <label for="">Condition</label>
+                                            <textarea name="conditionEn"
+                                                class="form-control"><%= condition[0].conditionEn %></textarea>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <input type="hidden" name="id" value="<%= condition[0].id %>">
-                                    <button type="submit" class="btn btn-primary">Փոփոխել</button>
-                                </div>
+                                    <div class="form-group">
+                                        <input type="hidden" name="id" value="<%= condition[0].id %>">
+                                        <button type="submit" class="btn btn-primary">Փոփոխել</button>
+                                    </div>
+                                    <%} else {%>
+                                        <div id="hy3" class="container tab-pane active mt-3">
+                                            <div class="form-group">
+                                                <label for="">Պայմաններ</label>
+                                                <textarea name="conditionHy" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div id="ru3" class="container tab-pane fade mt-3">
+                                            <div class="form-group">
+                                                <label for="">Условия</label>
+                                                <textarea name="conditionRu" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div id="en3" class="container tab-pane fade mt-3">
+                                            <div class="form-group">
+                                                <label for="">Condition</label>
+                                                <textarea name="conditionEn" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Փոփոխել</button>
+                                        </div>
+                                        <%} %>
+
                             </div>
                         </form>
 

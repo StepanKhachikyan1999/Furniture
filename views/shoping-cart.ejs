@@ -77,14 +77,26 @@
                                                     placeholder="<%= __('shoping_cart.cash.phone') %>" required="">
                                                 <label for=""><%= __('shoping_cart.cash.city') %></label>
                                                 <select name="city" class="delivery_city">
-                                                    <% deliveryCity.forEach(i => {%>
-                                                    <option value="<%= i.price %>"><%= i.name %></option>
-                                                    <%}) %>
+                                                    <!-- <% deliveryCity.forEach(i => {%>
+                                                    <option value="<%= i.price %>">Երևան</option>
+        
+                                                    <%}) %> -->
+                                                    <option value="Yerevan">Yerevan</option>
+                                                    <option value="Masis">Masis</option>
+                                                    <option value="Artashat">Artashat</option>
+                                                    <option value="Vedi">Vedi</option>
+                                                    <option value="Ararat">Ararat</option>
+                                                    <option value="Armavir">Armavir</option>
+                                                    <option value="Ejmiacin">Ejmiacin</option>
+                                                    <option value="Sevan">Sevan</option>
+                                                    <option value="Other">Other</option>
                                                 </select>
                                                 <br>
                                                 <input type="text" name="address"
                                                     placeholder="<%= __('shoping_cart.cash.address') %>" required="">
                                             </div>
+
+                                            
                                             <% if(!isAuth) {%>
                                             <button class="submit-button-buy"
                                                 type="submit"><%= __('shoping_cart.orderReg') %></button>

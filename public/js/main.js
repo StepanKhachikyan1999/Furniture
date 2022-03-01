@@ -1663,14 +1663,75 @@ $('.hide-product').on("click", function () {
 
 
 
-
+localStorage.setItem("keyLang","chosen")
 
 
 //  LANG-BOX -------------
+function changeLang(language, langEl) {
+  var langItems = document.querySelectorAll(".chooseLang span");
+  if (document.querySelector(".chooseLang span.por-lang.opened") == null) {
+    for (var o = 0; o < langItems.length; o++) {
+      langItems[o].classList.add('opened');
+    }
+  } else {
+    for (var o = 0; o < langItems.length; o++) {
+      langItems[o].classList.remove('opened');
+    }
+    if (document.querySelector('.chooseLang .chosen') != language) {
+      for (var o = 0; o < langItems.length; o++) {
+        langItems[o].classList.remove('chosen');
+        langEl.classList.add(localStorage.getItem("keyLang"));
+      }
+      // console.log('You chose another language!');
+      if(language == "en-lang"){
+        window.location.href = "/en";
+      }
+      else if(language == "ru-lang"){
+        window.location.hash = "#"
+        window.location.href = "/ru";
+      }
+      else{
+        window.location.hash = "#"
+        window.location.href = "/hy";
+      }
+    }
+  }
+  
+}
+
+
+////////////////////////////////////////////
+
+// function changeLang(language, el) {
+//   const container = document.querySelector('.chooseLang').classList;
+//   el = el.classList;
+  
+//   if (container.contains('open')) {
+//     container.remove('open');
+//     if (!el.contains('chosen')) {
+      
+//       document.querySelector('.chooseLang .chosen').classList.remove('chosen');
+//       el.add(localStorage.getItem("key"));
+      
+//       console.log(language + ' chosen')
+//       // your code
+      
+//     }
+//     return;
+//   }
+  
+//   container.add('open');
+  
+// }
+
+
+// var langItems = document.querySelectorAll(".lang-box span");
 
 // function changeLang(language, langEl) {
 //   var langItems = document.querySelectorAll(".lang-box span");
-//   if (document.querySelector(".lang-box span.por-lang.opened") == null) {
+
+//   console.log(langItems);
+//   if (document.querySelector(".lang-box span .por-lang.opened") == null) {
 //     for (var o = 0; o < langItems.length; o++) {
 //       langItems[o].classList.add('opened');
 //     }
@@ -1696,6 +1757,9 @@ $('.hide-product').on("click", function () {
 //     }
 //   }
 // }
+
+
+
 
 function openLang(x) {
   var langItems = document.querySelectorAll(".lang-box span");

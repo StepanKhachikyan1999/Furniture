@@ -99,5 +99,16 @@
 		}
 	},
 	"wishlist_empty": "You don't have any favorite products",
-	"basket_empty": "Basket is empty"
+	"basket_empty": "Basket is empty",
+	"detail": {
+		"buy_now": "Buy now",
+		"category": "Category",
+		"share": "Share",
+		"features": "Features",
+		"size": "Size",
+		"weight": "Weight",
+		"material": "Material",
+		"color": "Colors",
+		"info": "Additional information"
+	}
 }

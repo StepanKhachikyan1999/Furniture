@@ -7,7 +7,7 @@
 -------------------------------------------*/
 
 .section-block {
-    padding: 90px 0px 90px 0px;
+    padding: 20px 0px 20px 0px;
     background-color: #fff;
 }
 
@@ -4334,7 +4334,6 @@ Style 5
     line-height: 1.6;
 }
 
-
 .testmonial-box-4-img img {
     width: 150px !important;
     height: 150px;
@@ -7441,6 +7440,7 @@ Styles 4
 .sale-box span{
     color: #fff;
     font-size: 15px;
+    text-align: center;
     font-weight: 500;
 }
 
@@ -7548,12 +7548,6 @@ Styles 4
 }
 
 
-
-
-
-
-
-
 /* sale-icon --------*/
 
 .sale-icon {
@@ -7587,12 +7581,12 @@ Styles 4
 }
 
 .sale-icon span{
-   color: #000;
-   font-size: 15px;
+   color: #555;
+   font-size: 13px;
    font-weight: 600;
    position: absolute;
-   bottom:  0px;
-   right: 10px; 
+   top:  0px;
+   right: 5px;
 }
 
 .save{
@@ -7600,7 +7594,11 @@ Styles 4
     text-align: right;
 }
 
-
+@media only screen and (max-width:1000px) {
+    .save {
+        text-align: left;
+    }
+}
 
 
 /* login-register */
@@ -7884,7 +7882,7 @@ input::-webkit-inner-spin-button {
 }
 
 .type-name input {
-    position: absolute;
+    /* position: absolute; */
     opacity: 0;
     cursor: pointer;
     height: 0;
@@ -8009,7 +8007,6 @@ input::-webkit-inner-spin-button {
 
 
 
-
 .search-box{
     /*text-align: center;*/
 }
@@ -8018,7 +8015,7 @@ input::-webkit-inner-spin-button {
 display: inline-block;
     border: 1px solid #d21e2b;
     background: #d21e2b;
-    padding: 8px 25px;
+    padding: 5px 25px;
     border-radius: 5px;
     color: #fff;
     text-transform: uppercase;
@@ -8763,8 +8760,8 @@ td, th {
 /* ABOUT ====================*/
 
 .about-img{
-    width: 100%;
-    height: 500px;
+    width: 30%;
+    /* height: 500px; */
 }
 
 
@@ -8773,7 +8770,7 @@ td, th {
 
 
 /* LANGUAGE *****/
-
+/* 
 .lang-box{
     width: 100px;
     height: 25px;
@@ -8827,7 +8824,74 @@ td, th {
 .flag {
     width: 30px;
     height: 30px;
-}
+} */
+
+
+/* LANGUAGE *****/
+
+.chooseLang div {
+    width: 200px;
+    height: 25px;
+    position: relative;
+    left: 20px;
+  }
+  .chooseLang span {
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.9s ease;
+    left: 0;
+    top: 0;
+    background-repeat: no-repeat !important;
+  }
+  .chooseLang span.por-lang {
+    background-image: url(../img/lang/armenia2.png);
+  }
+  .chooseLang span.por-lang.opened {
+    left: -35px;
+    top: 5px;
+    opacity: 1;
+  }
+  .chooseLang span.ing-lang {
+    background-image: url(../img/lang/united-kingdom2.png)
+  }
+  .chooseLang span.ing-lang.opened {
+    left: 0px;
+    top: 5px;
+    
+    opacity: 1;
+  }
+
+
+  @media only screen and (max-width:1000px) {
+    .chooseLang span.ing-lang.opened {
+        margin-left: 25px;
+    }
+  }
+  .chooseLang span.esp-lang {
+    background-image: url(../img/lang/russia2.png)
+  }
+  .chooseLang span.esp-lang.opened {
+    left: 35px;
+    top: 5px;
+    opacity: 1;
+    
+  }
+
+  @media only screen and (max-width:1000px) {
+    .chooseLang span.esp-lang.opened {
+        margin-left: 50px;
+    }
+  }
+  .chooseLang span.chosen {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  
 
 .alert {
     padding: .5rem 1rem;
