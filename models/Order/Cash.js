@@ -27,7 +27,6 @@ const CashSchema = new Schema({
         required: true
     },
 
-
     title: Array,
     quantity: Array,
     totalValueTemp: Array,

@@ -71,6 +71,8 @@
 
 </head>
 
+
+<!-- oncontextmenu="return false" -->
 <body>
 
     <!-- Preloader Start-->
@@ -93,7 +95,7 @@
             <div class="nav-header">
                 <a class="nav-brand" href="/">
                     <% if(logo.length) {%>
-                        <img src="uploads/<%= logo[0].avatar %>" class="main-logo" alt="logo" id="main_logo">
+                        <img style="width: 110px;" src="uploads/<%= logo[0].avatar %>" class="main-logo" alt="logo" id="main_logo">
                     <%} %>
 
                 </a>
@@ -236,9 +238,9 @@
                     <input type="email" name="email" placeholder="<%= __('info.email') %>">
                     <input type="password" name="password" placeholder="<%= __('info.password') %>">
                     <div class="forgot-reg">
-                        <a href="/change-password">
+                        <!-- <a href="/change-password">
                             <%= __('info.forgot') %>
-                        </a><br>
+                        </a><br> -->
                         <a href="/register">
                             <%= __('info.register') %>
                         </a>

@@ -50,8 +50,34 @@
         <div class="video-overlay">
             <div class="video-content">
                 <div class="section-heading center-holder white-color">
-                    <span>Gain a Success With Us!</span>
-                    <h2><strong>Creative Consulting Agency</strong></h2>
+                    <span>
+                        <% if(locale === 'en') {%>      
+                            Gain a Success With Us!
+                        <%} %>
+    
+                        <% if(locale === 'ru') {%>      
+                            Добейтесь успеха с нами
+                        <%} %>
+    
+                        <% if(locale === 'hy') {%>      
+                            Հաջողություն ձեռք բերեք մեզ հետ
+                        <%} %>
+                        
+                    </span>
+                    <h2><strong>
+                        <% if(locale === 'en') {%>      
+                            Creative Consulting Agency
+                        <%} %>
+    
+                        <% if(locale === 'ru') {%>      
+                            Креативное консалтинговое агентство
+                        <%} %>
+    
+                        <% if(locale === 'hy') {%>      
+                            Հաջողություն ձեռք բերեք մեզ հետ
+                        <%} %>
+                       
+                    </strong></h2>
                     <h4>For Smart Solutions.</h4>
                     <a href="#" class="primary-button button-md mt-10">Become a Client</a>
                 </div>
@@ -62,4 +88,4 @@
 <!-- Video Section END -->
 
 
-<%- include('layouts/footer') %>
+    <%- include('layouts/footer') %>

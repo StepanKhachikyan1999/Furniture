@@ -41,15 +41,23 @@
                 <div class="contact-box">
                     <i class="fa fa-comments-o"></i>
                     <h4><%= __('contactUs.chat') %></h4>
-                    <span>մենք աշխատում ենք 24/7</span>
+                    <span>
+                        <% if (locale === 'hy') { %>
+                            մենք աշխատում ենք 24/7
+                        <% } %>
+                        <% if (locale === 'ru') { %>
+                            мы работаем 24/7
+                        <% } %>
+                        <% if (locale === 'en') { %>
+                            We work 24/7
+                        <% } %>
+                        </span>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Contact Boxes END -->
-
-
 
 
 <!-- Contact Form Section START -->
@@ -63,20 +71,20 @@
         <div class="mt-50">
             <div class="contact-form-box">
                 <!-- Form Start -->
-                <form class="contact-form row">
+                <form action="/constactUs"  method="post" class="contact-form row" >
                     <div class="col-md-6 col-sm-6 col-12">
-                        <input type="text" name="name" placeholder="<%= __('contactUs.input.name') %>">
+                        <input type="text" id="name" name="name" placeholder="<%= __('contactUs.input.name') %>">
                     </div>
                     <div class="col-md-6 col-sm-6 col-12">
-                        <input type="email" name="email" placeholder="<%= __('contactUs.input.email') %>">
+                        <input type="email" id="email" name="email" placeholder="<%= __('contactUs.input.email') %>">
                     </div>
 
                     <div class="col-md-12">
-                        <input type="text" name="subject" placeholder="<%= __('contactUs.input.subject') %>">
+                        <input type="text" id="subject" name="theme" placeholder="<%= __('contactUs.input.subject') %>">
                     </div>
 
                     <div class="col-md-12">
-                        <textarea name="message" placeholder="<%= __('contactUs.input.message') %>"></textarea>
+                        <textarea name="message" id="message" placeholder="<%= __('contactUs.input.message') %>"></textarea>
                     </div>
                     <div class="col-md-12">
                         <div class="center-holder">
@@ -90,8 +98,6 @@
     </div>
 </div>
 <!-- Contact Form Section END -->
-
-
 
 
 

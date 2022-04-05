@@ -22,7 +22,7 @@ router.get('/', auth, async (req, res) => {
     const user = await req.user
         .populate('cart.items.saleId')
         .execPopulate()
-    // console.log(user._id)
+    console.log(user)
 
     let timeId = user._id
 
@@ -30,10 +30,21 @@ router.get('/', auth, async (req, res) => {
         .populate('user.userId')
 
     const withBank = await WithBank.find({ 'user.userId': req.user._id })
-        .populate('user.userId')
+        .populate('user.userId');
+
+    const test = await WithBank.find()
+    console.log('test', test)
 
     const withoutBank = await WithoutBank.find({ 'user.userId': req.user._id })
         .populate('user.userId')
+
+        // const paymentIdram = await WithoutBank.find({ 'user.userId': req.user._id })
+        
+        // .populate('user.userId')
+
+        // console.log(cash,'cash');
+        // console.log(withBank,'withBank');
+        // console.log(withoutBank,'withoutBank');
 
     res.render('orders', {
         title: 'Գնումների պատմություն',
@@ -42,6 +53,7 @@ router.get('/', auth, async (req, res) => {
         cash,
         withBank,
         withoutBank,
+        // paymentIdram,
         logo,
         timeId,
         userId: req.user ? req.user._id.toString() : null

@@ -182,18 +182,118 @@
 
             <% if(withBank.length > 0) {%>
             <div class="col-lg-8 col-md-7 col-12 mb-30">
-                <h4 class="mb-5">Продажа в кредит через банка</h4>
+                <h4 class="mb-5">
+                    <% if(locale === 'en') {%>      
+                        Cash sales history
+                    <%} %>
+
+                    <% if(locale === 'ru') {%>      
+                        История продаж за наличные
+                    <%} %>
+
+                    <% if(locale === 'hy') {%>      
+                        կանխիկ վաճառքների պատմություն
+                    <%} %>
+                    
+                </h4>
                 <div class="orders-box">
                     <table>
                         <thead>
                             <tr>
-                                <th>№ Заказа</th>
-                                <th>Клиент</th>
-                                <th>Названия</th>
-                                <th>Количество</th>
-                                <th>Всего</th>
-                                <th>Добавлено</th>
-                                <th>Статус</th>
+                                <th>
+                                    <% if(locale === 'en') {%>      
+                                        № for order
+                                    <%} %>
+                
+                                    <% if(locale === 'ru') {%>      
+                                        № Заказа
+                                    <%} %>
+                
+                                    <% if(locale === 'hy') {%>      
+                                        № պատվերի համար
+                                    <%} %>
+                                </th>
+                                <th>
+                                    
+                                    <% if(locale === 'en') {%>      
+                                        customer
+                                    <%} %>
+                
+                                    <% if(locale === 'ru') {%>      
+                                        Клиент
+                                    <%} %>
+                
+                                    <% if(locale === 'hy') {%>      
+                                        Հաճախորդ
+                                    <%} %>
+                                </th>
+                                <th>
+                                    <% if(locale === 'en') {%>      
+                                        Product name
+                                    <%} %>
+                
+                                    <% if(locale === 'ru') {%>      
+                                        Названия
+                                    <%} %>
+                
+                                    <% if(locale === 'hy') {%>      
+                                        ապրանքի անուն
+                                    <%} %>
+                                    
+                                </th>
+                                <th>
+                                    <% if(locale === 'en') {%>      
+                                        Quantity
+                                    <%} %>
+                
+                                    <% if(locale === 'ru') {%>      
+                                        Количество
+                                    <%} %>
+                
+                                    <% if(locale === 'hy') {%>      
+                                        քանակ
+                                    <%} %>
+                                </th>
+                                <th>
+                                    <% if(locale === 'en') {%>      
+                                        Total
+                                    <%} %>
+                
+                                    <% if(locale === 'ru') {%>      
+                                        Всего
+                                    <%} %>
+                
+                                    <% if(locale === 'hy') {%>      
+                                        ընդհանուր
+                                    <%} %>
+                                    
+                                </th>
+                                <th>
+                                    <% if(locale === 'en') {%>      
+                                        Added
+                                    <%} %>
+                
+                                    <% if(locale === 'ru') {%>      
+                                        Добавлено
+                                    <%} %>
+                
+                                    <% if(locale === 'hy') {%>      
+                                        ավելացված է
+                                    <%} %>
+                                </th>
+                                <th>
+                                    <% if(locale === 'en') {%>      
+                                        status
+                                    <%} %>
+                
+                                    <% if(locale === 'ru') {%>      
+                                        Статус
+                                    <%} %>
+                
+                                    <% if(locale === 'hy') {%>      
+                                        ստատուս
+                                    <%} %>
+                                </th>
                                 <!-- <th>Детали</th> -->
                             </tr>
                         </thead>

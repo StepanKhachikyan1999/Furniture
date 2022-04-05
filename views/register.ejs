@@ -45,9 +45,17 @@
                     <ul>
                         <li><a href="/login"> <%= __('info.login') %> </a></li>
                         <li class="register-box-menu-active"><a href="/register"> <%= __('info.register') %> </a></li>
-                        <li><a href="/change-password"> <%= __('info.forgot') %> </a></li>
-                        <li><a href="/personal"> <%= __('info.myInfo') %> </a></li>
-                        <li><a href="/orders"> <%= __('info.orders') %> </a></li>
+
+                        
+                        <% if(!isAuth) {%>
+                         
+                            <%} else {%>
+                                <li><a href="/change-password"> <%= __('info.forgot') %> </a></li>
+                                <li><a href="/personal"> <%= __('info.myInfo') %></a></li>
+                         
+                                <%} %>       
+                    
+                        <!-- <li><a href="/orders"> <%= __('info.orders') %> </a></li> -->
                         <!-- <li><a href="#"> Возвраты </a></li>
                         <li><a href="#"> Условия </a></li> -->
                     </ul>

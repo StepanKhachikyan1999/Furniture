@@ -46,7 +46,7 @@
         <div class="owl-carousel owl-theme categories" id="categories">
             <% service.forEach(i => {%>
             <% if(locale == 'hy') {%>
-            <div class="item">
+            <div class="item clickStop">
                 <a href="#">
                     <img src="uploads/<%= i.avatar %>" alt="">
                     <h4><%= i.titleHy %></h4>
@@ -54,7 +54,7 @@
             </div>
             <%} %>
             <% if(locale == 'ru') {%>
-            <div class="item">
+            <div class="item clickStop">
                 <a href="#">
                     <img src="uploads/<%= i.avatar %>" alt="">
                     <h4><%= i.titleRu %></h4>
@@ -62,7 +62,7 @@
             </div>
             <%} %>
             <% if(locale == 'en') {%>
-            <div class="item">
+            <div class="item clickStop">
                 <a href="#">
                     <img src="uploads/<%= i.avatar %>" alt="">
                     <h4><%= i.titleEn %></h4>

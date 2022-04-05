@@ -128,7 +128,7 @@
 			// template : "<div rel='"+WISHLIST.ID+"' id='wishItem_<%- id %>' class='wishedItem' data-id='<%- id %>'><img src='<%- img %>'><p><%- title %></p></div>",
 
 			template: `<div class="col-lg-4 col-md-6 col-12" >
-			<div class="all-prod-box wishedItem" rel="${WISHLIST.ID}" id='wishItem_<%- id %>'>
+			<div style="height:100%" class="all-prod-box wishedItem" rel="${WISHLIST.ID}" id='wishItem_<%- id %>'>
 				<a href="/shop-single/<%- id %>">
 					<div class="all-prod-box-img">
 						<div class="item_img all-prod-box-img-h">

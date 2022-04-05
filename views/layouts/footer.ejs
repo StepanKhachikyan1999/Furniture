@@ -20,7 +20,7 @@
                 <div class="phone-footer mt-25">
                     <% if(contact.length) {%>
                         <ul>
-                            <li> <i class="fa fa-phone"></i>
+                            <li type="tel"> <i class="fa fa-phone"></i>
                                 <%= contact[0].phone %>
                             </li>
                             <li> <i class="icon-material-outline-email"></i>
@@ -96,7 +96,20 @@
             <!-- Column 4 Start -->
             <div class="col-md-2 col-sm-6 col-12">
                 <div class="footer-tags mt-25">
-                    <a href="/condition">Պայմաններ</a>
+                    <a href="/condition">
+                        <% if(locale === 'en') {%>      
+                            Terms
+                        <%} %>
+    
+                        <% if(locale === 'ru') {%>      
+                            Условия
+                        <%} %>
+    
+                        <% if(locale === 'hy') {%>      
+                            Պայմաններ
+                        <%} %>
+                        
+                    </a>
                 </div>
             </div>
             <!-- Column 4 End -->
@@ -125,6 +138,9 @@
 
 
 <!-- script -->
+
+
+
 <script type="text/javascript" src="js/script.js"></script>
 
 <!-- Jquery -->

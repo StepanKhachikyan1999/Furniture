@@ -95,6 +95,12 @@
                     <span>Գնումներ</span>
                 </a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/admin-message">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>նամակներ</span>
+                </a>
+            </li>
         </ul>
 
         <div id="content-wrapper">
@@ -115,98 +121,91 @@
                         <i class="fas fa-table"></i>
                         Գնումների տվյալներ
                     </div>
-                    <div class="card-body">
-                        <% if(!cash.length == 0) {%>
-                        <h3 class="mb-5">Կանխիկ գնումներ</h3>
-                        <div class="table-responsive mb-5">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Անուն</th>
-                                        <th>Ազգանուն</th>
-                                        <th>Էլ․ հասցե</th>
-                                        <th>Հեռախոսահամար</th>
-                                        <th>Հասցե</th>
-                                        <th>Քաղաք</th>
-                                        <th>Վերնագիր</th>
-                                        <th>Քանակ</th>
-                                        <th>Ապրանքի գինը</th>
-                                        <th>Ապրանքների ընդհանուր գինը (+ Առաքում)</th>
-                                        <th>Ընդհանուր գինը</th>
-                                        <th>Ամսաթիվ</th>
-                                        <th>Կարգավիճակ</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Անուն</th>
-                                        <th>Ազգանուն</th>
-                                        <th>Էլ․ հասցե</th>
-                                        <th>Հեռախոսահամար</th>
-                                        <th>Հասցե</th>
-                                        <th>Քաղաք</th>
-                                        <th>Վերնագիր</th>
-                                        <th>Քանակ</th>
-                                        <th>Ապրանքի գինը</th>
-                                        <th>Ապրանքների ընդհանուր գինը (+ Առաքում)</th>
-                                        <th>Ընդհանուր գինը</th>
-                                        <th>Ամսաթիվ</th>
-                                        <th>Կարգավիճակ</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <% cash.forEach(i => {%>
-                                    <tr>
-                                        <td><%= i.name %> </td>
-                                        <td><%= i.surname %></td>
-                                        <td><%= i.email %></td>
-                                        <td><%= i.phone %></td>
-                                        <td><%= i.address %>
-                                        <!-- <select name="" id="">
-                                            <option value="yerevan">yerevan</option>
-                                            <option value="armavir">armavir</option>
-                                            <option value="aparan">aparan</option>
-                                        </select> -->
-                                        </td>
-                                        <td><%= i.city %></td>
-                                        <td>
-                                            <% i.title.forEach(j => {%>
-                                            <p><%= j %></p>
-                                            <%}) %>
-                                        </td>
-                                        <td>
-                                            <% i.quantity.forEach(k => {%>
-                                            <p><%= k %>&nbsp; Piece</p>
-                                            <%}) %>
-                                        </td>
-                                        <td><% i.totalValueTemp.forEach(h => {%>
-                                            <p><%= h %>&nbsp; Դ</p>
-                                            <%}) %></td>
-                                        <td><%= i.totalValue %>&nbsp; Դ</td>
-                                        <td><%= i.delivery_price %>&nbsp; Դ</td>
-                                        <td><%= i.now %></td>
-                                        <td>
-                                            <form action="/shoping-cart/cash/status" method="POST">
-                                                <select name="status" class="form-control">
-                                                    <option value="Ընթացքում">Ընթացքում</option>
-                                                    <option value="Առկա">Առկա</option>
-                                                    <option value="Մերժված">Մերժված</option>
-                                                    <option value="Հաստատված">Հաստատված</option>
-                                                </select>
-                                                <div class="form-group mt-3">
-                                                    <input type="hidden" name="id" value="<%= i.id %>">
-                                                    <button type="submit" class="btn btn-primary">Change</button>
-                                                </div>
-                                            </form>
-                                            <p><b><%= i.status %></b></p>
-                                        </td>
-                                    </tr>
-                                    <%}) %>
 
-                                </tbody>
-                            </table>
-                        </div>
-                        <%} %>
+                    
+                    <div class="card-body">
+             
+                        <% if(!withBank.length == 0) {%>
+                            <h3 class="mb-5">կանխիկ գնումներ</h3>
+                            <div class="table-responsive mb-5">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Անուն</th>
+                                            <th>Ազգանուն</th>
+                                            <th>Էլ․ հասցե</th>
+                                            <th>Հեռախոսահամար</th>
+                                            <th>Հասցե</th>
+                                            <th>ապրանքի անուն</th>
+                                            <th>քանակ</th>
+                                            <th>ապրանքի գին</th>
+                                            <th>ընդհանուր գումար</th>
+                                            <th>պատվերի օր/ժամ</th>
+                                            <th>status</th>
+                                            <th>փոխել status</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Անուն</th>
+                                            <th>Ազգանուն</th>
+                                            <th>Էլ․ հասցե</th>
+                                            <th>Հեռախոսահամար</th>
+                                            <th>Հասցե</th>
+                                            <th>ապրանքի անուն</th>
+                                            <th>քանակ</th>
+                                            <th>ապրանքի գին</th>
+                                            <th>ընդհանուր գումար</th>
+                                            <th>պատվերի օր/ժամ</th>
+                                            <th>status</th>
+                                            <th>փոխել status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <% withBank.forEach(i => {%>
+                                        <tr>
+                                            <td><%= i.name %></td>
+                                            <td><%= i.surname %></td>
+                                            <td><%= i.email %></td>
+                                            <td><%= i.phone %></td>
+                                            <td><%= i.address %></td>
+                                            <td>
+                                                <% i.title.forEach(j => {%>
+                                                <p><%= j %></p>
+                                                <%}) %>
+                                            </td>
+                                            <td>
+                                                <% i.quantity.forEach(k => {%>
+                                                <p><%= k %>&nbsp; Piece</p>
+                                                <%}) %>
+                                            </td>
+                                            <td><% i.totalValueTemp.forEach(h => {%>
+                                                <p><%= h %>&nbsp; Դ</p>
+                                                <%}) %></td>
+                                            <td><%= i.totalValue %>&nbsp; Դ</td>
+                                            <td><%= i.now %></td>
+                                            <td><%= i.status %></td>
+                                            <td>
+                                                <form action="/shoping-cart/withbank/status" method="POST">
+                                                    <select name="status" class="form-control">
+                                                        <option value="Ընթացքում">Ընթացքում</option>
+                                                        <option value="Առկա">Առկա</option>
+                                                        <option value="Մերժված">Մերժված</option>
+                                                        <option value="Հաստատված">Հաստատված</option>
+                                                    </select>
+                                                    <div class="form-group mt-3">
+                                                        <input type="hidden" name="id" value="<%= i.id %>">
+                                                        <button type="submit" class="btn btn-primary">Change</button>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <%}) %>
+    
+                                    </tbody>
+                                </table>
+                            </div>
+                            <%} %>
 
                         <hr>
 
@@ -287,7 +286,7 @@
 
                         <hr>
 
-                        <% if(!withBank.length == 0) {%>
+                        <!-- <% if(!withBank.length == 0) {%>
                         <h3 class="mb-5">Ապառիկ վաճառք բանկի միջոցով</h3>
                         <div class="table-responsive mb-5">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -373,7 +372,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <%} %>
+                        <%} %> -->
 
                     </div>
                     <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->

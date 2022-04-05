@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html> 
+<title>Idram</title> 
+<body> 
+    <h3>Welcome to Idram payment</h3>
+    <form action="https://banking.idram.am/Payment/GetPayment" method="POST">
+        <input type="hidden" name="EDP_LANGUAGE" value="EN">
+            <input type="hidden" name="EDP_REC_ACCOUNT" value="100000114">
+            <input type="hidden" name="EDP_DESCRIPTION" value="Order description">
+            <input type="hidden" name="EDP_AMOUNT" value="1900">
+            <input type="hidden" name="EDP_BILL_NO" value ="1806">
+            <input type="submit" value="submit">
+    <script
+        src="//https://banking.idram.am/Payment/GetPayment"
+        class="stripe-button"
+        data-key="<%= key %>" 
+        data-amount="7000" 
+        data-currency="usd" 
+        data-name="Gautam Sharma"
+        data-description="Buy React.js Complete Course" 
+        data-locale="auto" > 
+        </script> 
+    </form> 
+ </body> 
+</html>

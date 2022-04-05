@@ -59,19 +59,6 @@ router.get("/", auth, async (req, res) => {
       condition,
     });
   }
-
-  // res.render('admin/settings', {
-  //     title: 'Settings',
-  //     service,
-  //     advantage,
-  //     contact,
-  //     about,
-  //     HeaderText,
-  //     category,
-  //     logo,
-  //     slider,
-  //     color
-  // })
 });
 
 router.post("/service", upload.single("avatar"), function (req, res, next) {
@@ -186,6 +173,32 @@ router.post("/category", async (req, res) => {
   }
 });
 
+router.post("/categoryDelete", async (req, res) => {
+  const { id } = req.body;
+  delete req.body.id;
+  await Category.findByIdAndRemove(id);
+  res.redirect("/admin-settings");
+});
+
+
+
+// --------------------------------------------------------------
+router.delete("/categoryDelete:id", (req, res) => {
+  Category.findByIdAndRemove(req.params.id).then(category => {
+    if(category) {
+      return res.status(200).json({success:true,message:"the categore deleted"})
+    } else {
+      return res.status(404).json({success:false,message:"category not found"})
+    } }).catch(err => {
+      return res.status(400).json({success:false,error:err})
+    })
+});
+
+
+
+
+// --------------------------------------------------------------
+
 router.post("/logo", upload.single("avatar"), async function (req, res, next) {
   if (req.body.id) {
     const { id } = req.body;
@@ -202,9 +215,7 @@ router.post("/logo", upload.single("avatar"), async function (req, res, next) {
   res.redirect("/admin-settings");
 });
 
-router.post(
-  "/slider",
-  upload.single("avatar"),
+router.post("/slider",upload.single("avatar"),
   async function (req, res, next) {
     const post = new Slider({
       avatar: req.file.filename,

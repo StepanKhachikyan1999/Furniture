@@ -8,6 +8,8 @@ const { validationResult } = require('express-validator');
 const { registerValidators } = require('../utils/validators');
 const Logo = require('../models/Logo')
 
+
+
 router.get('/', async (req, res) => {
     const contact = await Contact.find()
     const category = await Category.find();
@@ -25,7 +27,6 @@ router.get('/', async (req, res) => {
             logo
         })
     }
-
 
 })
 
@@ -61,4 +62,5 @@ router.get('/logout', async (req, res) => {
         res.redirect('/login')
     })
 })
+
 module.exports = router;

@@ -97,6 +97,12 @@
                     <span>Գնումներ</span>
                 </a>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/admin-message">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>նամակներ</span>
+                </a>
+            </li>
         </ul>
 
         <div id="content-wrapper">
@@ -511,13 +517,15 @@
                             </div>
                         </form>
 
+
+
                         <form action="/admin-settings/category" method="POST" class="form-group mb-5 mt-5">
                             <h4 class="mb-3">կատեգորիաներ</h4>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="">Բոլոր կատեգորիաները</label>
                                 <ul>
                                     <% category.forEach(i=> {%>
-                                        <li>
+                                        <li style="display: flex;">
                                             <small>
                                                 <%= i.categoryHy %>
                                             </small>,
@@ -527,12 +535,19 @@
                                             &nbsp; <small>
                                                 <%= i.categoryEn %>
                                             </small>
-                                            <span class="delBtn" style="cursor: pointer;background: red;" title="delete category">X</span>
+                          
+
+                                            <form action="/admin-settings/categoryDelete" method="POST">
+                                                <input type="hidden" name="id" value="<%= i.id %>">
+                                                <button class="btn btn-danger">Ջնջել</button>
+                                            </form>
+                                            
                                         </li>
+                                        <hr />
                                         <%}) %>
                                         
                                 </ul>
-                            </div>
+                            </div> -->
                             <ul class="nav nav-tabs mt-5">
                                 <li class="nav-item">
                                     <a class="nav-link active" data-toggle="tab" href="#hy">HY</a>
@@ -568,6 +583,41 @@
                                 <button type="submit" class="btn btn-primary">Ավելացնել</button>
                             </div>
                         </form>
+
+
+                        
+                        <h4 class="mb-3">կատեգորիաներ</h4>
+                        <div class="form-group">
+                            <label for="">Բոլոր կատեգորիաները</label>
+                            <ul>
+                                <% category.forEach(i=> {%>
+                                    <li style="display: flex;">
+                                        <small>
+                                            <%= i.categoryHy %>
+                                        </small>,
+                                        &nbsp; <small>
+                                            <%= i.categoryRu %>
+                                        </small>,
+                                        &nbsp; <small>
+                                            <%= i.categoryEn %>
+                                        </small>
+                      
+
+                                        <form action="/admin-settings/categoryDelete" method="POST">
+                                            <input type="hidden" name="id" value="<%= i.id %>">
+                                            <button class="btn btn-danger">Ջնջել</button>
+                                        </form>
+                                        
+                                    </li>
+                                    <hr />
+                                    <%}) %>
+                                    
+                            </ul>
+                        </div>
+
+
+
+
 
                         <div class="colors">
                             <h4>Բոլոր գույները</h4>

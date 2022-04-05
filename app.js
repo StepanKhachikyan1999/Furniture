@@ -7,6 +7,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const helmet = require("helmet");
 const compression = require("compression");
+const nodemailer = require('nodemailer')
 // const csrf = require('csurf');
 
 const app = express();
@@ -37,6 +38,9 @@ const errorHandler = require("./middleware/error");
 const varMiddleware = require("./middleware/variables");
 const userMiddleware = require("./middleware/user");
 
+//initialise DOTENV
+require('dotenv').config()
+
 // app.use(csrf());
 app.use(cookieParser());
 app.use(flash());
@@ -45,6 +49,42 @@ app.use(userMiddleware);
 
 app.use(helmet());
 app.use(compression());
+
+
+// email
+
+
+// app.get('/ContactUs',(req,res)=> {
+//   res.sendFile(__dirname + '/views/contact.ejs')
+// })
+
+
+// app.post('/contactUs',(req,res) => {
+//   const transporter = nodemailer.createTransport({
+//     service:'gmail',
+//     auth: {
+//       user:'stepankhachikyan19@gmail.com',
+//       pass:'99992175m'
+//     }
+//   })
+//   const mailOptions = {
+//     from:req.body.email,
+//     to:'stepankhachikyan19@gmail.com',
+//     subject:`Message from ${req.body.email} : ${req.body.subject}`,
+//     text:req.body.message
+//   }
+
+//   transporter.sendMail(mailOptions,(error,info) => {
+//     if(error) {
+//       console.log(error);
+//       res.send('error')
+//     }else {
+//       console.log('Email send' + info.response);
+//       res.send('success')
+//     }
+//   })
+// })
+
 
 // translate
 var i18n = require("i18n");
@@ -111,6 +151,14 @@ const changePasswordRouter = require("./routes/change-password");
 const allCategoryRouter = require("./routes/all-category");
 const conditionRouter = require("./routes/condition");
 const contactUs = require('./routes/contactUs')
+const approved = require('./routes/approved-page')
+const approvedFail = require('./routes/approved-pageFail')
+const payments = require('./routes/payments/payments')
+const onlinePayment = require('./routes/onlinePayment')
+const paymentsRes = require('./routes/paymentsResult')
+const paymentIdram = require('./routes/paymentsResult')
+const constactUs = require('./routes/contactUs')
+
 
 app.use("/", indexRouter);
 app.use("/about", aboutRouter);
@@ -126,18 +174,29 @@ app.use("/favorite", favoriteRouter);
 app.use("/change-password", changePasswordRouter);
 app.use("/all-category", allCategoryRouter);
 app.use("/condition", conditionRouter);
-app.use('/contactUs', contactUs)
+app.use('/contactUs', contactUs);
+app.use('/approved-page',approved);
+app.use('/approved-pageFail',approvedFail);
+app.use('/onlinePayment',onlinePayment);
+app.use('/paymentsResult',paymentsRes);
+app.use('/paymentIdram',paymentIdram);
+app.use('/payments',payments);
+app.use('/constactUs',constactUs);
+
+
 //admin routes
 
 const adminUsersRouter = require("./routes/admin/users");
 const adminSettingsRouter = require("./routes/admin/settings");
 const adminSaleRouter = require("./routes/admin/sale");
 const adminOrdersRouter = require("./routes/admin/orders");
+const adminMessageRouter = require("./routes/admin/message")
 
 app.use("/admin-users", adminUsersRouter);
 app.use("/admin-settings", adminSettingsRouter);
 app.use("/admin-sale", adminSaleRouter);
 app.use("/admin-orders", adminOrdersRouter);
+app.use("/admin-message", adminMessageRouter);
 
 app.use(errorHandler);
 

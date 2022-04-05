@@ -17,25 +17,20 @@ document.querySelectorAll('.date').forEach(node => {
 let date = document.querySelector(".footer-date")
 date.innerHTML = new Date().getFullYear()
 
-// $(document).ready(function() {
-//     $('#cashPayment').on('click', function() {
-//         localStorage.clear();
-//     })
-//     $('#withoutBankPayment').on('click', function() {
-//         localStorage.clear();
-//     })
-//     $('#withBankPayment').on('click', function() {
-//         localStorage.clear();
-//     })
-// })
 
 let cash = document.getElementById('cashPayment');
 let withoutBank = document.getElementById('withoutBankPayment');
 let withBank = document.getElementById('withBankPayment');
+let withBankAmeria = document.getElementById('withBankPaymentAmeria');
 
 cash.onclick = function() {
     localStorage.clear();
 }
+
+
+// withBank.addEventListener("click",function() {
+//     localStorage.removeItem("wishlist")
+// })
 
 withoutBank.onclick = function() {
     localStorage.clear();

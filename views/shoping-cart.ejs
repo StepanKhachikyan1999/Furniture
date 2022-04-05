@@ -1,117 +1,127 @@
 <%- include('layouts/header') %>
 
-<!-- Shopping Cart Section START -->
-<div class="section-block">
-    <div class="container">
+    <!-- Shopping Cart Section START -->
+    <div class="section-block">
+        <div class="container">
 
-        <div class="favorite-info-box-basket">
-            <h2><%= __('basket_empty') %></h2>
-        </div>
-
-
-        <div class="row mt-70 mb-30 basket-box">
-            <div class="col-lg-8 col-md-8 col-12">
-                <div class="row" id="cart-items">
+            <div class="favorite-info-box-basket">
+                <h2>
+                    <%= __('basket_empty') %>
+                </h2>
+            </div>
 
 
+            <div class="row mt-70 mb-30 basket-box">
+                <div class="col-lg-8 col-md-8 col-12">
+                    <div class="row" id="cart-items">
 
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="shop-cart-info-price clearfix">
-                        <ul class="right-info-price">
-                            <li>
-                                <div id="total-value">
-                                    <!-- <p>Ընդհանուր</p> -->
-                                    <!-- <h6 id="total-value"> ֏</h6> -->
-                                </div>
-                                <div class="delivery_price"></div>
-                            </li>
 
-                            <!-- <li>Shipping Price: <h6>$85.00</h6></li> -->
-                        </ul>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <div class="shop-cart-info-price clearfix">
+                            <ul class="right-info-price">
+                                <li>
+                                    <div id="total-value">
+                                        <!-- <p>Ընդհանուր</p> -->
+                                        <!-- <h6 id="total-value"> ֏</h6> -->
+                                    </div>
+                                    <div class="delivery_price"></div>
+                                </li>
+
+                                <!-- <li>Shipping Price: <h6>$85.00</h6></li> -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Shopping Cart Section END -->
+    <!-- Shopping Cart Section END -->
 
 
-<!-- Accordions Section START -->
-<div class="section-block mb-70 payment_box">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-12 mt-60">
-                <div class="section-heading">
-                    <h5><%= __('shoping_cart.howToPay') %></h5>
-                    <div class="section-heading-line-left"></div>
-                </div>
-                <div class="panel-group mt-40" id="accordion2" role="tablist" aria-multiselectable="true">
+    <!-- Accordions Section START -->
+    <div  class="section-block mb-70 payment_box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-12 mt-60">
+                    <div class="section-heading">
+                        <h5>
+                            <%= __('shoping_cart.howToPay') %>
+                        </h5>
+                        <div class="section-heading-line-left"></div>
+                    </div>
+                    <div class="panel-group mt-40" id="accordion2" role="tablist" aria-multiselectable="true">
+                        <!-- yield -->
+                    </div>
+
+                    <!--  կանխիկ վճարում start  -->
 
                     <div class="panel panel-grey accordion">
-                        <div class="panel-heading accordion-heading" role="tab" id="acc1">
+                        <div class="panel-heading accordion-heading" role="tab" id="acc4">
                             <h4 class="panel-title accordion-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
-                                    href="#ac_col1" aria-expanded="true" aria-controls="ac_col1">
+                                    href="#ac_col4" aria-expanded="false" aria-controls="ac_col4">
                                     <%= __('shoping_cart.cash.cash') %>
                                 </a>
                             </h4>
                         </div>
-
-                        <div id="ac_col1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="acc1">
+                        <div id="ac_col4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="acc4">
                             <div class="panel-body accordion-body">
-                                <div class="row">
 
-                                    <div class="col-lg-8 col-md-8 col-12 mb-30">
-                                        <form action="/shoping-cart/cash" method="POST">
-                                            <div class="buy-box-input" id="cash">
-                                                <!-- <h4>Name</h4>    -->
-                                                <input type="text" name="name"
-                                                    placeholder="<%= __('shoping_cart.cash.name') %>" required="">
-                                                <input type="text" name="surname"
-                                                    placeholder="<%= __('shoping_cart.cash.surname') %>" required="">
-                                                <input type="email" name="email"
-                                                    placeholder="<%= __('shoping_cart.cash.email') %>" required="">
-                                                <input type="number" name="phone"
-                                                    placeholder="<%= __('shoping_cart.cash.phone') %>" required="">
-                                                <label for=""><%= __('shoping_cart.cash.city') %></label>
-                                                <select name="city" class="delivery_city">
-                                                    <!-- <% deliveryCity.forEach(i => {%>
-                                                    <option value="<%= i.price %>">Երևան</option>
-        
-                                                    <%}) %> -->
-                                                    <option value="Yerevan">Yerevan</option>
-                                                    <option value="Masis">Masis</option>
-                                                    <option value="Artashat">Artashat</option>
-                                                    <option value="Vedi">Vedi</option>
-                                                    <option value="Ararat">Ararat</option>
-                                                    <option value="Armavir">Armavir</option>
-                                                    <option value="Ejmiacin">Ejmiacin</option>
-                                                    <option value="Sevan">Sevan</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                                <br>
-                                                <input type="text" name="address"
-                                                    placeholder="<%= __('shoping_cart.cash.address') %>" required="">
-                                            </div>
+                                <div class="add-info-user-bank">
 
-                                            
-                                            <% if(!isAuth) {%>
-                                            <button class="submit-button-buy"
-                                                type="submit"><%= __('shoping_cart.orderReg') %></button>
-                                            <%} else {%>
-                                            <button class="submit-button-buy" type="submit"
-                                                id="cashPayment"><%= __('shoping_cart.orderReg') %></button>
-                                            <%} %>
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8 col-12 mb-30">
+                                            <form action="/shoping-cart/withbank" method="POST"
+                                                accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data"
+                                                id="withBank">
 
-                                        </form>
+
+                                                <div class="buy-box-input add-info-user-bank-input mt-10">
+
+                                                    <input type="text" name="name"
+                                                        placeholder="<%= __('shoping_cart.cash.name') %>"
+                                                        required="zxc">
+                                                    <input type="text" name="surname"
+                                                        placeholder="<%= __('shoping_cart.cash.surname') %>"
+                                                        required="">
+                                                    <input type="email" name="email"
+                                                        placeholder="<%= __('shoping_cart.cash.email') %>" required="">
+                                                    <input type="number" name="phone"
+                                                        placeholder="<%= __('shoping_cart.cash.phone') %>" required="">
+
+                                                    <input type="text" name="address"
+                                                        placeholder="<%= __('shoping_cart.cash.address') %>"
+                                                        required="">
+                                                </div>
+                                                <% if(!isAuth) {%>
+                                                    <button class="submit-button-buy" type="submit">
+                                                        <%= __('shoping_cart.orderReg') %>
+                                                    </button>
+                                                    <%} else {%>
+                                                        <button class="submit-button-buy" type="submit"
+                                                            id="withBankPayment">
+                                                            <%= __('shoping_cart.orderReg') %>
+                                                        </button>
+                                                        <%} %>
+
+                                            </form>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-12 mb-30"></div>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-12 mb-30"></div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+                    <!--  կանխիկ վճարում end  -->
+
+
+
+                    <!--  օնլայն վճարում Իդրամ start -->
 
                     <div class="panel panel-grey accordion">
                         <div class="panel-heading accordion-heading" role="tab" id="acc2">
@@ -122,17 +132,128 @@
                                 </a>
                             </h4>
                         </div>
+
+
+
                         <div id="ac_col2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="acc2">
                             <div class="panel-body accordion-body">
+
+               <div class="col-lg-8 col-md-8 col-12 mb-30">
+               <form action="https://banking.idram.am/Payment/GetPayment" method="POST"
+               accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data"
+               id="paymentIdram">
+
+
+                    <div class="buy-box-input add-info-user-bank-input mt-10">
+
+                    <input type="email" name="EMAIL"
+                     placeholder="<%= __('shoping_cart.cash.name') %>" required="zxc">
+
+
+                    <% if(!isAuth) {%>
+                                    <a href="http://localhost:3000/register">
+                                    <% if (locale === 'hy') { %>
+                                   ծառայությունը հասանելի է գրանցված հաճախորդներին
+                                  <% } %>
+                                <% if (locale === 'ru') { %>
+                              услуга доступна зарегистрированным клиентам
+                             <% } %>
+                             <% if (locale === 'en') { %>
+                           the service is available to registered customers
+                          <% } %>
+                        </a>
+                    <%} else {%>
+              <li><button href="#" ><img style="width:50%" src="img/bank/og-idram.png"><input
+              type="submit" id="withBankIdram"   value="վճարել"></button></li>
+               <%} %>
+
+                  </form>
+                   </div>
+
+                        </div>
+                        </div>
+
+                    </div>
+                    <!--  օնլայն վճարում Իդրամ end -->
+
+
+                    <!--  օնլայն վճարում ameria start -->
+
+                    <div class="panel panel-grey accordion">
+                        <div class="panel-heading accordion-heading" role="tab" id="acc5">
+                            <h4 class="panel-title accordion-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
+                                    href="#ac_col5" aria-expanded="false" aria-controls="ac_col5">
+                                    <%= __('shoping_cart.onlinePayment_ameria') %>
+                                </a>
+                            </h4>
+                        </div>
+
+                        <div id="ac_col5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="acc2">
+                            <div class="panel-body accordion-body ameria_payment_acc">
+
+                                <div class="col-lg-12 col-md-12 col-12 mb-30">
+                                <form action="https://servicestest.ameriabank.am/VPOS/api/VPOS/InitPayment" method="POST"
+                                    enctype="multipart/form-data"
+                                class="myForm"
+                                id="paymentIdram"
+                                >
+                                
+                                <div class="buy-box-input add-info-user-bank-input mt-10">
+                                    <!-- <h4>ameria</h4> -->
+                               <!-- comment ameria     <input type="text" name="name"
+                                        placeholder="<%= __('shoping_cart.cash.name') %>" required="zxc">
+                                    <input type="text" name="surname"
+                                        placeholder="<%= __('shoping_cart.cash.surname') %>" required="">
+                                    <input type="email" name="email"
+                                        placeholder="<%= __('shoping_cart.cash.email') %>" required="">
+                                    <input type="number" name="phone"
+                                        placeholder="<%= __('shoping_cart.cash.phone') %>" required="">
+
+                                    <input type="text" name="address"
+                                        placeholder="<%= __('shoping_cart.cash.address') %>" required=""> -->
+
+
+                                        <% if(!isAuth) {%>
+                                           <a href="http://localhost:3000/register">
+                                            <% if (locale === 'hy') { %>
+                                                ծառայությունը հասանելի է գրանցված հաճախորդներին
+                                            <% } %>
+                                            <% if (locale === 'ru') { %>
+                                                услуга доступна зарегистрированным клиентам
+                                            <% } %>
+                                            <% if (locale === 'en') { %>
+                                                the service is available to registered customers
+                                            <% } %>
+                                            </a>
+
+                                            <%} else {%>
+                                        <li><button href="#" ><img style="width:37%" src="img/bank/ameria.png"><input
+                                            type="submit" id="withBankAmeria"   value="վճարել"></button></li>
+
+                                             <%} %>
+                                </div>
+                                
+                            </form>
+                                </div>
+
+
                                 <div class="bank-name">
+
                                     <ul>
-                                        <li><a href="#"><img src="img/bank/idram2.png"></a></li>
-                                        <li><a href="#"><img src="img/bank/viza1.png"></a></li>
+                                        <!-- <li><a href="#"><img src="img/bank/og-idram.png"></a></li>
+                                <li><a href="#"><img src="img/bank/viza1.png"></a></li> -->
                                     </ul>
                                 </div>
                             </div>
                         </div>
+
                     </div>
+                    <!--  օնլայն վճարում ameria end -->
+
+
+
+                    <!--  ապառիկ վաճառք առանց բանկի  -->
 
                     <div class="panel panel-grey accordion">
                         <div class="panel-heading accordion-heading" role="tab" id="acc3">
@@ -151,151 +272,44 @@
                                     id="withoutbank">
 
                                     <div class="add-user-img mt-10">
-                                        <h5><%= __('shoping_cart.credit_without_bank.certificate') %></h5>
+                                        <h5>
+                                            <%= __('shoping_cart.credit_without_bank.certificate') %>
+                                        </h5>
                                         <!-- <input type='file' required onchange="rentURL(this);" name="property_certificates"> -->
                                         <input type='file' required onchange="rentURL(this);" name="avatar">
                                         <img id="blah_02" src="img/user-info/images.jpg" alt="img" />
                                     </div>
 
                                     <div class="add-license-img">
-                                        <h5><%= __('shoping_cart.credit_without_bank.front_side') %></h5>
+                                        <h5>
+                                            <%= __('shoping_cart.credit_without_bank.front_side') %>
+                                        </h5>
                                         <!-- <input type="file" required="" onchange="readsURL(this);" name="passport_photo_front_side"> -->
                                         <input type="file" required="" onchange="readsURL(this);" name="avatar">
                                         <img id="blah" src="img/user-info/dr-license.png" alt="img">
                                     </div>
 
                                     <div class="add-license-img">
-                                        <h5><%= __('shoping_cart.credit_without_bank.back_side') %></h5>
+                                        <h5>
+                                            <%= __('shoping_cart.credit_without_bank.back_side') %>
+                                        </h5>
                                         <!-- <input type="file" required="" onchange="reads2URL(this);" name="passport_photo_back_side"> -->
                                         <input type="file" required="" onchange="reads2URL(this);" name="avatar">
                                         <img id="blah2" src="img/user-info/dr-license.png" alt="img">
                                     </div>
 
-                                    <!-- <div class="add-statment-check statment-box mt-20">
-                                        <h5>Фото свидетельства о собственности</h5>
-                                        <div class="images">
-                                            <div class="pic">
-                                                добавлять
-                                            </div>
-                                        </div>
-                                    </div> -->
                                     <% if(!isAuth) {%>
-                                    <button class="submit-button-buy"
-                                        type="submit"><%= __('shoping_cart.orderReg') %></button>
-                                    <%} else {%>
-                                    <button class="submit-button-buy" type="submit"
-                                        id="withoutBankPayment"><%= __('shoping_cart.orderReg') %></button>
-                                    <%} %>
+                                        <button class="submit-button-buy" type="submit">
+                                            <%= __('shoping_cart.orderReg') %>
+                                        </button>
+                                        <%} else {%>
+                                            <button class="submit-button-buy" type="submit" id="withoutBankPayment">
+                                                <%= __('shoping_cart.orderReg') %>
+                                            </button>
+                                            <%} %>
 
                                 </form>
 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-grey accordion">
-                        <div class="panel-heading accordion-heading" role="tab" id="acc4">
-                            <h4 class="panel-title accordion-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2"
-                                    href="#ac_col4" aria-expanded="false" aria-controls="ac_col4">
-                                    <%= __('shoping_cart.withBank.withBank') %>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="ac_col4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="acc4">
-                            <div class="panel-body accordion-body">
-
-                                <div class="add-info-user-bank">
-                                    <div class="acra-box">
-                                        <img src="img/paym/acra2.png" alt="">
-                                    </div>
-                                    <div class="register-agree">
-                                        <div class="row">
-                                            <div class="col-lg-8 col-12">
-                                                <h4><%= __('shoping_cart.withBank.conditions') %></h4>
-                                                <label class="type-name">
-                                                    <input type="checkbox" name="checkbox" required="">
-                                                    <span class="checkmark-check"></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-lg-4 col-12">
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-12 mb-30">
-                                            <form action="/shoping-cart/withbank" method="POST"
-                                                accept="image/x-png,image/gif,image/jpeg" enctype="multipart/form-data"
-                                                id="withBank">
-                                                <div class="add-info-user">
-                                                    <div class="add-user-img mt-10">
-                                                        <h5><%= __('shoping_cart.credit_without_bank.certificate') %>
-                                                        </h5>
-                                                        <input type='file' required onchange="rentURL(this);"
-                                                            name="avatar">
-                                                        <img id="acra_auser" src="img/user-info/images.jpg" alt="img" />
-                                                    </div>
-
-                                                    <div class="add-license-img mt-50">
-                                                        <h5><%= __('shoping_cart.credit_without_bank.front_side') %>
-                                                        </h5>
-                                                        <input type="file" required="" onchange="acra_readURL(this);"
-                                                            name="avatar">
-                                                        <img id="blah_acra" src="img/user-info/dr-license.png"
-                                                            alt="img">
-                                                    </div>
-
-                                                    <div class="add-license-img">
-                                                        <h5><%= __('shoping_cart.credit_without_bank.back_side') %></h5>
-                                                        <input type="file" required="" onchange="acra_2_readURL(this);"
-                                                            name="avatar">
-                                                        <img id="blah_acra_2" src="img/user-info/dr-license.png"
-                                                            alt="img">
-                                                    </div>
-
-                                                    <!-- <div class="add-statment-check statment-box mt-20">
-                                                        <h5>Фото свидетельства о собственности</h5>
-                                                        <div class="images_acra">
-                                                            <div class="pic_acra">
-                                                               добавлять
-                                                            </div>
-                                                        </div>
-                                                    </div>  -->
-                                                </div>
-
-                                                <div class="buy-box-input add-info-user-bank-input mt-10">
-                                                    <!-- <h4>Name</h4>    -->
-                                                    <input type="text" name="name"
-                                                        placeholder="<%= __('shoping_cart.cash.name') %>"
-                                                        required="zxc">
-                                                    <input type="text" name="surname"
-                                                        placeholder="<%= __('shoping_cart.cash.surname') %>"
-                                                        required="">
-                                                    <input type="email" name="email"
-                                                        placeholder="<%= __('shoping_cart.cash.email') %>" required="">
-                                                    <input type="number" name="phone"
-                                                        placeholder="<%= __('shoping_cart.cash.phone') %>" required="">
-
-                                                    <input type="text" name="address"
-                                                        placeholder="<%= __('shoping_cart.cash.address') %>"
-                                                        required="">
-                                                </div>
-                                                <% if(!isAuth) {%>
-                                                <button class="submit-button-buy"
-                                                    type="submit"><%= __('shoping_cart.orderReg') %></button>
-                                                <%} else {%>
-                                                <button class="submit-button-buy" type="submit"
-                                                    id="withBankPayment"><%= __('shoping_cart.orderReg') %></button>
-                                                <%} %>
-
-                                            </form>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-12 mb-30"></div>
-                                    </div>
-
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -304,8 +318,8 @@
             </div>
         </div>
     </div>
-</div>
-<!-- Accordions Section END -->
+   </div>
+    <!-- Accordions Section END -->
 
 
 
@@ -320,4 +334,4 @@
 
 
 
-<%- include('layouts/footer') %>
+    <%- include('layouts/footer') %>

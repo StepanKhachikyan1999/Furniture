@@ -31,6 +31,8 @@
 		"contact": "Կապ",
 		"favorite": "Իմ նախընտրածները",
 		"home": "Գլխավոր",
+		"changePlacholder":"փոխել գաղտնաբառը",
+		"changePlacholderRepeat":"կրկնել փոխված գաղտնաբառը",
 		"login": "Մուտք",
 		"orders": "Պատվերների պատմություն",
 		"personal": "Անձնական Գրասենյակ",
@@ -51,13 +53,14 @@
 			"email": "Էլ. հասցե",
 			"subject": "Թեմա",
 			"message": "Նամակ",
-			"send": "Ուղարկել նամակը"
+			"send": "Ուղարկել նամակը",
+			"theme": "contactUs.input.theme"
 		}
 	},
 	"info": {
 		"login": "Մուտք",
 		"register": "Գրանցվել",
-		"forgot": "Մոռացել ե՞ք գաղտնաբառը.",
+		"forgot": "փոխել գաղտնաբառը.",
 		"myInfo": " Իմ տեղեկատվությունը",
 		"orders": "Պատվերների պատմություն",
 		"yourPassword": "Ձեր գաղտնաբառը",
@@ -81,7 +84,8 @@
 	"shoping_cart": {
 		"howToPay": "Ինչպես եք ուզում վճարել",
 		"orderReg": "Պատվերի Ձևակերպում",
-		"onlinePayment": "Օնլայն վճարում",
+		"onlinePayment": "Օնլայն վճարում Իդրամով",
+		"onlinePayment_ameria": "Օնլայն վճարում Ամերիա Բանկի VPOS համակարգով",
 		"cash": {
 			"cash": "Վճարումը տեղում",
 			"name": "Անուն*",

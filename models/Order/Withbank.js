@@ -28,7 +28,7 @@ const WithBankSchema = new Schema({
     totalValueTemp: Array,
     totalValue: Number,
     now: String,
-    // delivery_price: Number,
+    delivery_price: Number,
 
     user: {
         userId: {
